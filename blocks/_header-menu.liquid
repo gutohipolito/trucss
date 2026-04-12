@@ -88,16 +88,28 @@
         <a href="/collections/all" class="menu-list__link" aria-controls="submenu-loja" aria-haspopup="true" aria-expanded="false" ref="menuitem">
           <span class="menu-list__link-title">Loja</span>
         </a>
-        <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]" style="backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(var(--color-background-rgb), 0.8) !important;">
+        <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]" style="backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(0, 0, 0, 0.4) !important; border-top: 1px solid rgba(255, 255, 255, 0.1);">
           <div id="submenu-loja" class="menu-list__submenu-inner" style="{% render 'submenu-font-styles', settings: block_settings %}; padding-top: 80px !important; padding-bottom: 80px !important;">
             <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
               <div class="mega-menu__grid" style="grid-template-columns: repeat(6, 1fr); gap: 20px;">
-                <div class="mega-menu__column"><a href="/collections/calcinhas" class="mega-menu__link">Calcinha</a></div>
-                <div class="mega-menu__column"><a href="/collections/corsets" class="mega-menu__link">Corset</a></div>
-                <div class="mega-menu__column"><a href="/collections/maios" class="mega-menu__link">Maiô</a></div>
-                <div class="mega-menu__column"><a href="/collections/biquinis" class="mega-menu__link">Biquíni</a></div>
-                <div class="mega-menu__column"><a href="/collections/trukids" class="mega-menu__link">Trukids</a></div>
-                <div class="mega-menu__column"><a href="/products/vale-presente" class="mega-menu__link">Vale Presente</a></div>
+                <div class="mega-menu__column">
+                  <a href="/collections/calcinhas" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Calcinha</a>
+                </div>
+                <div class="mega-menu__column">
+                  <a href="/collections/corsets" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Corset</a>
+                </div>
+                <div class="mega-menu__column">
+                  <a href="/collections/maios" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Maiô</a>
+                </div>
+                <div class="mega-menu__column">
+                  <a href="/collections/biquinis" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Biquíni</a>
+                </div>
+                <div class="mega-menu__column">
+                  <a href="/collections/trukids" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Trukids</a>
+                </div>
+                <div class="mega-menu__column">
+                  <a href="/products/vale-presente" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Vale Presente</a>
+                </div>
               </div>
             </div>
           </div>
