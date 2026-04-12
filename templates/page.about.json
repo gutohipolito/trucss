@@ -1,0 +1,55 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "heading": {
+          "type": "_heading",
+          "settings": {
+            "title": "A Trucss Boutique",
+            "heading_size": "xl"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "section_height": "medium",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "story_1": {
+      "type": "media-with-content",
+      "settings": {
+        "image_position": "left",
+        "title": "Nossa Essência",
+        "content": "A Trucss nasceu da necessidade de unir o que antes parecia impossível: o conforto absoluto e a estética do aquendamento perfeito. Nossa missão é elevar sua autoestima através de peças que respeitam seu corpo e sua identidade.",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "story_2": {
+      "type": "media-with-content",
+      "settings": {
+        "image_position": "right",
+        "title": "Tecnologia e Conforto",
+        "content": "Cada costura da Trucss é pensada para garantir que você se sinta livre e segura. Nossos produtos são patenteados e fabricados com tecidos de alta qualidade, garantindo durabilidade e um toque suave na pele.",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "story_1",
+    "story_2",
+    "main"
+  ]
+}
