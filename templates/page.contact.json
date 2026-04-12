@@ -1,93 +1,32 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
-          "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "content"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 0
-      }
-    },
     "form": {
       "type": "section",
       "blocks": {
-        "contact_form_UwiCkQ": {
+        "contact_info": {
+          "type": "text",
+          "settings": {
+            "text": "<div class=\"contact-info-custom\">\n  <h1 style=\"font-family: 'Inter', sans-serif; font-size: 42px; font-weight: 500; margin-bottom: 24px; color: #282727;\">Entre em contato conosco!<\/h1>\n  <p style=\"font-family: 'Inter', sans-serif; font-size: 16px; color: #666; margin-bottom: 16px; line-height: 1.6;\">\n    Silvana Trucss, empreendedora responsável por desenvolver o suporte mais eficiente e prático do mercado trans.\n  <\/p>\n  <p style=\"font-family: 'Inter', sans-serif; font-size: 15px; color: #aaa; margin-bottom: 40px;\">\n    Todos nossos produtos são patenteados.\n  <\/p>\n  \n  <div class=\"contact-location\" style=\"margin-top: 40px;\">\n    <h3 style=\"font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; border-bottom: 1px solid #282727; display: inline-block; padding-bottom: 5px; margin-bottom: 24px; color: #282727;\">São Paulo<\/h3>\n    \n    <div style=\"margin-bottom: 24px;\">\n      <small style=\"display: block; text-transform: uppercase; color: #282727; font-weight: 800; font-size: 11px; margin-bottom: 8px; letter-spacing: 0.1em;\">TELEFONE:<\/small>\n      <a href=\"https:\/\/wa.me\/5511999825169\" target=\"_blank\" style=\"text-decoration: none; color: #666; font-size: 18px;\">+55 (11) 99982- 5169<\/a>\n    </div>\n    \n    <div>\n      <small style=\"display: block; text-transform: uppercase; color: #282727; font-weight: 800; font-size: 11px; margin-bottom: 8px; letter-spacing: 0.1em;\">E-MAIL:<\/small>\n      <a href=\"mailto:contato@trucss.com.br\" style=\"text-decoration: none; color: #C67C5A; font-size: 18px;\">contato@trucss.com.br<\/a>\n    </div>\n  <\/div>\n<\/div>",
+            "width": "custom",
+            "custom_width": 45,
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 40
+          }
+        },
+        "contact_form": {
           "type": "contact-form",
           "settings": {
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 55,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
             "inherit_color_scheme": true,
-            "color_scheme": "",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -98,54 +37,33 @@
               "type": "contact-form-submit-button",
               "static": true,
               "settings": {
-                "label": "Submit",
+                "label": "Enviar Mensagem",
                 "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
+                "width": "fit-content"
+              }
             }
-          },
-          "block_order": []
+          }
         }
       },
       "block_order": [
-        "contact_form_UwiCkQ"
+        "contact_info",
+        "contact_form"
       ],
-      "name": "t:names.contact_form",
+      "name": "Contato Boutique",
       "settings": {
-        "content_direction": "column",
+        "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "gap": 60,
         "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
         "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 32,
-        "padding-block-end": 84
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     }
   },
   "order": [
-    "main",
     "form"
   ]
 }
