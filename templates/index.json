@@ -1,0 +1,12 @@
+{
+  "name": "Trucss Premium",
+  "sections": {
+    "main": {
+      "type": "main-index",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
