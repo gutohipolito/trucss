@@ -1,0 +1,269 @@
+<style>
+  .footer-main {
+    background-color: #282727;
+    color: #fff;
+    padding: 100px 20px 40px;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-main__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .footer-main__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 60px;
+    margin-bottom: 80px;
+  }
+  .footer-main__col-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+  
+  /* Branding Col */
+  .footer-main__logo {
+    margin-bottom: 25px;
+    display: block;
+  }
+  .footer-main__logo img {
+    height: 35px;
+    filter: brightness(0) invert(1);
+  }
+  .footer-main__description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 15px;
+  }
+  .footer-main__patent {
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 30px;
+  }
+  .footer-main__socials {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-main__social-link {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  .footer-main__social-link:hover {
+    opacity: 1;
+  }
+
+  /* Links Col */
+  .footer-main__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-main__menu-item {
+    margin-bottom: 12px;
+  }
+  .footer-main__menu-link {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+  .footer-main__menu-link:hover {
+    color: #fff;
+    transform: translateX(5px);
+  }
+
+  /* Security Col */
+  .footer-main__security-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer-main__security-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+  }
+  .footer-main__security-icon {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+    opacity: 0.8;
+  }
+
+  /* Payment Col */
+  .footer-main__payment-pix {
+    margin-bottom: 25px;
+  }
+  .footer-main__payment-pix svg {
+    height: 24px;
+    fill: #fff;
+    opacity: 0.8;
+  }
+  .footer-main__payment-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 200px;
+  }
+  .footer-main__payment-icon {
+    background: #fff;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+  }
+  .footer-main__payment-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: none !important;
+  }
+
+  /* Bottom Bar */
+  .footer-main__bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-main__bottom-links {
+    display: flex;
+    gap: 30px;
+  }
+  .footer-main__bottom-link {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-main__bottom-link:hover {
+    color: #fff;
+  }
+
+  @media screen and (max-width: 990px) {
+    .footer-main__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .footer-main {
+      padding: 60px 20px 30px;
+    }
+    .footer-main__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .footer-main__bottom {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+    .footer-main__bottom-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+</style>
+
+<footer class="footer-main">
+  <div class="footer-main__container">
+    <div class="footer-main__grid">
+      
+      <!-- Col 1: Branding -->
+      <div class="footer-main__column">
+        <a href="/" class="footer-main__logo">
+          <img src="{{ 'logo.png' | asset_url }}" alt="Trucss Boutique">
+        </a>
+        <p class="footer-main__description">Aquendar com sofisticação e conforto agora é realidade.</p>
+        <p class="footer-main__patent">Todos os nossos produtos são patenteados.</p>
+        <div class="footer-main__socials">
+          <a href="#" class="footer-main__social-link" title="Instagram">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
+          </a>
+          <a href="#" class="footer-main__social-link" title="WhatsApp">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Menu Institutional -->
+      <div class="footer-main__column">
+        <h4 class="footer-main__col-title">Sobre</h4>
+        <ul class="footer-main__menu">
+          <li class="footer-main__menu-item"><a href="/pages/sobre-nos" class="footer-main__menu-link">A Trucss</a></li>
+          <li class="footer-main__menu-item"><a href="/pages/como-funciona" class="footer-main__menu-link">Como Funciona</a></li>
+          <li class="footer-main__menu-item"><a href="/blogs/noticias" class="footer-main__menu-link">Últimas Notícias</a></li>
+          <li class="footer-main__menu-item"><a href="/pages/contato" class="footer-main__menu-link">Entre em Contato</a></li>
+          <li class="footer-main__menu-item"><a href="/account" class="footer-main__menu-link">Minha Conta</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Security -->
+      <div class="footer-main__column">
+        <h4 class="footer-main__col-title">Segurança</h4>
+        <div class="footer-main__security-grid">
+          <div class="footer-main__security-item" title="100% Segura">
+            <svg class="footer-main__security-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span>COMPRA 100%<br><b>SEGURA</b></span>
+          </div>
+          <div class="footer-main__security-item" title="Google Safe Browsing">
+            <svg class="footer-main__security-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>Google<br><b>Safe Browsing</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 4: Payment -->
+      <div class="footer-main__column">
+        <h4 class="footer-main__col-title">Pagamento</h4>
+        <div class="footer-main__payment-pix">
+          <!-- PIX Logo SVG -->
+          <svg viewBox="0 0 512 512" width="60"><path d="M374.9 146.4c-8.9-8.9-23.3-8.9-32.2 0l-86.4 86.4-86.4-86.4c-8.9-8.9-23.3-8.9-32.2 0s-8.9 23.3 0 32.2l86.4 86.4-86.4 86.4c-8.9 8.9-8.9 23.3 0 32.2 4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7l86.4-86.4 86.4 86.4c4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7c8.9-8.9 8.9-23.3 0-32.2l-86.4-86.4 86.4-86.4c8.9-8.9 8.9-23.3 0-32.2zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208z"/></svg>
+        </div>
+        <div class="footer-main__payment-icons">
+          <!-- Placeholder Icons -->
+          <div class="footer-main__payment-icon">VISA</div>
+          <div class="footer-main__payment-icon">MAST</div>
+          <div class="footer-main__payment-icon">ELO</div>
+          <div class="footer-main__payment-icon">PIX</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-main__bottom">
+      <div class="footer-main__copyright">
+        Trucss © 2018-2023 | Todos os Direitos Reservados. Inscrita sob o CNPJ 29.236.078/0001-91.
+      </div>
+      <div class="footer-main__bottom-links">
+        <a href="/pages/trocas-e-devolucoes" class="footer-main__bottom-link">Trocas e Devoluções</a>
+        <a href="/pages/termos-e-condicoes" class="footer-main__bottom-link">Termos e Condições</a>
+        <a href="/pages/politica-de-privacidade" class="footer-main__bottom-link">Privacidade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer Main",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Footer Main"
+    }
+  ]
+}
+{% endschema %}
