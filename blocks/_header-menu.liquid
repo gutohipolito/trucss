@@ -309,7 +309,7 @@
   }
 
   .menu-list__link-title {
-    padding-inline: calc(var(--gap-xl) / 2);
+    padding-inline: 15px; /* Redução do espaçamento lateral entre menus solicitado */
   }
   [slot='overflow'] .menu-list__link-title {
     padding-inline: 0;
@@ -365,10 +365,12 @@
   /** mega menu **/
   .menu-list__submenu,
   .overflow-menu::part(overflow) {
-    --submenu-padding-block-start: var(--padding-3xl);
-    --submenu-padding-block-end: var(--padding-3xl);
+    --submenu-padding-block-start: 60px; /* Aumento do espaçamento vertical solicitado */
+    --submenu-padding-block-end: 60px;
 
-    background-color: transparent;
+    background-color: rgba(var(--color-background-rgb), 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
   }
 
   .header__row[style*='--border-bottom-width: 0px'] {
