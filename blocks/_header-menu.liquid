@@ -398,8 +398,8 @@
     --submenu-content-animation: opacity calc(var(--submenu-animation-speed) * 0.75) var(--animation-easing);
 
     visibility: hidden;
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: 100vw;
     left: 0;
     top: calc(100% - 1px + var(--border-bottom-width) - (var(--full-open-header-height) - var(--submenu-height)));
     z-index: var(--layer-header-menu);
@@ -488,6 +488,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
   }
 
   .menu-list__submenu-inner,
