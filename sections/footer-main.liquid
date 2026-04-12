@@ -119,10 +119,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 28px;
+    max-height: var(--header-logo-image-height-mobile);
+    object-fit: contain;
+    filter: none !important;
   }
   .footer-main__payment-icon img {
-    max-width: 100%;
     max-height: 100%;
     filter: none !important;
   }
@@ -209,31 +210,18 @@
         </ul>
       </div>
 
-      <!-- Col 3: Security -->
       <div class="footer-main__column">
         <h4 class="footer-main__col-title">Segurança</h4>
         <div class="footer-main__security-grid">
-          <div class="footer-main__security-item" title="100% Segura">
-            <svg class="footer-main__security-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-            <span>COMPRA 100%<br><b>SEGURA</b></span>
-          </div>
-          <div class="footer-main__security-item" title="Google Safe Browsing">
-            <svg class="footer-main__security-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span>Google<br><b>Safe Browsing</b></span>
-          </div>
-          <div class="footer-main__security-item" style="margin-top: 10px;">
-            <img src="{{ 'shopifysecure.svg' | asset_url }}" alt="Shopify Secure" style="width: 100px; height: auto; opacity: 0.9;">
+          <div class="footer-main__security-item" style="margin-top: 5px;">
+            <img src="{{ 'shopifysecure.svg' | asset_url }}" alt="Shopify Secure" style="width: 120px; height: auto; opacity: 0.9;">
           </div>
         </div>
       </div>
 
       <!-- Col 4: Payment -->
       <div class="footer-main__column">
-        <h4 class="footer-main__col-title">Pagamento</h4>
-        <div class="footer-main__payment-pix">
-          <!-- PIX Logo SVG -->
-          <svg viewBox="0 0 512 512" width="60"><path d="M374.9 146.4c-8.9-8.9-23.3-8.9-32.2 0l-86.4 86.4-86.4-86.4c-8.9-8.9-23.3-8.9-32.2 0s-8.9 23.3 0 32.2l86.4 86.4-86.4 86.4c-8.9 8.9-8.9 23.3 0 32.2 4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7l86.4-86.4 86.4 86.4c4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7c8.9-8.9 8.9-23.3 0-32.2l-86.4-86.4 86.4-86.4c8.9-8.9 8.9-23.3 0-32.2zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208z"/></svg>
-        </div>
+        <h4 class="footer-main__col-title">Pagamentos Aceitos</h4>
         <div class="footer-main__payment-icons" style="grid-template-columns: repeat(4, 1fr); max-width: 240px;">
           {%- assign enabled_payment_types = 'visa,master,american_express,elo,hipercard,diners_club,cabal,pix,boleto,apple_pay,google_pay,samsung_pay' | split: ',' -%}
           {%- for type in enabled_payment_types -%}
