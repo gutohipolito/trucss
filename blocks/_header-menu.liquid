@@ -83,62 +83,54 @@
     %}
 
     {% capture children %}
-      {% for link in block_settings.menu.links %}
-        <li
-          role="presentation"
-          class="menu-list__list-item"
-          on:focus="/activate"
-          on:blur="/deactivate"
-          on:pointerenter="/activate"
-          on:pointerleave="/deactivate"
-        >
-          <a
-            href="{{ link.url }}"
-            data-skip-node-update="true"
-            class="menu-list__link{% if link.active %} menu-list__link--active{% endif %}"
-            {%- if link.links != blank -%}
-              aria-controls="submenu-{{ forloop.index }}"
-              aria-haspopup="true"
-              aria-expanded="false"
-            {%- endif -%}
-            {% if link.current %}
-              aria-current="page"
-            {% endif %}
-            ref="menuitem"
-          >
-            <span class="menu-list__link-title">{{- link.title -}}</span>
-          </a>
-          {%- if link.links != blank -%}
-            <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
-              <div
-                id="submenu-{{ forloop.index }}"
-                class="menu-list__submenu-inner"
-                style="{% render 'submenu-font-styles', settings: block_settings %}"
-              >
-                {% assign list_id = 'MegaMenuList-' | append: forloop.index %}
-                <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
-                  <div
-                    class="mega-menu__grid"
-                    data-menu-grid-id="{{ list_id }}"
-                  >
-                    {% render 'mega-menu-list',
-                      parent_link: link,
-                      id: list_id,
-                      section: section,
-                      grid_columns_count: 6,
-                      grid_columns_count_tablet: 4,
-                      grid_columns_count_collection_images: 8,
-                      menu_content_type: menu_content_type,
-                      content_aspect_ratio: ratio,
-                      image_border_radius: image_border_radius
-                    %}
-                  </div>
-                </div>
+      {% comment %} --- MENU ITEM: LOJA --- {% endcomment %}
+      <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+        <a href="/collections/all" class="menu-list__link" aria-controls="submenu-loja" aria-haspopup="true" aria-expanded="false" ref="menuitem">
+          <span class="menu-list__link-title">Loja</span>
+        </a>
+        <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
+          <div id="submenu-loja" class="menu-list__submenu-inner" style="{% render 'submenu-font-styles', settings: block_settings %}">
+            <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
+              <div class="mega-menu__grid" style="grid-template-columns: repeat(6, 1fr);">
+                <div class="mega-menu__column"><a href="/collections/calcinhas" class="mega-menu__link">Calcinha</a></div>
+                <div class="mega-menu__column"><a href="/collections/corsets" class="mega-menu__link">Corset</a></div>
+                <div class="mega-menu__column"><a href="/collections/maios" class="mega-menu__link">Maiô</a></div>
+                <div class="mega-menu__column"><a href="/collections/biquinis" class="mega-menu__link">Biquíni</a></div>
+                <div class="mega-menu__column"><a href="/collections/trukids" class="mega-menu__link">Trukids</a></div>
+                <div class="mega-menu__column"><a href="/products/vale-presente" class="mega-menu__link">Vale Presente</a></div>
               </div>
             </div>
-          {%- endif -%}
-        </li>
-      {% endfor %}
+          </div>
+        </div>
+      </li>
+
+      {% comment %} --- MENU ITEM: SOBRE NÓS --- {% endcomment %}
+      <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+        <a href="/pages/sobre-nos" class="menu-list__link" ref="menuitem">
+          <span class="menu-list__link-title">Sobre Nós</span>
+        </a>
+      </li>
+
+      {% comment %} --- MENU ITEM: COMO FUNCIONA --- {% endcomment %}
+      <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+        <a href="/pages/como-funciona" class="menu-list__link" ref="menuitem">
+          <span class="menu-list__link-title">Como Funciona</span>
+        </a>
+      </li>
+
+      {% comment %} --- MENU ITEM: CONTATO --- {% endcomment %}
+      <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+        <a href="/pages/contato" class="menu-list__link" ref="menuitem">
+          <span class="menu-list__link-title">Contato</span>
+        </a>
+      </li>
+
+      {% comment %} --- MENU ITEM: CAMPAIGN --- {% endcomment %}
+      <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+        <a href="/pages/campaign" class="menu-list__link" ref="menuitem">
+          <span class="menu-list__link-title">Campaign</span>
+        </a>
+      </li>
       <li
         class="menu-list__list-item"
         role="presentation"
