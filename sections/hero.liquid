@@ -19,7 +19,7 @@
     assign media_1 = 'image'
     assign media_count = media_count | plus: 1
   endif
-  if section.settings.video_1 != blank and section.settings.media_type_1 == 'video'
+  if section.settings.media_type_1 == 'video' and section.settings.video_1 != blank or section.settings.video_url_1 != blank
     assign media_1 = 'video'
     assign media_count = media_count | plus: 1
   endif
