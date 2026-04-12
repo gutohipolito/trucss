@@ -52,7 +52,7 @@
       }
     },
     "story-banners-custom": {
-      "type": "story-banners",
+      "type": "story_banners",
       "blocks": {
         "banner_1": {
           "type": "banner",
