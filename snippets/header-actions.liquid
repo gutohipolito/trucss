@@ -57,12 +57,23 @@
   </svg>
 {% endcapture %}
 
+{% capture wishlist_icon %}
+  <a href="/pages/wishlist" class="header-actions__action header-actions__wishlist" aria-label="Favoritos">
+    <span class="svg-wrapper" aria-hidden="true" style="width: 22px; height: 22px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </span>
+  </a>
+{% endcapture %}
+
 <header-actions
   {% if display_style == 'text' %}
     class="header-actions--text"
   {% endif %}
   {{- block.shopify_attributes -}}
 >
+  {{ wishlist_icon }}
   {% if shop.customer_accounts_enabled %}
     {% liquid
       assign account_actions_style = ''

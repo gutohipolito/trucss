@@ -8,11 +8,12 @@
   ></script>
 {% endif %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <aside
-  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
-  style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
+  class="announcement-bar spacing-style section section--{{ section.settings.section_width }}"
+  style="background-color: #282727; color: #ffffff; text-align: center; display: flex; justify-content: center; align-items: center; min-height: 40px; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; {% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
 >
+  <span>Nova coleção disponível! Aproveite!</span>
+</aside>
   {% liquid
     assign autoplay = false
     assign show_arrows = false
