@@ -232,25 +232,36 @@
           <svg viewBox="0 0 512 512" width="60"><path d="M374.9 146.4c-8.9-8.9-23.3-8.9-32.2 0l-86.4 86.4-86.4-86.4c-8.9-8.9-23.3-8.9-32.2 0s-8.9 23.3 0 32.2l86.4 86.4-86.4 86.4c-8.9 8.9-8.9 23.3 0 32.2 4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7l86.4-86.4 86.4 86.4c4.4 4.4 10.3 6.7 16.1 6.7s11.7-2.2 16.1-6.7c8.9-8.9 8.9-23.3 0-32.2l-86.4-86.4 86.4-86.4c8.9-8.9 8.9-23.3 0-32.2zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208z"/></svg>
         </div>
         <div class="footer-main__payment-icons">
-          <!-- Placeholder Icons -->
-          <div class="footer-main__payment-icon">VISA</div>
-          <div class="footer-main__payment-icon">MAST</div>
-          <div class="footer-main__payment-icon">ELO</div>
-          <div class="footer-main__payment-icon">PIX</div>
+          {% for type in shop.enabled_payment_types %}
+            <div class="footer-main__payment-icon">
+              {{ type | payment_type_svg_tag: class: 'payment-icon' }}
+            </div>
+          {% endfor %}
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="footer-main__bottom">
+    <!-- Legal Links ABOVE Divider -->
+    <div style="margin-bottom: 20px; text-align: center;">
+      <div class="footer-main__bottom-links" style="justify-content: center; gap: 40px;">
+        <a href="/pages/trocas-e-devolucoes" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Trocas e Devoluções</a>
+        <a href="/pages/termos-e-condicoes" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Termos e Condições</a>
+        <a href="/pages/politica-de-privacidade" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Privacidade</a>
+      </div>
+    </div>
+
+    <!-- Bottom Bar / Divider -->
+    <div class="footer-main__bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
       <div class="footer-main__copyright">
         Trucss © 2018-2023 | Todos os Direitos Reservados. Inscrita sob o CNPJ 29.236.078/0001-91.
       </div>
-      <div class="footer-main__bottom-links">
-        <a href="/pages/trocas-e-devolucoes" class="footer-main__bottom-link">Trocas e Devoluções</a>
-        <a href="/pages/termos-e-condicoes" class="footer-main__bottom-link">Termos e Condições</a>
-        <a href="/pages/politica-de-privacidade" class="footer-main__bottom-link">Privacidade</a>
+      
+      <div class="footer-ghwd-credit">
+        <p class="footer-copy" style="margin: 0; font-size: 13px;">
+          <span style="font-family: 'Inter', sans-serif; color: rgba(255,255,255,0.4);">Parceiro</span> ✦ 
+          <a style="font-family: 'IBM Plex Mono', monospace; color: #0d7934; text-decoration: none;" href="https://ghwd.com.br?utm_source=client&utm_medium=footer&utm_campaign=trucss" target="_blank" rel="noopener">GHWD</a>
+        </p>
       </div>
     </div>
   </div>
