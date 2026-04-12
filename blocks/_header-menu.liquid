@@ -480,8 +480,8 @@
 
   .menu-list__submenu-inner,
   .overflow-menu::part(overflow-list) {
-    padding-block-start: var(--submenu-padding-block-start);
-    padding-block-end: var(--submenu-padding-block-end);
+    padding-block-start: var(--submenu-padding-block-start, 60px) !important; /* Forçando espaçamento superior solicitado */
+    padding-block-end: var(--submenu-padding-block-end, 60px) !important;
     padding-inline: var(--section-padding-inline);
     opacity: var(--submenu-content-opacity);
     transition: var(--submenu-content-animation);
