@@ -166,17 +166,29 @@
 
   {%- if media_1 == 'video' -%}
     <div class="{{ media_wrapper_desktop_class }}">
-      {{
-        section.settings.video_1
-        | video_tag:
-          poster: nil,
-          autoplay: true,
-          loop: true,
-          controls: false,
-          muted: true,
-          class: 'hero__media',
-          data-testid: 'hero-desktop-video-1'
-      }}
+      {%- if section.settings.video_1 != blank -%}
+        {{
+          section.settings.video_1
+          | video_tag:
+            poster: nil,
+            autoplay: true,
+            loop: true,
+            controls: false,
+            muted: true,
+            class: 'hero__media',
+            data-testid: 'hero-desktop-video-1'
+        }}
+      {%- elsif section.settings.video_url_1 != blank -%}
+        {% render 'video', 
+          video: section.settings.video_url_1.id, 
+          video_type: section.settings.video_url_1.type, 
+          video_from_url: true, 
+          video_autoplay: true, 
+          video_loop: true, 
+          disable_controls: true,
+          video_class: 'hero__media'
+        %}
+      {%- endif -%}
     </div>
   {%- endif -%}
 
@@ -811,6 +823,13 @@
       "type": "video",
       "id": "video_1",
       "label": "t:settings.video",
+      "visible_if": "{{ section.settings.media_type_1 == 'video' }}"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url_1",
+      "label": "YouTube / Vimeo URL",
+      "accept": ["youtube", "vimeo"],
       "visible_if": "{{ section.settings.media_type_1 == 'video' }}"
     },
     {

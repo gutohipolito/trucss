@@ -55,14 +55,18 @@
     class="header-logo__image-container header-logo__image-container--original"
     data-testid="header-logo"
   >
-    {% render 'image',
-      image: settings.logo,
-      class: 'header-logo__image',
-      height: settings.logo_height,
-      alt_text_fallback: alt_text_fallback,
-      text_fallback: shop.name,
-      style: logo_style
+    {% liquid
+      assign logo_url = 'logo.png' | asset_url
+      assign logo_alt = shop.name
     %}
+    <img 
+      src="{{ logo_url }}" 
+      class="header-logo__image" 
+      alt="{{ logo_alt }}"
+      style="{{ logo_style }}"
+      width="{{ logo_width }}"
+      height="{{ settings.logo_height }}"
+    >
   </span>
 
   {% if use_inverse_logo %}
