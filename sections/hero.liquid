@@ -180,7 +180,7 @@
             data-testid: 'hero-desktop-video-1'
         }}
       {%- elsif section.settings.video_url_1 != blank -%}
-        <div class="hero__media" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+        <div class="hero__media" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;">
           {% render 'video', 
             video: section.settings.video_url_1.id, 
             video_type: section.settings.video_url_1.type, 
@@ -189,7 +189,7 @@
             video_loop: true, 
             disable_controls: true,
             video_class: 'hero__media-iframe',
-            video_style: 'position: absolute; top: 50%; left: 50%; width: 120%; height: 120%; transform: translate(-50%, -50%); aspect-ratio: 16/9; pointer-events: none;'
+            video_style: 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;'
           %}
         </div>
       {%- endif -%}
