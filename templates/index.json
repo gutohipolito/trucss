@@ -51,7 +51,7 @@
         "padding-block-end": 72
       }
     },
-    "story_banners_custom": {
+    "story-banners-custom": {
       "type": "story-banners",
       "blocks": {
         "banner_1": {
@@ -138,7 +138,7 @@
   },
   "order": [
     "hero_jVaWmY",
-    "story_banners_custom",
+    "story-banners-custom",
     "product_list_fa6P9H"
   ]
 }
