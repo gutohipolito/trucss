@@ -126,15 +126,15 @@
   }
 
   .header-logo__image {
-    object-fit: contain;
+    display: block;
     height: auto;
     width: auto;
     max-height: var(--header-logo-image-height-mobile);
-    max-width: 180px;
+    max-width: 100%;
+    object-fit: contain;
 
     @media screen and (min-width: 750px) {
       max-height: var(--header-logo-image-height);
-      max-width: 250px;
     }
   }
 
