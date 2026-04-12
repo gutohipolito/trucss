@@ -57,7 +57,6 @@
         "banner_1": {
           "type": "banner",
           "settings": {
-            "image": "img-1.jpg",
             "subtitle": "MODO DE",
             "title": "Usar",
             "button_text": "VEJA COMO",
@@ -67,7 +66,6 @@
         "banner_2": {
           "type": "banner",
           "settings": {
-            "image": "img-2.jpg",
             "subtitle": "HISTÓRIA DA",
             "title": "trucss",
             "button_text": "CONHECER",
@@ -77,7 +75,6 @@
         "banner_3": {
           "type": "banner",
           "settings": {
-            "image": "img-3.jpg",
             "subtitle": "2023",
             "title": "Ateliê trucss",
             "button_text": "SAIBA MAIS",
