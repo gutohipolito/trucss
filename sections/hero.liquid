@@ -555,6 +555,16 @@
   </div>
 </div>
 
+<style>
+  .story-banners { padding: 80px 20px; background: #fff; border-top: 1px solid #f0f0f0; position: relative; z-index: 10; }
+  .story-banners__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1400px; margin: 0 auto; }
+  .story-banner { position: relative; aspect-ratio: 1/1; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; text-decoration: none; color: #282727; border: 1px solid #eee; }
+  .story-banner img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.8s ease; }
+  .story-banner:hover img { transform: scale(1.05); }
+  .story-banner__overlay { position: absolute; inset: 0; background: rgba(245, 235, 225, 0.4); z-index: 2; }
+  .story-banner__content { position: relative; z-index: 3; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+  .story-banner__subtitle { font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+  .story-banner__title { font-family: 'Inter', sans-serif; font-size: 42px; margin: 10px 0; font-weight: 500; color: #282727; }
   .story-banner__button { background: #282727; color: #fff; padding: 12px 25px; font-size: 12px; text-transform: uppercase; border: none; margin-top: 20px; cursor: pointer; transition: background 0.3s; }
   .story-banner:hover .story-banner__button { background: #000; }
   @media (max-width: 768px) { .story-banners__grid { grid-template-columns: 1fr; } .story-banner__title { font-size: 32px; } }
