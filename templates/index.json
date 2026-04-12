@@ -51,44 +51,6 @@
         "padding-block-end": 72
       }
     },
-    "story-banners-custom": {
-      "type": "story_banners",
-      "blocks": {
-        "banner_1": {
-          "type": "banner",
-          "settings": {
-            "subtitle": "MODO DE",
-            "title": "Usar",
-            "button_text": "VEJA COMO",
-            "link": "shopify:\/\/pages\/como-funciona"
-          }
-        },
-        "banner_2": {
-          "type": "banner",
-          "settings": {
-            "subtitle": "HISTÓRIA DA",
-            "title": "trucss",
-            "button_text": "CONHECER",
-            "link": "shopify:\/\/pages\/sobre-nos"
-          }
-        },
-        "banner_3": {
-          "type": "banner",
-          "settings": {
-            "subtitle": "2023",
-            "title": "Ateliê trucss",
-            "button_text": "SAIBA MAIS",
-            "link": "shopify:\/\/pages\/sobre-nos"
-          }
-        }
-      },
-      "block_order": [
-        "banner_1",
-        "banner_2",
-        "banner_3"
-      ],
-      "settings": {}
-    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -135,7 +97,6 @@
   },
   "order": [
     "hero_jVaWmY",
-    "story-banners-custom",
     "product_list_fa6P9H"
   ]
 }

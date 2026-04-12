@@ -555,6 +555,43 @@
   </div>
 </div>
 
+  .story-banner__button { background: #282727; color: #fff; padding: 12px 25px; font-size: 12px; text-transform: uppercase; border: none; margin-top: 20px; cursor: pointer; transition: background 0.3s; }
+  .story-banner:hover .story-banner__button { background: #000; }
+  @media (max-width: 768px) { .story-banners__grid { grid-template-columns: 1fr; } .story-banner__title { font-size: 32px; } }
+</style>
+
+<div class="story-banners">
+  <div class="story-banners__grid">
+    <a href="/pages/como-funciona" class="story-banner">
+      <img src="{{ 'img-1.jpg' | asset_url }}" alt="Modo de Usar">
+      <div class="story-banner__overlay"></div>
+      <div class="story-banner__content">
+        <span class="story-banner__subtitle">MODO DE</span>
+        <h3 class="story-banner__title">Usar</h3>
+        <button class="story-banner__button">VEJA COMO</button>
+      </div>
+    </a>
+    <a href="/pages/sobre-nos" class="story-banner">
+      <img src="{{ 'img-2.jpg' | asset_url }}" alt="História Trucss">
+      <div class="story-banner__overlay"></div>
+      <div class="story-banner__content">
+        <span class="story-banner__subtitle">HISTÓRIA DA</span>
+        <h3 class="story-banner__title">trucss</h3>
+        <button class="story-banner__button">CONHECER</button>
+      </div>
+    </a>
+    <a href="/pages/sobre-nos" class="story-banner">
+      <img src="{{ 'img-3.jpg' | asset_url }}" alt="Ateliê Trucss">
+      <div class="story-banner__overlay"></div>
+      <div class="story-banner__content">
+        <span class="story-banner__subtitle">2023</span>
+        <h3 class="story-banner__title">Ateliê trucss</h3>
+        <button class="story-banner__button">SAIBA MAIS</button>
+      </div>
+    </a>
+  </div>
+</div>
+
 {% stylesheet %}
   .hero-wrapper {
     --hero-height-offset: 0px;
