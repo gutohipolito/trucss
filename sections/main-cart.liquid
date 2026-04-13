@@ -16,7 +16,8 @@
         class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
         style="{% render 'spacing-style', settings: section.settings %}"
       >
-        <div class="cart-page__title">
+        {% render 'trucss-page-header', title: 'Seu Carrinho' %}
+        <div class="cart-page__title" style="display: none;">
           {%- content_for 'block', id: 'cart-page-title', type: '_cart-title', force_empty: true %}
         </div>
         <div class="cart-page__items">
@@ -36,7 +37,8 @@
       class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
       style="{% render 'spacing-style', settings: section.settings %}"
     >
-      <div class="cart-page__title">
+      {% render 'trucss-page-header', title: 'Seu Carrinho' %}
+      <div class="cart-page__title" style="display: none;">
         {%- content_for 'block', id: 'cart-page-title', type: '_cart-title' %}
       </div>
 

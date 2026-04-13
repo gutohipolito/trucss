@@ -1,8 +1,12 @@
 
+{% render 'trucss-page-header', title: page.title %}
+
 {%- if page.handle == 'como-funciona' -%}
   {% render 'trucss-how-it-works-content' %}
 {%- elsif page.handle == 'sobre-nos' -%}
   {% render 'trucss-about-content' %}
+{%- elsif page.handle == 'contato' -%}
+  {% comment %} A página de contato já tem sua própria seção/template dedicada {% endcomment %}
 {%- else -%}
   <div class="section-background color-{{ section.settings.color_scheme }}"></div>
   <div class="section page-width-content color-{{ section.settings.color_scheme }}">

@@ -1,10 +1,8 @@
 
-
-<script
-  src="{{ 'results-list.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
+{% capture search_title %}
+  {{ 'content.search_results_title' | t }}: "{{ search.terms }}"
+{% endcapture %}
+{% render 'trucss-page-header', title: search_title %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 

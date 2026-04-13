@@ -4,6 +4,10 @@
   assign max_items = section.settings.max_products
 %}
 
+{% if section.settings.collection != blank %}
+  {% render 'trucss-page-header', title: section.settings.collection.title %}
+{% endif %}
+
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   data-testid="product-list"
@@ -20,7 +24,7 @@
     {% render 'gap-style', value: section.settings.gap %}
   "
 >
-  <div class="section-resource-list__header">
+  <div class="section-resource-list__header" style="display: none;">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
   </div>
 
