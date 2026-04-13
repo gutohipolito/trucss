@@ -86,29 +86,31 @@
       {% comment %} --- MENU ITEM: LOJA --- {% endcomment %}
       <li role="presentation" class="menu-list__list-item" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
         <a href="/collections/all" class="menu-list__link" aria-controls="submenu-loja" aria-haspopup="true" aria-expanded="false" ref="menuitem">
-          <span class="menu-list__link-title">Loja</span>
+          <span class="menu-list__link-title" style="display: flex; align-items: center; gap: 6px;">
+            Loja
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition: transform 0.3s ease;">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </a>
         <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]" style="background: #282727 !important;">
           <div id="submenu-loja" class="menu-list__submenu-inner" style="{% render 'submenu-font-styles', settings: block_settings %}; padding-top: 80px !important; padding-bottom: 80px !important;">
             <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
-              <div class="mega-menu__grid" style="grid-template-columns: repeat(6, 1fr); gap: 20px;">
+              <div class="mega-menu__grid" style="grid-template-columns: repeat(5, 1fr); gap: 20px;">
                 <div class="mega-menu__column">
                   <a href="/collections/calcinhas" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Calcinha</a>
                 </div>
                 <div class="mega-menu__column">
-                  <a href="/collections/sutias" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Sutiã</a>
+                  <a href="/collections/corset" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Corset</a>
                 </div>
                 <div class="mega-menu__column">
-                  <a href="/collections/kits" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Kits</a>
+                  <a href="/collections/maio" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Maiô</a>
                 </div>
                 <div class="mega-menu__column">
-                  <a href="/collections/boxer" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Boxer</a>
+                  <a href="/collections/biquini" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Biquíni</a>
                 </div>
                 <div class="mega-menu__column">
-                  <a href="/collections/fita" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Fita</a>
-                </div>
-                <div class="mega-menu__column">
-                  <a href="/collections/camisete" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Camisete</a>
+                  <a href="/collections/trukids" class="mega-menu__link" style="transition: all 0.3s ease; color: #fff;" onmouseover="this.style.opacity='0.6'; this.style.transform='translateX(5px)'" onmouseout="this.style.opacity='1'; this.style.transform='translateX(0)'">Trukids</a>
                 </div>
               </div>
             </div>
