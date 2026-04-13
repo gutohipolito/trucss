@@ -4,7 +4,7 @@
     --dark-grey: #282727;
   }
   
-  .page-width-narrow {
+  .page-width-boutique {
     max-width: var(--narrow-page-width);
     margin: 0 auto;
     padding: 0 5rem;
@@ -53,7 +53,7 @@
   .btn-premium {
     display: inline-block;
     background-color: var(--dark-grey);
-    color: #fff;
+    color: #fff !important;
     padding: 18px 60px;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
@@ -66,30 +66,21 @@
     border-radius: 0;
   }
 
-  .btn-premium:hover {
-    background-color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-
   @media screen and (max-width: 768px) {
-    .page-width-narrow {
+    .page-width-boutique {
       padding: 0 20px;
-    }
-    .how-it-works-header {
-      padding: 40px 0;
     }
   }
 {%- endstyle -%}
 
 <div class="trucss-how-it-works">
   <div class="how-it-works-header">
-    <div class="page-width-narrow">
+    <div class="page-width-boutique">
       <h1>Como Funciona</h1>
     </div>
   </div>
 
-  <div class="page-width-narrow">
+  <div class="page-width-boutique">
     <div class="video-container">
       <iframe 
         src="https://www.youtube.com/embed/OypHcKvndLY" 
@@ -105,15 +96,3 @@
     </div>
   </div>
 </div>
-
-{% schema %}
-{
-  "name": "Trucss Como Funciona",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Trucss Como Funciona"
-    }
-  ]
-}
-{% endschema %}

@@ -1,23 +1,26 @@
 
-
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div class="section page-width-content color-{{ section.settings.color_scheme }}">
-  <div
-    class="
-      spacing-style
-      layout-panel-flex
-      layout-panel-flex--column
-      section-content-wrapper
-      mobile-column
-    "
-    style="
-      {% render 'layout-panel-style', settings: section.settings %}
-      {% render 'spacing-style', settings: section.settings %}
-    "
-  >
-    {% content_for 'blocks' %}
+{%- if page.handle == 'como-funciona' -%}
+  {% render 'trucss-how-it-works-content' %}
+{%- else -%}
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div class="section page-width-content color-{{ section.settings.color_scheme }}">
+    <div
+      class="
+        spacing-style
+        layout-panel-flex
+        layout-panel-flex--column
+        section-content-wrapper
+        mobile-column
+      "
+      style="
+        {% render 'layout-panel-style', settings: section.settings %}
+        {% render 'spacing-style', settings: section.settings %}
+      "
+    >
+      {% content_for 'blocks' %}
+    </div>
   </div>
-</div>
+{%- endif -%}
 
 {% schema %}
 {
