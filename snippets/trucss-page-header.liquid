@@ -38,8 +38,23 @@
   }
 {%- endstyle -%}
 
+{% liquid
+  assign header_title = title
+  if title == blank
+    if search.performed
+      assign header_title = 'search_results_title' | t
+    elsif collection.title != blank
+      assign header_title = collection.title
+    elsif closest.collection.title != blank
+      assign header_title = closest.collection.title
+    elsif page.title != blank
+      assign header_title = page.title
+    endif
+  endif
+%}
+
 <div class="trucss-boutique-header">
   <div class="header-content">
-    <h1>{{ title }}</h1>
+    <h1>{{ header_title }}</h1>
   </div>
 </div>
