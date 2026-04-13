@@ -401,18 +401,16 @@
     position: fixed;
     width: 100vw;
     left: 0;
-    top: calc(100% - 1px + var(--border-bottom-width) - (var(--full-open-header-height) - var(--submenu-height)));
+    top: var(--header-height);
     z-index: var(--layer-header-menu);
     padding-inline: var(--padding-inline);
-    /* Clip path starts at header height so it doesn't mess with the pointer events in the header */
-    clip-path: rect(var(--header-height) 100% var(--full-open-header-height) 0); /* stylelint-disable-line */
-    transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic); /* stylelint-disable-line */
+    transition: opacity var(--submenu-animation-speed) var(--ease-out-cubic);
   }
 
   [data-submenu-overlap-bottom-row] {
     .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
     .overflow-menu::part(overflow) {
-      clip-path: rect(var(--top-row-height) 100% var(--full-open-header-height) 0); /* stylelint-disable-line */
+      top: var(--top-row-height);
     }
   }
 
