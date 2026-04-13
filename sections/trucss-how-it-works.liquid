@@ -1,0 +1,119 @@
+{%- style -%}
+  .trucss-how-it-works {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+  }
+  
+  .page-width-narrow {
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  .how-it-works-header {
+    background-color: var(--bg-pink);
+    padding: 60px 0;
+    margin-bottom: 60px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .how-it-works-header h1 {
+    font-family: 'Big Caslon', 'Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--dark-grey);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin-bottom: 40px;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .cta-container {
+    text-align: center;
+    padding-bottom: 80px;
+  }
+
+  .btn-premium {
+    display: inline-block;
+    background-color: var(--dark-grey);
+    color: #fff;
+    padding: 18px 60px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0;
+  }
+
+  .btn-premium:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    .page-width-narrow {
+      padding: 0 20px;
+    }
+    .how-it-works-header {
+      padding: 40px 0;
+    }
+  }
+{%- endstyle -%}
+
+<div class="trucss-how-it-works">
+  <div class="how-it-works-header">
+    <div class="page-width-narrow">
+      <h1>Como Funciona</h1>
+    </div>
+  </div>
+
+  <div class="page-width-narrow">
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/OypHcKvndLY" 
+        title="Como Funciona Trucss" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="cta-container">
+      <a href="/collections/all" class="btn-premium">Ir às compras</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trucss Como Funciona",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Trucss Como Funciona"
+    }
+  ]
+}
+{% endschema %}

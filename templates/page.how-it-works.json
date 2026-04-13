@@ -1,65 +1,11 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero",
-      "blocks": {
-        "heading": {
-          "type": "_heading",
-          "settings": {
-            "title": "Como Funciona a Trucss",
-            "heading_size": "xl"
-          }
-        }
-      },
-      "block_order": [
-        "heading"
-      ],
-      "settings": {
-        "section_height": "medium",
-        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "color_scheme": "scheme-2"
-      }
-    },
-    "step_1": {
-      "type": "media-with-content",
-      "settings": {
-        "image_position": "left",
-        "title": "01. Design Anatômico",
-        "content": "Nossas calcinhas foram desenhadas para acomodar o corpo de forma natural. O bojo frontal tem a medida exata para um aquendamento firme porém confortável, sem a necessidade de fitas adesivas para o dia a dia.",
-        "color_scheme": "scheme-1"
-      }
-    },
-    "step_2": {
-      "type": "media-with-content",
-      "settings": {
-        "image_position": "right",
-        "title": "02. O Aquendamento",
-        "content": "Posicione seu corpo de forma confortável e vista a peça. A compressão graduada fará o trabalho de suavizar as linhas, mantendo tudo no lugar com elegância.",
-        "color_scheme": "scheme-1"
-      }
-    },
-    "step_3": {
-      "type": "media-with-content",
-      "settings": {
-        "image_position": "left",
-        "title": "03. Resultado Invisível",
-        "content": "Use com leggings, vestidos justos ou biquínis. A Trucss garante que nada marque na roupa, permitindo que você use qualquer peça do seu guarda-roupa com confiança.",
-        "color_scheme": "scheme-1"
-      }
-    },
     "main": {
-      "type": "main-page",
-      "settings": {
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
+      "type": "trucss-how-it-works",
+      "settings": {}
     }
   },
   "order": [
-    "hero",
-    "step_1",
-    "step_2",
-    "step_3",
     "main"
   ]
 }
