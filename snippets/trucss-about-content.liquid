@@ -1,0 +1,144 @@
+{%- style -%}
+  .trucss-about {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+  }
+  
+  .page-width-boutique {
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  .about-header {
+    background-color: var(--bg-pink);
+    padding: 60px 0;
+    margin-bottom: 60px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .about-header h1 {
+    font-family: 'Big Caslon', 'Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--dark-grey);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    padding-bottom: 80px;
+    align-items: flex-start;
+  }
+
+  .about-text-content {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-grey);
+  }
+
+  .about-text-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 32px;
+  }
+
+  .about-text-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 24px;
+  }
+
+  .about-quote {
+    font-family: 'Big Caslon', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 40px 0;
+    color: var(--dark-grey);
+    border-left: 2px solid var(--bg-pink);
+    padding-left: 24px;
+  }
+
+  .about-signature-container {
+    margin-top: 60px;
+  }
+
+  .about-signature-img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .about-role-info {
+    font-size: 14px;
+    color: #888;
+  }
+
+  .about-role-info span {
+    font-weight: 600;
+    color: var(--dark-grey);
+  }
+
+  .about-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .page-width-boutique {
+      padding: 0 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="trucss-about">
+  <div class="about-header">
+    <div class="page-width-boutique">
+      <h1>Sobre Nós</h1>
+    </div>
+  </div>
+
+  <div class="page-width-boutique">
+    <div class="about-grid">
+      <!-- Left: Narrative -->
+      <div class="about-text-content">
+        <h2>Formada técnica em hemoterapia em 2008, atuei na área da saúde até a fundação da Trucss.</h2>
+        
+        <p>Assistindo tantas pessoas passarem por problemas reais, tive que fazer algo a respeito. Comecei a criar, e desde então a Trucss leva uma solução única para muites. É sempre gratificante poder levar uma solução necessária para as pessoas.</p>
+        
+        <div class="about-quote">
+          "Vou ao céu, quando escuto que venho fazendo benfeitorias"
+        </div>
+        
+        <p>Com resultados magníficos, meu maior triunfo é estar melhorando a qualidade de vida de todes.</p>
+        
+        <p>Claro que existem muitas questões ainda a serem resolvidas e estou empenhada em melhorar dia a dia.</p>
+        
+        <p><strong>Ninguém solta a mão de ninguém, seguimos juntes!</strong></p>
+
+        <div class="about-signature-container">
+          <img src="{{ 'assinatura-silvana.png' | asset_url }}" alt="Assinatura Silvana" class="about-signature-img">
+          <div class="about-role-info">
+            <span>Silvana Bento</span> / Founder & CEO da trucss
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Portrait -->
+      <div class="about-image-container">
+        <img src="{{ 'silvana.jpg' | asset_url }}" alt="Silvana Bento - Founder of Trucss" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
