@@ -1,0 +1,159 @@
+<div class="cupom-outer">
+  <div class="cupom-row">
+    <div class="cupom-label">
+      <!-- SVG de ticket -->
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="#222" d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2.17a1 1 0 0 1-.293.707l-1.414 1.415a1 1 0 0 0 0 1.414l1.414 1.415A1 1 0 0 1 22 14.83V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.17a1 1 0 0 1 .293-.707l1.414-1.415a1 1 0 0 0 0-1.414L2.293 9.88A1 1 0 0 1 2 9.17V7zm2 0v2.17l1.707 1.707a3 3 0 0 1 0 4.243L4 15.17V17h16v-1.83l-1.707-1.707a3 3 0 0 1 0-4.243L20 9.17V7H4z"/></svg>
+      <span class="cupom-desc"><b>10% OFF</b></span>
+    </div>
+    <div class="cupom-code">PRIMEIRACOMPRA</div>
+    <button class="cupom-copy" id="cupom-copy-btn" onclick="copyCoupon()">
+      <span id="cupom-copy-content">
+        <svg class="cupom-copy-icon" width="17" height="17" fill="none" viewBox="0 0 24 24"><path fill="#22a7ff" d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
+        <span class="cupom-copy-text">Copiar</span>
+      </span>
+    </button>
+  </div>
+</div>
+
+<script>
+function copyCoupon() {
+  navigator.clipboard.writeText('PRIMEIRACOMPRA');
+  const btn = document.getElementById('cupom-copy-btn');
+  const content = document.getElementById('cupom-copy-content');
+  btn.classList.add('copiado');
+  content.innerHTML = `
+    <svg width="20" height="20" style="margin-right:5px;margin-bottom:-2px" fill="none" viewBox="0 0 24 24">
+      <path fill="#fff" d="M0 0h24v24H0z" fill-opacity="0"/>
+      <path fill="#fff" d="M9.5 16.2l-3.7-3.7 1.4-1.4 2.3 2.3 5.3-5.3 1.4 1.4z"/>
+    </svg>
+    <span style="font-weight:600;">Copiado</span>
+  `;
+  setTimeout(() => {
+    btn.classList.remove('copiado');
+    content.innerHTML = `
+      <svg class="cupom-copy-icon" width="17" height="17" fill="none" viewBox="0 0 24 24"><path fill="#22a7ff" d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
+      <span class="cupom-copy-text">Copiar</span>
+    `;
+  }, 2000);
+}
+</script>
+
+<style>
+.cupom-outer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 16px 0;
+}
+.cupom-row {
+  display: flex;
+  align-items: center;
+  background: #3cff99;
+  border-radius: 12px;
+  padding: 0 8px;
+  max-width: 440px;
+  min-height: 40px;
+  gap: 10px;
+  font-family: inherit;
+  box-sizing: border-box;
+  width: 100%;
+}
+.cupom-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  color: #222;
+  border-radius: 7px;
+  background: transparent;
+  padding: 0 10px;
+  height: 32px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cupom-desc {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.cupom-code {
+  background: #fff;
+  color: #555;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 14px;
+  padding: 4px 20px;
+  letter-spacing: 1px;
+  border: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  margin: 0 2px;
+  box-shadow: none;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+.cupom-copy {
+  background: none;
+  border: none;
+  color: #22a7ff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 8px;
+  height: 32px;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 8px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.cupom-copy.copiado {
+  background: #10d042 !important;
+  color: #fff !important;
+  box-shadow: none;
+}
+.cupom-copy.copiado span,
+.cupom-copy.copiado svg {
+  color: #fff !important;
+  fill: #fff !important;
+}
+.cupom-copy:hover:not(.copiado) {
+  color: #22a7ff;
+  text-decoration: underline;
+}
+.cupom-copy-icon {
+  margin-right: 3px;
+  margin-bottom: -2px;
+}
+@media (max-width: 600px) {
+  .cupom-row {
+    max-width: 100%;
+    padding: 0 4px;
+    min-height: 38px;
+    gap: 5px;
+    border-radius: 16px;
+  }
+  .cupom-label, .cupom-code, .cupom-copy {
+    font-size: 14px;
+    height: 28px;
+    padding: 0 6px;
+    border-radius: 12px;
+  }
+  .cupom-label { padding: 0 7px; }
+  .cupom-code {
+    padding: 2px 12px;
+    border-radius: 14px;
+    font-size: 10px;
+    min-width: 75px;
+    background: #fff;
+    margin: 0 2px;
+  }
+  .cupom-copy { padding: 0 4px; }
+}
+</style>

@@ -220,8 +220,18 @@
             "shipping_calculator": {
               "type": "shipping-calculator",
               "settings": {
-                "padding-block-start": 16,
-                "padding-block-end": 16
+                "frete_dinamico_titulo": "Calcular frete desse produto",
+                "frete_dinamico_btn": "#000000",
+                "frete_dinamico_borda": true,
+                "frete_dinamico_spacetopmb": 20,
+                "frete_dinamico_spacebottommb": 20
+              }
+            },
+            "cupom_primeira_compra": {
+              "type": "cupom-primeira-compra",
+              "settings": {
+                "padding-block-start": 8,
+                "padding-block-end": 8
               }
             },
             "text_aEtTtq": {
@@ -253,6 +263,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "cupom_primeira_compra",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",

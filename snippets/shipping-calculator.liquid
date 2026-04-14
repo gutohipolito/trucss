@@ -1,11 +1,11 @@
-<shipping-calculator class="shipping-calculator">
+<shipping-calculator class="shipping-calculator" style="{% if block.settings.frete_dinamico_borda == false %}border:none;background:transparent;padding:0;{% endif %}">
   <div class="shipping-calculator__title">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-    Calcular Frete e Prazo
+    {{ block.settings.frete_dinamico_titulo | default: 'Calcular Frete e Prazo' }}
   </div>
   <div class="shipping-calculator__input-group">
     <input type="text" class="shipping-calculator__input" placeholder="00000-000" maxlength="9">
-    <button type="button" class="shipping-calculator__button">Calcular</button>
+    <button type="button" class="shipping-calculator__button" style="background-color: {{ block.settings.frete_dinamico_btn | default: '#000000' }};">Calcular</button>
   </div>
   <div class="shipping-calculator__results">
     <!-- Results will be injected by JS -->

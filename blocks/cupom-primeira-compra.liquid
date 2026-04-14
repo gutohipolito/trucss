@@ -1,0 +1,49 @@
+{%- liquid
+  assign block_settings = block.settings
+-%}
+
+<div
+  class="cupom-primeira-compra-wrapper spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  {% render 'cupom-primeira-compra' %}
+</div>
+
+{% schema %}
+{
+  "name": "Cupom Primeira Compra",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cupom Primeira Compra"
+    }
+  ]
+}
+{% endschema %}
