@@ -1,0 +1,327 @@
+{% liquid
+  assign collection = section.settings.collection
+  assign product_limit = section.settings.product_limit
+%}
+
+<link href="https://fonts.cdnfonts.com/css/elgoc" rel="stylesheet">
+
+<style>
+  .cannes-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .cannes-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    background-image: url("{{ 'cannes-01.jpg' | asset_url }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .cannes-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .cannes-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    font-family: "Elgoc", sans-serif;
+  }
+
+  .cannes-hero h1 {
+    font-family: "Elgoc", sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  .cannes-hero .subtitle {
+    font-family: inherit;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 300;
+  }
+
+  /* Section 2 - Video */
+  .cannes-section-2 {
+    background-color: #FEC3B5;
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cannes-video-container {
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    background: #000;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cannes-video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .cannes-video-cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .cannes-video-container.playing .cannes-video-cover {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(60px, 10vw, 100px);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .play-button svg {
+    width: 40%;
+    height: 40%;
+    fill: #282727;
+    margin-left: 5px;
+  }
+
+  .play-button:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: #fff;
+  }
+
+  .cannes-section-2__image-bottom {
+    margin-top: 80px;
+    max-width: 900px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .cannes-section-2__image-bottom img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+  }
+
+  /* Section 3 - Products */
+  .cannes-section-3 {
+    background-color: #FAE2DB;
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  .cannes-section-3__image {
+    margin: 0 auto 60px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .cannes-section-3__image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cannes-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1300px;
+    margin: 80px auto 0;
+  }
+
+  @media (min-width: 750px) {
+    .cannes-products-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+
+  /* Animations */
+  .cannes-hero h1, .cannes-hero .subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+
+  .cannes-hero.loaded h1, .cannes-hero.loaded .subtitle {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cannes-hero.loaded .subtitle {
+    transition-delay: 0.4s;
+  }
+
+  .resource-list__item {
+    transition: transform 0.4s ease;
+  }
+
+  .resource-list__item:hover {
+    transform: translateY(-8px);
+  }
+</style>
+
+<div class="cannes-page">
+  <!-- Seção 1: Hero -->
+  <section class="cannes-hero" id="cannes-hero">
+    <div class="cannes-hero__content">
+      <h1>Milhares de mulheres trans morrem todos os dias por problemas renais.</h1>
+      <p class="subtitle">A culpada? A necessidade de esconder o órgão genital. Antes da Trucss, a saída era usar fitas ou cola super-forte e isso impossibilitava que elas fossem ao banheiro. Com Trucss, essa realidade mudou e a saúde de mulheres trans ganhou uma aliada.</p>
+    </div>
+  </section>
+
+  <!-- Seção 2: Vídeo -->
+  <section class="cannes-section-2">
+    <div class="cannes-video-container" id="video-container">
+      <img src="{{ 'cannes-02.png' | asset_url }}" class="cannes-video-cover" id="video-cover" alt="Video cover">
+      <div class="play-button" id="play-button">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <video id="cannes-video" preload="metadata" playsinline>
+        <source src="{{ 'cannes-video.mp4' | asset_url }}" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video>
+    </div>
+    
+    <div class="cannes-section-2__image-bottom">
+      <img src="{{ 'cannes-03.png' | asset_url }}" alt="Detalhes técnicos Trucss">
+    </div>
+  </section>
+
+  <!-- Seção 3: Produtos -->
+  <section class="cannes-section-3">
+    <div class="cannes-section-3__image">
+      <img src="{{ 'cannes-04.png' | asset_url }}" alt="Como medir">
+    </div>
+
+    <div class="page-width">
+      <div class="cannes-products-grid">
+        {% if collection != blank %}
+          {% for product in collection.products limit: product_limit %}
+            <div class="resource-list__item">
+              {% content_for 'block', type: '_product-card', id: 'cannes-product-card', closest.product: product %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="resource-list__item" style="grid-column: 1 / -1;">
+            <p>Selecione uma coleção no editor de temas para exibir os produtos.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Reveal animation
+    setTimeout(() => {
+      document.getElementById('cannes-hero').classList.add('loaded');
+    }, 200);
+
+    // Video play logic
+    const video = document.getElementById('cannes-video');
+    const playBtn = document.getElementById('play-button');
+    const container = document.getElementById('video-container');
+    const cover = document.getElementById('video-cover');
+
+    if (video && playBtn && container && cover) {
+      const handlePlay = () => {
+        video.play();
+        container.classList.add('playing');
+        video.controls = true;
+        
+        // Hide UI elements after play starts
+        setTimeout(() => {
+          cover.style.display = 'none';
+          playBtn.style.display = 'none';
+        }, 600);
+      };
+
+      playBtn.addEventListener('click', handlePlay);
+      cover.addEventListener('click', handlePlay);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Página Cannes",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Coleção de Produtos"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Limite de Produtos",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Página Cannes"
+    }
+  ]
+}
+{% endschema %}
+

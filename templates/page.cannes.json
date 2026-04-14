@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "cannes-page",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
