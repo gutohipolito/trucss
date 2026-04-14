@@ -70,9 +70,9 @@ function copyCoupon() {
   flex-shrink: 0;
 }
 .cupom-code-wrapper {
-  flex-grow: 1;
+  flex-grow: 0; /* Não expandir para não empurrar os outros */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 0;
 }
 .cupom-code {
@@ -81,12 +81,12 @@ function copyCoupon() {
   font-weight: 700;
   font-size: 14px;
   border-radius: 50px;
-  padding: 6px 20px; /* Mais espaço lateral como solicitado */
+  padding: 6px 16px;
   letter-spacing: 0.5px;
   border: 1px dashed #EAA58E;
   white-space: nowrap;
-  min-width: 120px;
-  text-align: center;
+  min-width: 130px;
+  text-align: left; /* Alinhamento do texto à esquerda */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -105,7 +105,8 @@ function copyCoupon() {
   align-items: center;
   flex-shrink: 0;
   min-width: 85px;
-  justify-content: center;
+  justify-content: flex-start; /* Alinhamento conteúdo botão à esquerda */
+  margin-left: 10px;
 }
 .cupom-copy-content-flex {
   display: flex;

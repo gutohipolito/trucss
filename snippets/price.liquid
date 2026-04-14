@@ -84,6 +84,7 @@
   .price-container-modern {
     display: flex !important;
     flex-direction: column !important;
+    align-items: flex-start !important; /* Alinhamento forçado à esquerda */
     gap: 4px !important;
     margin-bottom: 15px;
     width: 100%;
@@ -145,22 +146,23 @@
 
   .price-label-por {
     font-size: 1.15rem !important;
-    color: #000 !important;
-    margin-right: 5px;
+    color: #444 !important;
+    margin-right: 8px;
     font-weight: 400;
-    align-self: flex-end;
-    margin-bottom: 8px; /* Alinhamento com a base do preço grande */
   }
 
   .price-final-row {
     display: flex;
     align-items: baseline;
+    justify-content: flex-start; /* Alinhamento à esquerda */
+    width: 100%;
   }
 
   .price-sale-container {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
+    align-items: flex-start; /* Alinhamento à esquerda */
   }
   </style>
 
