@@ -246,31 +246,39 @@
                 "texto": "Trucss tamanho errado NÃO aquenda."
               }
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
+            "accordion_desc": {
+              "type": "accordion",
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "border": "none",
+                "border_radius": 14,
+                "padding-block-start": 12,
+                "padding-block-end": 12
               },
-              "blocks": {}
+              "blocks": {
+                "row_desc": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Descrição",
+                    "open_by_default": false,
+                    "icon": "clipboard"
+                  },
+                  "blocks": {
+                    "text_content": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.description }}",
+                        "width": "100%",
+                        "type_preset": "rte"
+                      }
+                    }
+                  },
+                  "block_order": ["text_content"]
+                }
+              },
+              "block_order": ["row_desc"]
             }
           },
           "block_order": [
@@ -282,7 +290,7 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "shipping_calculator",
-            "text_aEtTtq"
+            "accordion_desc"
           ]
         }
       },
