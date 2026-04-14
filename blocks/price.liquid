@@ -6,6 +6,8 @@
   assign selected_variant = product_resource.selected_or_first_available_variant
 -%}
 
+<script>console.log('Price block rendered', {{ product_resource.id | json }});</script>
+
 {% liquid
   if block_settings.type_preset == 'rte' or block_settings.type_preset == 'paragraph'
     assign is_rte = true

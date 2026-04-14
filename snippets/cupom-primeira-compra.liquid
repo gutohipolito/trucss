@@ -75,7 +75,7 @@ function copyCoupon() {
 }
 .cupom-desc {
   font-weight: 700;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
 }
 .cupom-code {
   background: #fff;
@@ -97,6 +97,7 @@ function copyCoupon() {
   box-shadow: none;
   transition: background 0.2s;
   overflow: hidden;
+  max-width: 130px; /* Restrição de largura fixada */
 }
 .cupom-copy {
   background: none;
@@ -146,20 +147,21 @@ function copyCoupon() {
     border-radius: 12px;
   }
   .cupom-label, .cupom-code, .cupom-copy {
-    font-size: 11px;
+    font-size: 10px;
     height: 28px;
     padding: 0 4px;
     border-radius: 10px;
   }
   .cupom-label { padding: 0 4px; }
   .cupom-code {
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 10px;
-    font-size: 11px;
-    min-width: 70px;
+    font-size: 10px;
+    min-width: 65px;
+    max-width: 90px; /* Restrito mobile */
     background: #fff;
     margin: 0;
   }
-  .cupom-copy { padding: 0 4px; min-width: 55px; }
+  .cupom-copy { padding: 0 4px; min-width: 50px; }
 }
 </style>

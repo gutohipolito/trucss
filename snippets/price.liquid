@@ -80,6 +80,64 @@
 -%}
 
 <div ref="priceContainer" class="price-container-modern">
+  <style>
+  .price-container-modern {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .price--large {
+    font-size: 2.8rem !important; /* Aumentado para 2.8rem */
+    font-weight: 700 !important;
+    color: #000 !important;
+    line-height: 1 !important;
+    display: block !important;
+    margin-bottom: 5px;
+  }
+
+  .price-extra-info-v2 {
+    margin-top: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+
+  .price-pix-v2 {
+    font-size: 1.1rem !important;
+    color: #10d042 !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+  }
+
+  .pix-badge {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+  }
+
+  .price-installments-v2 {
+    font-size: 1.1rem !important;
+    color: #757575 !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+  }
+
+  .price-installments-v2 strong {
+    color: #444 !important;
+    font-weight: 700 !important;
+  }
+
+  .price-item--regular.compare-at-price {
+    font-size: 1.3rem !important;
+    color: #bbb !important;
+    text-decoration: line-through !important;
+    margin-left: 10px !important;
+    font-weight: 400;
+  }
+  </style>
+
   {% if has_volume_pricing %}
     <span class="price-item__group">
       <span class="price price--large">{{ price_min }} - {{ price_max }}</span>
@@ -89,7 +147,7 @@
       <span class="price price--large">{{ price | default: '&nbsp;' }}</span>
     </div>
     <div class="price__sale {% unless show_compare_price %}price__hidden{% endunless %}">
-      <span class="price-item--sale price price--large">{{ price | default: '&nbsp;' }}</span>
+      <span class="price price--large price-item--sale">{{ price | default: '&nbsp;' }}</span>
       <span class="price-item--regular compare-at-price">{{- compare_at_price -}}</span>
     </div>
   {% endif %}
@@ -105,60 +163,6 @@
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
   {%- endif -%}
 </div>
-
-<style>
-.price-container-modern {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  margin-bottom: 20px;
-}
-
-.price--large {
-  font-size: 2.5rem !important; /* Aumentado para mais destaque */
-  font-weight: 700 !important;
-  color: #000 !important;
-  line-height: 1.1 !important;
-  display: block !important;
-}
-
-.price-extra-info-v2 {
-  margin-top: 10px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-}
-
-.price-pix-v2 {
-  font-size: 1.1rem !important;
-  color: #10d042 !important; /* Verde mais vibrante da imagem */
-  margin: 0 !important;
-  font-weight: 700 !important;
-}
-
-.pix-badge {
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-}
-
-.price-installments-v2 {
-  font-size: 1.1rem !important;
-  color: #757575 !important;
-  margin: 0 !important;
-}
-
-.price-installments-v2 strong {
-  color: #757575 !important;
-  font-weight: 700 !important;
-}
-
-.price-item--regular.compare-at-price {
-  font-size: 1.2rem !important;
-  color: #aaa !important;
-  text-decoration: line-through !important;
-  margin-left: 10px !important;
-}
-</style>
 {%- if has_volume_pricing -%}
   <small
     ref="volumePricingNote"
