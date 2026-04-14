@@ -48,27 +48,28 @@ function copyCoupon() {
 .cupom-row {
   display: flex;
   align-items: center;
-  background: #3cff99;
+  background: #FAE2DB; /* Rosa conforme solicitado */
   border-radius: 12px;
   padding: 0 6px;
   max-width: 440px;
-  min-height: 44px;
+  min-height: 48px;
   gap: 6px;
   font-family: inherit;
   box-sizing: border-box;
   width: 100%;
+  border: 1px solid rgba(234, 165, 142, 0.3); /* Borda suave no tom do título */
 }
 .cupom-label {
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 13px;
-  color: #222;
+  color: #EAA58E; /* Tom do título */
   border-radius: 7px;
   background: transparent;
   padding: 0 4px;
   height: 32px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -78,13 +79,13 @@ function copyCoupon() {
 }
 .cupom-code {
   background: #fff;
-  color: #222;
+  color: #EAA58E;
   font-weight: 700;
   font-size: 13px;
   border-radius: 14px;
   padding: 4px 10px;
   letter-spacing: 0.5px;
-  border: none;
+  border: 1px dashed #EAA58E;
   height: 32px;
   display: flex;
   align-items: center;
@@ -100,9 +101,9 @@ function copyCoupon() {
 .cupom-copy {
   background: none;
   border: none;
-  color: #22a7ff;
+  color: #EAA58E;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   padding: 0 6px;
   height: 32px;
@@ -116,7 +117,7 @@ function copyCoupon() {
   justify-content: center;
 }
 .cupom-copy.copiado {
-  background: #10d042 !important;
+  background: #EAA58E !important;
   color: #fff !important;
   box-shadow: none;
 }
@@ -126,36 +127,39 @@ function copyCoupon() {
   fill: #fff !important;
 }
 .cupom-copy:hover:not(.copiado) {
-  color: #22a7ff;
+  color: #EAA58E;
   text-decoration: underline;
 }
 .cupom-copy-icon {
   margin-right: 3px;
   margin-bottom: -2px;
 }
+.cupom-copy-icon path {
+  fill: #EAA58E;
+}
 @media (max-width: 600px) {
   .cupom-row {
     max-width: 100%;
     padding: 0 4px;
-    min-height: 38px;
-    gap: 5px;
-    border-radius: 16px;
-  }
-  .cupom-label, .cupom-code, .cupom-copy {
-    font-size: 14px;
-    height: 28px;
-    padding: 0 6px;
+    min-height: 42px;
+    gap: 4px;
     border-radius: 12px;
   }
-  .cupom-label { padding: 0 7px; }
-  .cupom-code {
-    padding: 2px 12px;
-    border-radius: 14px;
-    font-size: 10px;
-    min-width: 75px;
-    background: #fff;
-    margin: 0 2px;
+  .cupom-label, .cupom-code, .cupom-copy {
+    font-size: 11px;
+    height: 28px;
+    padding: 0 4px;
+    border-radius: 10px;
   }
-  .cupom-copy { padding: 0 4px; }
+  .cupom-label { padding: 0 4px; }
+  .cupom-code {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    min-width: 70px;
+    background: #fff;
+    margin: 0;
+  }
+  .cupom-copy { padding: 0 4px; min-width: 55px; }
 }
 </style>
