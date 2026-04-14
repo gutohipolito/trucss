@@ -100,23 +100,22 @@
     margin-bottom: 5px;
   }
 
-  /* Estilo exclusivo para a página do produto principal */
-  [data-template="product"] .price--large,
-  body.template-product .price--large {
+  /* Estilo exclusivo para o preço PRINCIPAL do produto */
+  .product-information .price--large {
     font-size: 2.8rem !important;
   }
 
-  .price-extra-info-v2 {
-    margin-top: 5px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
+  /* Estilo reduzido para cards nas recomendações e outras listas */
+  .product-recommendations .price--large,
+  .product-card .price--large,
+  .card .price--large {
+    font-size: 1.3rem !important;
   }
 
-  /* Esconder info extra em cards se necessário, ou diminuir */
-  .template-collection .price-extra-info-v2,
-  .template-search .price-extra-info-v2,
-  .product-recommendations .price-extra-info-v2 {
+  /* Info extra reduzida em cards */
+  .product-recommendations .price-extra-info-v2,
+  .product-card .price-extra-info-v2,
+  .card .price-extra-info-v2 {
     font-size: 0.85rem !important;
   }
 
