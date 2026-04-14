@@ -136,6 +136,32 @@
     margin-left: 10px !important;
     font-weight: 400;
   }
+  .price-label-de {
+    font-size: 1.15rem !important;
+    text-decoration: none !important;
+    margin-right: 5px;
+    font-weight: 400;
+  }
+
+  .price-label-por {
+    font-size: 1.15rem !important;
+    color: #000 !important;
+    margin-right: 5px;
+    font-weight: 400;
+    align-self: flex-end;
+    margin-bottom: 8px; /* Alinhamento com a base do preço grande */
+  }
+
+  .price-final-row {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .price-sale-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
   </style>
 
   {% if has_volume_pricing %}
@@ -144,11 +170,17 @@
     </span>
   {% else %}
     <div class="price__regular {% if show_compare_price %}price__hidden{% endif %}">
+      <span class="price-label-por">Por:</span>
       <span class="price price--large">{{ price | default: '&nbsp;' }}</span>
     </div>
     <div class="price__sale {% unless show_compare_price %}price__hidden{% endunless %}">
-      <span class="price price--large price-item--sale">{{ price | default: '&nbsp;' }}</span>
-      <span class="price-item--regular compare-at-price">{{- compare_at_price -}}</span>
+      <div class="price-sale-container">
+        <span class="price-item--regular compare-at-price"><span class="price-label-de">De:</span>{{- compare_at_price -}}</span>
+        <div class="price-final-row">
+          <span class="price-label-por">Por:</span>
+          <span class="price price--large price-item--sale">{{ price | default: '&nbsp;' }}</span>
+        </div>
+      </div>
     </div>
   {% endif %}
 
