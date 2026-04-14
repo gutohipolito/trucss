@@ -24,7 +24,13 @@
     {% render 'gap-style', value: section.settings.gap %}
   "
 >
-  <div class="section-resource-list__header" style="display: none;">
+  {% style %}
+    #shopify-section-{{ section.id }} .card-gallery {
+      --gallery-aspect-ratio: 4 / 5 !important;
+    }
+  {% endstyle %}
+
+  <div class="section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
   </div>
 
