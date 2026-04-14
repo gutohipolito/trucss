@@ -46,17 +46,17 @@
 
   .cannes-hero h1 {
     font-family: "Elgoc", sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 5rem);
     line-height: 1.1;
     margin-bottom: 2rem;
-    font-weight: 500;
-    color: #fff;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-weight: 700;
+    color: #EAA58E;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
 
   .cannes-hero .subtitle {
     font-family: inherit;
-    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
@@ -67,7 +67,7 @@
   /* Section 2 - Video */
   .cannes-section-2 {
     background-color: #FEC3B5;
-    padding: 100px 20px;
+    padding: 0 20px 100px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -80,9 +80,11 @@
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
     background: #000;
     aspect-ratio: 16 / 9;
+    margin-top: -150px; /* Sobreposição negativa entre Hero e Seção 2 */
+    z-index: 10;
   }
 
   .cannes-video-container video {
