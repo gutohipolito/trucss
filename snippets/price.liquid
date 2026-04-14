@@ -91,7 +91,8 @@
   }
 
   .price--large {
-    font-size: 2.8rem !important; /* Aumentado para 2.8rem */
+    /* Tamanho para cards e outras seções */
+    font-size: 1.6rem !important; 
     font-weight: 700 !important;
     color: #000 !important;
     line-height: 1 !important;
@@ -99,11 +100,24 @@
     margin-bottom: 5px;
   }
 
+  /* Estilo exclusivo para a página do produto principal */
+  [data-template="product"] .price--large,
+  body.template-product .price--large {
+    font-size: 2.8rem !important;
+  }
+
   .price-extra-info-v2 {
     margin-top: 5px !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 2px !important;
+  }
+
+  /* Esconder info extra em cards se necessário, ou diminuir */
+  .template-collection .price-extra-info-v2,
+  .template-search .price-extra-info-v2,
+  .product-recommendations .price-extra-info-v2 {
+    font-size: 0.85rem !important;
   }
 
   .price-pix-v2 {

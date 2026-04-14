@@ -230,8 +230,8 @@
             "cupom_primeira_compra": {
               "type": "cupom-primeira-compra",
               "settings": {
-                "padding-block-start": 8,
-                "padding-block-end": 8
+                "padding-block-start": 4,
+                "padding-block-end": 4
               }
             },
             "aviso_fabricacao": {
@@ -297,7 +297,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h3>Você também pode gostar</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
