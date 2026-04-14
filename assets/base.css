@@ -4213,3 +4213,107 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+
+/* Modern PDP Pricing Styles */
+.price-container-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price--large {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--color-foreground) !important;
+  line-height: 1;
+}
+
+.price-extra-info {
+  margin-top: 4px;
+}
+
+.price-installments {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+}
+
+.price-installments strong {
+  color: #000;
+}
+
+.price-pix {
+  font-size: 1.1rem;
+  color: #2e7d32; /* Green for discount */
+  background: #e8f5e9;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.price-pix strong {
+  font-size: 1.25rem;
+}
+
+/* Shipping Calculator Styles */
+.shipping-calculator {
+  margin-top: 24px;
+  padding: 20px;
+  background: #fdfaf9;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.shipping-calculator__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shipping-calculator__input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.shipping-calculator__input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.shipping-calculator__button {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.shipping-calculator__button:hover {
+  opacity: 0.8;
+}
+
+.shipping-calculator__results {
+  margin-top: 16px;
+  display: none;
+}
+
+.shipping-calculator__result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.shipping-calculator__result-item:last-child {
+  border-bottom: none;
+}
