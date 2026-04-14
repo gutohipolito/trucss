@@ -152,12 +152,10 @@
     </div>
   {% endif %}
 
-  {%- if selected_variant.available -%}
-    <div class="price-extra-info-v2">
-      <p class="price-pix-v2">à vista no Pix <strong>{{ pix_price }}</strong> <span class="pix-badge">({{ pix_discount_percent }}% OFF)</span></p>
-      <p class="price-installments-v2">ou {{ installments_count }}x de <strong>{{ installment_price }}</strong> sem juros</p>
-    </div>
-  {%- endif -%}
+  <div class="price-extra-info-v2">
+    <p class="price-pix-v2">à vista no Pix <strong>{{ pix_price }}</strong> <span class="pix-badge">({{ pix_discount_percent }}% OFF)</span></p>
+    <p class="price-installments-v2">ou {{ installments_count }}x de <strong>{{ installment_price }}</strong> sem juros</p>
+  </div>
 
   {%- if selected_variant.unit_price and show_unit_price %}
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
