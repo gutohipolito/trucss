@@ -21,9 +21,6 @@
       <span class="svg-wrapper icon-caret icon-animated">
         {{- 'icon-caret.svg' | inline_asset_content -}}
       </span>
-      <span class="svg-wrapper icon-plus">
-        {{- 'icon-plus.svg' | inline_asset_content -}}
-      </span>
     </summary>
 
     <div class="details-content">
@@ -40,17 +37,18 @@
 {% stylesheet %}
   .details {
     border-radius: 14px;
-    border: 1px solid rgba(var(--color-foreground-rgb), 0.08);
-    background: #fdfdfd;
+    border: 1px solid rgba(var(--color-foreground-rgb), 0.15);
+    background: #fafafa;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 4px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.01);
   }
 
   .details[open] {
-    box-shadow: 0 8px 30px rgba(var(--color-foreground-rgb), 0.04);
+    box-shadow: 0 12px 40px rgba(var(--color-foreground-rgb), 0.05);
     background: #fff;
-    border-color: rgba(var(--color-foreground-rgb), 0.12);
+    border-color: rgba(var(--color-foreground-rgb), 0.2);
   }
 
   .details__header {
