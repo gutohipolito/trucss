@@ -237,7 +237,7 @@
             "aviso_fabricacao": {
               "type": "aviso-fabricacao",
               "settings": {
-                "texto": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
+                "texto": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.\n\nTrucss tamanho errado NÃO aquenda."
               }
             },
             "text_aEtTtq": {
