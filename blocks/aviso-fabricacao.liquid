@@ -1,0 +1,21 @@
+{% render 'aviso-fabricacao' %}
+
+{% schema %}
+{
+  "name": "Aviso Fabricação",
+  "tag": null,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "texto",
+      "label": "Texto do Aviso",
+      "default": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Aviso Fabricação"
+    }
+  ]
+}
+{% endschema %}

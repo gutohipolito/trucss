@@ -1,0 +1,62 @@
+{%- assign texto_aviso = block.settings.texto | default: 'IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.' -%}
+
+<div class="aviso-fabricacao-container">
+  <div class="aviso-row">
+    <div class="aviso-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+    </div>
+    <div class="aviso-content">
+      <p class="aviso-text">{{ texto_aviso }}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.aviso-fabricacao-container {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.aviso-row {
+  display: flex;
+  align-items: flex-start;
+  background: #fdfaf9;
+  border: 1px solid rgba(234, 165, 142, 0.3);
+  padding: 12px 16px;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.aviso-icon {
+  color: #EAA58E;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.aviso-content {
+  flex-grow: 1;
+}
+
+.aviso-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: #444;
+  font-weight: 500;
+}
+
+.aviso-text strong, 
+.aviso-text b {
+  color: #EAA58E;
+  font-weight: 700;
+}
+
+/* Aplicando o destaque no IMPORTANTE se presente */
+.aviso-text {
+  letter-spacing: 0.1px;
+}
+</style>
