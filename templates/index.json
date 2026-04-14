@@ -61,29 +61,153 @@
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": false,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "center",
             "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "padding-block-start": 0,
             "padding-block-end": 0
-          }
+          },
+          "blocks": {
+            "title": {
+              "type": "_product-list-text",
+              "settings": {
+                "text": "<h3>Mais Vendidos<\/h3>",
+                "type_preset": "h3"
+              }
+            }
+          },
+          "block_order": ["title"]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8
+          },
+          "blocks": {
+            "gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "portrait"
+              }
+            },
+            "title": {
+              "type": "product-title",
+              "settings": {
+                "font_size": "1rem"
+              }
+            },
+            "price": {
+              "type": "price"
+            }
+          },
+          "block_order": ["gallery", "title", "price"]
         }
       },
       "block_order": [
-        "static-header"
+        "static-header",
+        "static-product-card"
       ],
       "name": "t:names.product_list",
       "settings": {
         "collection": "all",
-        "max_products": 8,
+        "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 16,
+        "rows_gap": 32,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "category_calcinhas": {
+      "type": "product-list",
+      "name": "Coleção Calcinhas",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "center",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {
+            "title": {
+              "type": "_product-list-text",
+              "settings": {
+                "text": "<h3>Calcinhas<\/h3>",
+                "type_preset": "h3"
+              }
+            },
+            "view_all": {
+              "type": "_product-list-button",
+              "settings": {
+                "label": "Ver todas",
+                "style_class": "link"
+              }
+            }
+          },
+          "block_order": ["title", "view_all"]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8
+          },
+          "blocks": {
+            "gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "portrait"
+              }
+            },
+            "title": {
+              "type": "product-title",
+              "settings": {
+                "font_size": "1rem"
+              }
+            },
+            "price": {
+              "type": "price"
+            }
+          },
+          "block_order": ["gallery", "title", "price"]
+        }
+      },
+      "block_order": [
+        "static-header",
+        "static-product-card"
+      ],
+      "settings": {
+        "collection": "calcinhas",
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 16,
+        "rows_gap": 32,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
@@ -97,6 +221,7 @@
   },
   "order": [
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "category_calcinhas"
   ]
 }
