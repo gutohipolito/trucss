@@ -4317,3 +4317,45 @@ product-recommendations:has([data-has-recommendations='false']) {
 .shipping-calculator__result-item:last-child {
   border-bottom: none;
 }
+
+/* Updated Modern Price Layout (v2) */
+.price-extra-info-v2 {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-pix-v2 {
+  font-size: 1.15rem;
+  color: #2e7d32; /* Green from screenshot */
+  margin: 0;
+  font-weight: 500;
+}
+
+.price-pix-v2 strong {
+  font-weight: 700;
+}
+
+.pix-badge {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.price-installments-v2 {
+  font-size: 1.1rem;
+  color: #757575; /* Mild grey from screenshot */
+  margin: 0;
+}
+
+.price-installments-v2 strong {
+  color: #444;
+  font-weight: 700;
+}
+
+.price-item--regular.compare-at-price {
+  font-size: 1.2rem;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
