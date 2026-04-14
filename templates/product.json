@@ -237,7 +237,13 @@
             "aviso_fabricacao": {
               "type": "aviso-fabricacao",
               "settings": {
-                "texto": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.\n\nTrucss tamanho errado NÃO aquenda."
+                "texto": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
+              }
+            },
+            "aviso_tamanho": {
+              "type": "aviso-tamanho",
+              "settings": {
+                "texto": "Trucss tamanho errado NÃO aquenda."
               }
             },
             "text_aEtTtq": {
@@ -271,6 +277,7 @@
             "group_icgrde",
             "cupom_primeira_compra",
             "aviso_fabricacao",
+            "aviso_tamanho",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",

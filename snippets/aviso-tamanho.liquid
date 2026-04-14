@@ -1,0 +1,65 @@
+{%- assign texto_aviso = block.settings.texto | default: 'Trucss tamanho errado NÃO aquenda.' -%}
+{%- assign texto_aviso_formatado = texto_aviso | newline_to_br | replace: 'IMPORTANTE', '<span class="aviso-tamanho-badge">IMPORTANTE</span>' -%}
+
+<div class="aviso-tamanho-container">
+  <div class="aviso-tamanho-row">
+    <div class="aviso-tamanho-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+    </div>
+    <div class="aviso-tamanho-content">
+      <p class="aviso-tamanho-text">{{ texto_aviso_formatado }}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.aviso-tamanho-container {
+  width: 100%;
+  margin: 4px 0;
+}
+
+.aviso-tamanho-row {
+  display: flex;
+  align-items: flex-start;
+  background: #FFFBEB;
+  border: 1px solid #FEF3C7;
+  padding: 12px 18px;
+  border-radius: 14px;
+  gap: 14px;
+}
+
+.aviso-tamanho-icon {
+  color: #D97706;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.aviso-tamanho-content {
+  flex-grow: 1;
+}
+
+.aviso-tamanho-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #92400E;
+  font-weight: 600;
+}
+
+.aviso-tamanho-badge {
+  background: #D97706;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-right: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+</style>
