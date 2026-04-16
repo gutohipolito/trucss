@@ -16,7 +16,7 @@
         class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
         style="{% render 'spacing-style', settings: section.settings %}"
       >
-        {% render 'trucss-page-header', title: 'Seu Carrinho' %}
+        {% render 'trucss-page-header', title: 'Sacola' %}
         <div class="cart-page__title" style="display: none;">
           {%- content_for 'block', id: 'cart-page-title', type: '_cart-title', force_empty: true %}
         </div>
@@ -116,6 +116,42 @@
       /* needed to support blurred effect from hero section */
       position: relative;
     }
+
+    .cart-page__summary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: calc(-50vw + 50%);
+      bottom: 0;
+      left: 0;
+      background-color: rgb(var(--color-background-rgb));
+      z-index: -1;
+      border-left: 1px solid var(--color-border);
+    }
+  }
+
+  /* Melhorias de Layout Trucss */
+  .cart-page__more-blocks h3, 
+  .cart-page__more-blocks h2 {
+    font-family: 'Big Caslon', 'Garamond', serif !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    font-size: clamp(24px, 4vw, 36px) !important;
+  }
+
+  .cart-items__media-image {
+    border-radius: 14px !important;
+  }
+
+  .cart-items__remove {
+    border-radius: 14px !important;
+  }
+
+  .cart-items__remove svg {
+    width: 18px;
+    height: 18px;
+  }
 
     .section--page-width .cart-page:has(.cart-summary--extend) {
       grid-column: 2 / 4;

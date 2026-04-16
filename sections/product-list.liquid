@@ -4,7 +4,7 @@
   assign max_items = section.settings.max_products
 %}
 
-{% if section.settings.collection != blank %}
+{% if section.settings.collection != blank and section.settings.show_page_header %}
   {% render 'trucss-page-header', title: section.settings.collection.title %}
 {% endif %}
 
@@ -113,6 +113,12 @@
       "type": "collection",
       "id": "collection",
       "label": "t:settings.collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_page_header",
+      "label": "Mostrar cabeçalho de página (tarja)",
+      "default": true
     },
     {
       "type": "select",
