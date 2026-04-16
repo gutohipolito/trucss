@@ -76,11 +76,22 @@
             ref="fieldsets[]"
             {{ option_id_attribute }}
           >
-            <legend>
-              {{ product_option.name | escape -}}
-              {%- if variant_style == 'swatch' -%}
-                <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
-              {%- endif %}
+            <legend class="variant-option__legend">
+              <div class="variant-option__label-wrapper">
+                {{ product_option.name | escape -}}
+                {%- if variant_style == 'swatch' -%}
+                  <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
+                {%- endif %}
+              </div>
+              {%- assign option_name_handle = product_option.name | handleize -%}
+              {%- if option_name_handle == 'tamanho-neca' -%}
+                <a href="{{ 'como-medir-neca.pdf' | asset_url }}" class="guia-medidas-link" target="_blank">
+                  <svg aria-hidden="true" focusable="false" class="icon icon-ruler" viewBox="0 0 20 20">
+                    {% render 'icon', icon: 'ruler' %}
+                  </svg>
+                  <span>Como medir</span>
+                </a>
+              {%- endif -%}
             </legend>
             {%- for product_option_value in product_option.values -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
@@ -171,7 +182,18 @@
           %}
 
           <div class="variant-option variant-option--dropdowns">
-            <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
+            <div class="variant-option__label-wrapper-dropdown">
+              <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
+              {%- assign option_name_handle = product_option.name | handleize -%}
+              {%- if option_name_handle == 'tamanho-neca' -%}
+                <a href="{{ 'como-medir-neca.pdf' | asset_url }}" class="guia-medidas-link" target="_blank">
+                  <svg aria-hidden="true" focusable="false" class="icon icon-ruler" viewBox="0 0 20 20">
+                    {% render 'icon', icon: 'ruler' %}
+                  </svg>
+                  <span>Como medir</span>
+                </a>
+              {%- endif -%}
+            </div>
             <div
               class="variant-option__select-wrapper"
               style="
@@ -308,5 +330,47 @@
   .variant-picker--right .variant-option {
     text-align: right;
     justify-content: right;
+  }
+  /* Guia de Medidas Link */
+  .variant-option__legend,
+  .variant-option__label-wrapper-dropdown {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: var(--margin-xs);
+    gap: 10px;
+  }
+
+  .variant-option__label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .guia-medidas-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--color-foreground);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .guia-medidas-link:hover {
+    opacity: 1;
+    color: #c3002f;
+  }
+
+  .guia-medidas-link .icon-ruler {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
   }
 {% endstylesheet %}
