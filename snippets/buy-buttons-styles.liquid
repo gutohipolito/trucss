@@ -99,6 +99,9 @@
   .add-to-cart-button {
     height: var(--height-buy-buttons);
     text-transform: var(--button-text-case-primary);
+    background-color: #282727 !important;
+    border-color: #282727 !important;
+    color: #fff !important;
   }
 
   .add-to-cart-button.button-secondary {
@@ -334,5 +337,23 @@
 
   .shopify-payment-button__more-options[aria-hidden='true'] {
     display: none;
+  }
+
+  /* Custom Boutique Accelerated Checkout Button */
+  .accelerated-checkout-boutique {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 600;
+  }
+
+  .accelerated-checkout-boutique:hover {
+    background-color: #222 !important;
+  }
+
+  .icon-fast-checkout {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
   }
 {% endstylesheet %}

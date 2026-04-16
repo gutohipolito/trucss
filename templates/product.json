@@ -241,12 +241,6 @@
                 "texto": "IMPORTANTE\nPrazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
               }
             },
-            "aviso_tamanho": {
-              "type": "aviso-tamanho",
-              "settings": {
-                "texto": "Trucss tamanho errado NÃO aquenda."
-              }
-            },
             "accordion_desc": {
               "type": "accordion",
               "settings": {
