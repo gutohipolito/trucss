@@ -40,6 +40,12 @@
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
           assign variant_style = block_settings.variant_style
 
+          # Force swatch style for "Cor" or "Cores" options
+          assign option_name_handle = product_option.name | handleize
+          if option_name_handle contains 'cor'
+            assign variant_style = 'swatch'
+          endif
+
           if swatch_count > 0 and block_settings.show_swatches
             if block_settings.variant_style == 'dropdown'
               assign variant_style = 'swatch_dropdown'
@@ -94,6 +100,19 @@
               {%- endif -%}
             </legend>
             {%- for product_option_value in product_option.values -%}
+              {% liquid
+                # Fallback color mapping for Portuguese color names
+                assign color_handles = "preto,branco,nude,bege,rosa,chocolate,caramelo,marinho,vinho,azul,vermelho,cinza,verde,amarelo" | split: ","
+                assign color_values = "#000000,#FFFFFF,#E8BCAD,#F5F5DC,#FFC0CB,#7B3F00,#AF6F09,#000080,#722F37,#0000FF,#FF0000,#808080,#008000,#FFFF00" | split: ","
+                assign fallback_color = nil
+                assign value_handle = product_option_value.name | handle
+                for color_handle in color_handles
+                  if value_handle == color_handle
+                    assign fallback_color = color_values[forloop.index0]
+                    break
+                  endif
+                endfor
+              %}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
               {% endif %}
@@ -139,6 +158,7 @@
                   {% render 'swatch',
                     swatch: product_option_value.swatch,
                     variant_image: featured_media,
+                    fallback_color: fallback_color,
                     mode: 'unscaled'
                   %}
                 {% else %}
