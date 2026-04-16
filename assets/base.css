@@ -10,6 +10,8 @@ body {
   margin: 0;
   min-height: 100svh;
   font-variation-settings: 'slnt' 0;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
 }
 
 :root {
@@ -28,8 +30,29 @@ body {
 html {
   /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) var(--color-background);
+  scrollbar-color: #ECC3B2 #282727;
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Personalização da barra de rolagem para Chrome e Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #282727;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ECC3B2;
+  border-radius: 5px;
+  border: 2px solid #282727;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e5b3a1;
 }
 
 html[scroll-lock] {
