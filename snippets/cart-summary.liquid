@@ -114,12 +114,12 @@
         %}
 
       {% if settings.show_add_discount_code %}
-        <div class="cart-discount">
-          <div class="cart-discount__summary">
-            <span class="cart-discount__label cart-primary-typography">{{ 'content.discount' | t }}</span>
+        <div class="trucss-discount-static" style="width:100%; margin-bottom: 2rem;">
+          <div class="cart-discount__header-simple" style="margin-bottom: 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">
+            <span class="cart-discount__label cart-primary-typography" style="font-weight: 600;">{{ 'content.discount' | t }}</span>
           </div>
 
-          <div id="cart-discount-disclosure">
+          <div id="cart-discount-disclosure-static">
             <cart-discount-component
               {% if section_id != blank %}
                 data-section-id="{{ section_id }}"
@@ -130,13 +130,8 @@
                   on:submit="/applyDiscount"
                   onsubmit="return false;"
                   class="cart-discount__form"
+                  style="display: flex; gap: 10px; align-items: center;"
                 >
-                  <label
-                    for="cart-discount"
-                    class="visually-hidden"
-                  >
-                    {{- 'accessibility.discount' | t -}}
-                  </label>
                   <input
                     id="cart-discount"
                     class="cart-discount__input"
@@ -145,35 +140,16 @@
                     size="8"
                     placeholder="{{ 'content.discount_code' | t }}"
                     required
+                    style="flex-grow: 1; border-radius: 14px !important;"
                   >
                   <button
                     type="submit"
                     class="button cart-discount__button"
+                    style="border-radius: 14px !important;"
                   >
                     {{ 'actions.apply' | t }}
                   </button>
                 </form>
-              </div>
-              <div
-                class="cart-discount__error hidden"
-                role="alert"
-                ref="cartDiscountError"
-              >
-                <span class="svg-wrapper">
-                  {{- 'icon-error.svg' | inline_asset_content -}}
-                </span>
-                <small
-                  class="cart-discount__error-text cart-primary-typography hidden"
-                  ref="cartDiscountErrorDiscountCode"
-                >
-                  {{ 'content.discount_code_error' | t: code: 'test' }}
-                </small>
-                <small
-                  class="cart-discount__error-text cart-primary-typography hidden"
-                  ref="cartDiscountErrorShipping"
-                >
-                  {{ 'content.shipping_discount_error' | t }}
-                </small>
               </div>
               <ul class="cart-discount__codes">
                 {% liquid
@@ -185,24 +161,12 @@
                       endif
                     endfor
                   endfor
-
                   assign discount_codes = discount_codes | uniq
                 %}
                 {% for discount_code in discount_codes %}
-                  <li
-                    class="cart-discount__pill"
-                    data-discount-code="{{ discount_code }}"
-                    aria-label="{{ 'accessibility.discount_applied' | t: code: discount_code }}"
-                  >
-                    <p class="cart-discount__pill-code">
-                      {{ discount_code }}
-                    </p>
-                    <button
-                      type="button"
-                      on:click="/removeDiscount"
-                      class="cart-discount__pill-remove svg-wrapper svg-wrapper--smaller button-unstyled"
-                      aria-label="{{ 'actions.remove_discount' | t: code: discount_code }}"
-                    >
+                  <li class="cart-discount__pill" data-discount-code="{{ discount_code }}">
+                    <p class="cart-discount__pill-code">{{ discount_code }}</p>
+                    <button type="button" on:click="/removeDiscount" class="cart-discount__pill-remove button-unstyled">
                       {{- 'icon-filters-close.svg' | inline_asset_content -}}
                     </button>
                   </li>
@@ -579,10 +543,18 @@
     margin-block-start: var(--margin-3xs);
   }
 
-  .cart-discount__summary {
+  .cart-discount-wrapper-simple {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .cart-discount__header-simple {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
   }
 
   .cart-discount__summary:hover {
