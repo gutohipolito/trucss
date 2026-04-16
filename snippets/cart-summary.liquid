@@ -114,28 +114,28 @@
         %}
 
       {% if settings.show_add_discount_code %}
-        <div class="trucss-discount-static" style="width:100%; margin-bottom: 2rem; padding: 20px; background: #fdfaf9; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-sizing: border-box;">
-          <div class="cart-discount__header-simple" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+        <div class="boutique-discount-wrapper" style="width:100%; margin-bottom: 2rem; padding: 20px; background: #fdfaf9; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-sizing: border-box; display: block !important;">
+          <div class="boutique-discount-header" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #222;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            <span class="cart-discount__label cart-primary-typography" style="font-weight: 600; font-size: 1.1rem; color: #222;">{{ 'content.discount' | t }}</span>
+            <span class="boutique-discount-label" style="font-weight: 600; font-size: 1.1rem; color: #222; font-family: var(--font-heading-family);">{{ 'content.discount' | t }}</span>
           </div>
 
-          <div id="cart-discount-disclosure-static">
+          <div class="boutique-discount-content-wrapper">
             <cart-discount-component
               {% if section_id != blank %}
                 data-section-id="{{ section_id }}"
               {% endif %}
             >
-              <div class="cart-discount__content">
+              <div class="boutique-discount-form-container">
                 <form
                   on:submit="/applyDiscount"
                   onsubmit="return false;"
-                  class="cart-discount__form"
+                  class="boutique-discount-form"
                   style="display: flex; gap: 10px; align-items: center; padding: 0;"
                 >
                   <input
                     id="cart-discount"
-                    class="cart-discount__input"
+                    class="boutique-discount-input"
                     type="text"
                     name="discount"
                     size="8"
@@ -145,13 +145,24 @@
                   >
                   <button
                     type="submit"
-                    class="button cart-discount__button"
+                    class="button boutique-discount-button"
                     style="border-radius: 8px !important; padding: 12px 25px; font-weight: 600;"
                   >
                     {{ 'actions.apply' | t }}
                   </button>
                 </form>
               </div>
+
+              {% comment %} Elementos de erro requeridos pelo assets/cart-discount.js {% endcomment %}
+              <div class="cart-discount__error hidden" role="alert" ref="cartDiscountError">
+                <small class="cart-discount__error-text hidden" ref="cartDiscountErrorDiscountCode">
+                  {{ 'content.discount_code_error' | t: code: 'test' }}
+                </small>
+                <small class="cart-discount__error-text hidden" ref="cartDiscountErrorShipping">
+                  {{ 'content.shipping_discount_error' | t }}
+                </small>
+              </div>
+
               <ul class="cart-discount__codes">
                 {% liquid
                   assign discount_codes = cart.cart_level_discount_applications | where: 'type', 'discount_code' | map: 'title'
