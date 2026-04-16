@@ -546,6 +546,7 @@
   .cart-discount-wrapper-simple {
     width: 100%;
     border-bottom: 1px solid var(--color-border);
+    margin-top: 0 !important;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
@@ -567,6 +568,13 @@
     gap: var(--gap-2xs);
     font-size: var(--font-size--2xs);
     font-weight: 500;
+  }
+
+  /* Ocultar ícones de accordion para a versão estática boutique */
+  .trucss-discount-static .cart-totals__icon,
+  .trucss-discount-static .svg-wrapper,
+  .cart-discount__header-simple::after {
+    display: none !important;
   }
 
   @media screen and (min-width: 750px) {
