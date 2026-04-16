@@ -80,6 +80,31 @@
         background-color: #3c3b3b !important;
         border-color: #3c3b3b !important;
       }
+
+      /* Forced Quantity Refinements (Bypass Nuclear) */
+      .product-form-buttons--stacked {
+        flex-wrap: wrap !important;
+      }
+      .product-form-buttons--stacked .quantity-selector-wrapper {
+        flex: 0 0 100% !important;
+        margin-top: 12px !important;
+        padding-top: 24px !important;
+        border-top: 1px solid rgba(0,0,0,0.1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+      }
+      .product-form-buttons--stacked .quantity-selector-wrapper::before {
+        content: "Quantidade" !important;
+        display: block !important;
+        font-size: 1.4rem !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+      }
+      .product-form-buttons--stacked .add-to-cart-button.button {
+        margin-top: 12px !important;
+      }
     </style>
     {% # theme-check-enable RemoteAsset %}
   </head>
