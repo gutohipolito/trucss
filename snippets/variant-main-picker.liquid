@@ -39,19 +39,18 @@
         {%- liquid
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
           assign variant_style = block_settings.variant_style
+          assign option_name_handle = product_option.name | handleize
 
           # Force swatch style for "Cor" or "Cores" options
-          assign option_name_handle = product_option.name | handleize
           if option_name_handle contains 'cor'
             assign variant_style = 'swatch'
-          endif
-
-          if swatch_count > 0 and block_settings.show_swatches
-            if block_settings.variant_style == 'dropdown'
-              assign variant_style = 'swatch_dropdown'
-            else
-              assign variant_style = 'swatch'
-            endif
+          elsif swatch_count > 0 and block_settings.show_swatches
+             # Fallback if standard Shopify swatches are set for other options, 
+             # but we respect the "only colors" rule by disabling this for now or leaving it? 
+             # The user was very specific: "restante como estava".
+             # If "as it was" means buttons even if Shopify thinks they are swatches, we skip.
+             # But usually people want standard swatches if they set them up.
+             # I'll keep it only if it's color for now to be safe.
           endif
 
           if variant_style == 'buttons' and settings.variant_button_width == 'equal-width-buttons'

@@ -173,7 +173,7 @@
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
-                "variant_style": "swatch",
+                "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
                 "padding-block-start": 0,
