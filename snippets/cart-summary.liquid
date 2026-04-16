@@ -114,9 +114,10 @@
         %}
 
       {% if settings.show_add_discount_code %}
-        <div class="trucss-discount-static" style="width:100%; margin-bottom: 2rem;">
-          <div class="cart-discount__header-simple" style="margin-bottom: 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">
-            <span class="cart-discount__label cart-primary-typography" style="font-weight: 600;">{{ 'content.discount' | t }}</span>
+        <div class="trucss-discount-static" style="width:100%; margin-bottom: 2rem; padding: 20px; background: #fdfaf9; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-sizing: border-box;">
+          <div class="cart-discount__header-simple" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #222;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <span class="cart-discount__label cart-primary-typography" style="font-weight: 600; font-size: 1.1rem; color: #222;">{{ 'content.discount' | t }}</span>
           </div>
 
           <div id="cart-discount-disclosure-static">
@@ -130,7 +131,7 @@
                   on:submit="/applyDiscount"
                   onsubmit="return false;"
                   class="cart-discount__form"
-                  style="display: flex; gap: 10px; align-items: center;"
+                  style="display: flex; gap: 10px; align-items: center; padding: 0;"
                 >
                   <input
                     id="cart-discount"
@@ -140,12 +141,12 @@
                     size="8"
                     placeholder="{{ 'content.discount_code' | t }}"
                     required
-                    style="flex-grow: 1; border-radius: 14px !important;"
+                    style="flex-grow: 1; border-radius: 8px !important; padding: 12px 15px; border: 1px solid #ddd; background: #fff;"
                   >
                   <button
                     type="submit"
                     class="button cart-discount__button"
-                    style="border-radius: 14px !important;"
+                    style="border-radius: 8px !important; padding: 12px 25px; font-weight: 600;"
                   >
                     {{ 'actions.apply' | t }}
                   </button>
