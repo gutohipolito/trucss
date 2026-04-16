@@ -49,7 +49,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 12,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -208,12 +208,6 @@
                     "style_class": "button"
                   },
                   "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "accelerated-checkout",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
                 }
               },
               "block_order": []
@@ -224,8 +218,8 @@
                 "frete_dinamico_titulo": "Calcular frete desse produto",
                 "frete_dinamico_btn": "#000000",
                 "frete_dinamico_borda": true,
-                "frete_dinamico_spacetopmb": 20,
-                "frete_dinamico_spacebottommb": 20
+                "frete_dinamico_spacetopmb": 0,
+                "frete_dinamico_spacebottommb": 0
               }
             },
             "cupom_primeira_compra": {
@@ -312,10 +306,10 @@
         "desktop_media_position": "left",
         "equal_columns": false,
         "limit_details_width": false,
-        "gap": 48,
+        "gap": 4,
         "color_scheme": "",
-        "padding-block-start": 80,
-        "padding-block-end": 40
+        "padding-block-start": 40,
+        "padding-block-end": 20
       }
     },
     "product_recommendations_qggXJq": {

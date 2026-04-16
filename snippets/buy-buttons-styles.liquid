@@ -2,10 +2,14 @@
   Buy-buttons styles consolidated into a single snippet.
 
   @example
-  {% render 'buy-buttons-styles' %}
 {%- enddoc -%}
 
 {% stylesheet %}
+  .product-block {
+    margin-block: 0 !important;
+    padding-block: 0 !important;
+  }
+
   .buy-buttons-block {
     --buy-button-preferred-width: 185px;
 
@@ -96,11 +100,11 @@
     line-height: 0;
   }
 
-  .add-to-cart-button {
+  .add-to-cart-button.button {
     height: var(--height-buy-buttons);
     text-transform: var(--button-text-case-primary);
-    background-color: #282727 !important;
-    border-color: #282727 !important;
+    background-color: #3c3b3b !important;
+    border-color: #3c3b3b !important;
     color: #fff !important;
   }
 
@@ -339,21 +343,38 @@
     display: none;
   }
 
+  /* Nuclear Bypass for Shopify Native Buttons */
+  .shopify-payment-button,
+  .shopify-payment-button__button,
+  shopify-accelerated-checkout,
+  shopify-buy-it-now-button {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   /* Custom Boutique Accelerated Checkout Button */
   .accelerated-checkout-boutique {
     background-color: #000 !important;
     color: #fff !important;
     border: none !important;
     font-weight: 600;
+    min-height: var(--height-buy-buttons);
+    border-radius: var(--style-border-radius-buttons-primary) !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 8px;
   }
 
-  .accelerated-checkout-boutique:hover {
-    background-color: #222 !important;
-  }
-
-  .icon-fast-checkout {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
+  .boutique-checkout-wrapper {
+    display: block !important;
+    width: 100%;
   }
 {% endstylesheet %}
