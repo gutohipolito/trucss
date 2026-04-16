@@ -76,15 +76,28 @@
     object-fit: cover;
   }
 
-  @media screen and (max-width: 989px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
+    .boutique-video-container {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      aspect-ratio: 16/9;
+      display: block !important;
     }
-    .page-width-boutique {
-      padding: 0 20px;
+
+    @media screen and (max-width: 989px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .page-width-boutique {
+        padding: 0 20px;
+      }
+      .boutique-video-container {
+        margin: 40px auto 20px;
+      }
     }
-  }
 {%- endstyle -%}
 
 
@@ -118,6 +131,20 @@
       <div class="about-image-container">
         <img src="{{ 'silvana.jpg' | asset_url }}" alt="Silvana Bento - Founder of Trucss" loading="lazy">
       </div>
+    </div>
+
+    <!-- Boutique Video Section -->
+    <div class="boutique-video-container">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/sWbEz2gB1fw" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen
+        style="border: 0;"
+      ></iframe>
     </div>
   </div>
 </div>
