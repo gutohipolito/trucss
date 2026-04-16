@@ -188,6 +188,7 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
+                "custom_add_to_cart_label": "Encomendar agora",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,

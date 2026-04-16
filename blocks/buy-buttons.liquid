@@ -23,8 +23,11 @@
     endif
 
     if variant.available
+      assign add_to_cart_text = block_settings.custom_add_to_cart_label | default: 'products.product.add_to_cart'
+      if add_to_cart_text contains '.'
+        assign add_to_cart_text = add_to_cart_text | t
+      endif
       assign can_add_to_cart = true
-      assign add_to_cart_text = 'products.product.add_to_cart' | t
     elsif inventory_managed and inventory_quantity <= 0 and inventory_policy == 'deny' or quantity_rule_soldout
       assign can_add_to_cart = false
       assign add_to_cart_text = 'products.product.sold_out' | t
@@ -396,6 +399,12 @@
     {
       "type": "paragraph",
       "content": "t:content.gift_card_form_description"
+    },
+    {
+      "type": "text",
+      "id": "custom_add_to_cart_label",
+      "label": "Texto personalizado para o botão",
+      "info": "Deixe vazio para usar o padrão. Ex: Encomendar agora"
     },
     {
       "type": "header",
