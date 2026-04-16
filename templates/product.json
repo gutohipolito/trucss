@@ -289,7 +289,7 @@
                     "text_important": {
                       "type": "text",
                       "settings": {
-                        "text": "<ul><li>Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.</li><li>Trucss tamanho errado NÃO aquenda.</li><li>Por questões de higiene, não realizamos trocas de peças íntimas, exceto em caso de defeitos de fabricação ou se a embalagem original estiver lacrada e sem sinais de uso.</li></ul>",
+                        "text": "<ul><li>Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.</li><li>Por questões de higiene, não realizamos trocas de peças íntimas, exceto em caso de defeitos de fabricação ou se a embalagem original estiver lacrada e sem sinais de uso.</li></ul>",
                         "width": "100%",
                         "type_preset": "rte"
                       }
@@ -304,7 +304,6 @@
           "block_order": [
             "group_icgrde",
             "cupom_primeira_compra",
-            "aviso_tamanho",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
