@@ -16,7 +16,6 @@
         class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
         style="{% render 'spacing-style', settings: section.settings %}"
       >
-        {% render 'trucss-page-header', title: 'Sacola' %}
         <div class="cart-page__title" style="display: none;">
           {%- content_for 'block', id: 'cart-page-title', type: '_cart-title', force_empty: true %}
         </div>
@@ -29,32 +28,32 @@
   </template>
 
   {% # theme-check-disable UniqueStaticBlockId %}
-  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-  <div
-    class="section color-{{ section.settings.color_scheme }} section--{{ section.settings.section_width }}"
-  >
+    {% render 'trucss-page-header', title: 'Sacola' %}
     <div
-      class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
-      style="{% render 'spacing-style', settings: section.settings %}"
+      class="section color-{{ section.settings.color_scheme }} section--{{ section.settings.section_width }}"
     >
-      {% render 'trucss-page-header', title: 'Seu Carrinho' %}
-      <div class="cart-page__title" style="display: none;">
-        {%- content_for 'block', id: 'cart-page-title', type: '_cart-title' %}
-      </div>
-
-      <div class="cart-page__items">
-        {%- content_for 'block', id: 'cart-page-items', type: '_cart-products' %}
-      </div>
-
-      {%- unless cart.empty? -%}
-        <div class="cart-page__summary">
-          {%- content_for 'block', id: 'cart-page-summary', type: '_cart-summary' -%}
+      <div
+        class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
+        style="{% render 'spacing-style', settings: section.settings %} padding-block-start: 0;"
+      >
+        <div class="cart-page__title" style="display: none;">
+          {%- content_for 'block', id: 'cart-page-title', type: '_cart-title' %}
         </div>
-      {%- endunless -%}
 
-      {{ cart_page_more_blocks_content }}
+        <div class="cart-page__items">
+          {%- content_for 'block', id: 'cart-page-items', type: '_cart-products' %}
+        </div>
+
+        {%- unless cart.empty? -%}
+          <div class="cart-page__summary">
+            {%- content_for 'block', id: 'cart-page-summary', type: '_cart-summary' -%}
+          </div>
+        {%- endunless -%}
+
+        <div class="cart-recommendations-divider"></div>
+        {{ cart_page_more_blocks_content }}
+      </div>
     </div>
-  </div>
   {% # theme-check-enable UniqueStaticBlockId %}
 {% endcapture %}
 {% render 'cart-items-component', children: cart_items_children, section_id: section.id %}
@@ -160,12 +159,34 @@
     border-radius: 14px !important;
   }
 
-    .section--page-width .cart-page:has(.cart-summary--extend) {
-      grid-column: 2 / 4;
-      grid-template-columns: 1fr minmax(
-          var(--sidebar-width),
-          calc((100vw - var(--page-width)) / 2 + var(--sidebar-width))
-        );
+  .cart-recommendations-divider {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--color-border);
+    opacity: 0.3;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .trucss-boutique-header {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+    background-color: var(--bg-pink);
+    padding: 40px 0;
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    margin-top: -24px !important;
+    box-shadow: 0 0 0 100vmax var(--bg-pink);
+    clip-path: inset(0 -100vmax);
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 750px) {
+    .trucss-boutique-header {
+      margin-top: -12px !important;
+      padding: 30px 0;
     }
   }
 
