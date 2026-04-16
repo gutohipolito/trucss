@@ -93,25 +93,13 @@
             endif
           -%}
 
-          {%- if has_quantity_rules -%}
-            {%- assign cart_quantity = cart | item_count_for_variant: variant.id -%}
-            <div class="divider spacing-style" style="margin-top: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--color-border); width: 100%;"></div>
-            <div
-              class="quantity-label"
-              style="margin-top: 12px !important;"
-              ref="quantityLabel"
-            >
+          <div class="divider spacing-style" style="margin-top: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--color-border); width: 100%;"></div>
+          <div class="boutique-quantity-wrapper" style="margin-top: 12px !important;">
+            <div class="quantity-label" style="margin-bottom: 8px;">
               {{ 'products.product.quantity' | t }}
-              <span
-                class="quantity-label__cart-count{% if cart_quantity == 0 %} hidden{% endif %}"
-                ref="quantityLabelCartCount"
-                >({{ cart_quantity }}
-                {{ 'products.product.in_cart' | t }})</span
-              >
             </div>
-          {%- endif -%}
-
-          {% content_for 'block', type: 'quantity', id: 'quantity' %}
+            {% content_for 'block', type: 'quantity', id: 'quantity' %}
+          </div>
 
           {%- if has_quantity_rules -%}
             <div
