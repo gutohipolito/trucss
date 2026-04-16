@@ -94,6 +94,9 @@
 
   .cart-page__summary {
     padding-top: 0;
+    @media screen and (min-width: 1400px) {
+      margin-top: -120px !important;
+    }
   }
 
   .cart-page__title + .cart-page__items {
@@ -175,15 +178,15 @@
     --bg-pink: #ECC3B2;
     --dark-grey: #282727;
     background-color: var(--bg-pink) !important;
-    padding: 30px 0 !important;
-    margin-bottom: 16px !important;
-    width: 100vw !important;
+    padding: 40px 0 !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
     position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
     text-align: left !important;
     margin-top: 0 !important;
-    z-index: 10;
+    box-shadow: 0 0 0 100vmax var(--bg-pink) !important;
+    clip-path: inset(0 -100vmax) !important;
+    z-index: 5;
   }
 
   @media screen and (max-width: 750px) {
