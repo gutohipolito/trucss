@@ -1,4 +1,5 @@
-{%- assign texto_aviso = block.settings.texto | default: 'IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio.' -%}
+{%- assign texto_aviso = block.settings.texto | default: "IMPORTANTE
+Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio." -%}
 {%- assign texto_aviso_formatado = texto_aviso | newline_to_br | replace: 'IMPORTANTE', '<span class="aviso-badge">IMPORTANTE</span>' -%}
 
 <div class="aviso-fabricacao-container">

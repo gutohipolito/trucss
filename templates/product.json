@@ -237,7 +237,7 @@
             "aviso_fabricacao": {
               "type": "aviso-fabricacao",
               "settings": {
-                "texto": "IMPORTANTE : Prazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
+                "texto": "IMPORTANTE\nPrazo de 5 à 30 dias úteis para fabricação da peça + prazo de envio."
               }
             },
             "aviso_tamanho": {
@@ -303,11 +303,11 @@
           "block_order": [
             "group_icgrde",
             "cupom_primeira_compra",
-            "aviso_fabricacao",
             "aviso_tamanho",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "aviso_fabricacao",
             "shipping_calculator",
             "accordion_desc"
           ]
