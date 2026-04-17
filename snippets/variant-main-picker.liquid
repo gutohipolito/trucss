@@ -101,9 +101,9 @@
             {%- for product_option_value in product_option.values -%}
               {% liquid
                 # Fallback color mapping for Portuguese color names
-                assign color_handles_str = "preto,branco,branca,nude,bege,rosa,chocolate,caramelo,marinho,vinho,azul,vermelho,cinza,verde,amarelo"
+                assign color_handles_str = "preto,preta,branco,branca,nude,bege,rosa,chocolate,caramelo,marinho,vinho,azul,vermelho,vermelha,cinza,verde,amarelo,lilas"
                 assign color_handles = color_handles_str | split: ","
-                assign color_values_str = "#000000,#FFFFFF,#FFFFFF,#E8BCAD,#F5F5DC,#FFC0CB,#7B3F00,#AF6F09,#000080,#722F37,#0000FF,#FF0000,#808080,#008000,#FFFF00"
+                assign color_values_str = "#000000,#000000,#FFFFFF,#FFFFFF,#E8BCAD,#F5F5DC,#FFC0CB,#7B3F00,#AF6F09,#000080,#722F37,#0000FF,#FF0000,#FF0000,#808080,#008000,#FFFF00,#C8A2C8"
                 assign color_values = color_values_str | split: ","
                 
                 assign fallback_color = nil
