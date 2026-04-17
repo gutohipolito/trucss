@@ -154,7 +154,9 @@
               assign fallback_color = nil
               assign value_handle = product_option_value.name | handle
               
-              if value_handle contains '-com-'
+              if value_handle == 'animal-print'
+                assign fallback_color = 'repeating-linear-gradient(45deg, #7B3F00, #7B3F00 6px, #1C1C1C 6px, #1C1C1C 12px)'
+              elsif value_handle contains '-com-'
                 assign color_parts = value_handle | split: '-com-'
                 assign c1_hex = '#FFFFFF'
                 assign c2_hex = '#FFFFFF'
