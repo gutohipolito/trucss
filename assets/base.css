@@ -2236,7 +2236,10 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
 /* Override global label:has(input) display rule with higher specificity */
 .variant-option__button-label--has-swatch:has(input) {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--height-buy-buttons);
 }
 
 .variant-option__button-label:has(:checked) {
@@ -2267,6 +2270,10 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
   outline: var(--focus-outline);
   outline-offset: var(--focus-outline-offset);
+}
+
+.variant-option__button-label--has-swatch:has(:checked) .swatch {
+  box-shadow: 0 0 10px 2px var(--swatch-background), 0 0 4px rgba(0,0,0,0.1);
 }
 
 /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
