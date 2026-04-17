@@ -93,7 +93,7 @@
       .product-form-buttons--stacked {
         display: flex !important;
         flex-wrap: nowrap !important;
-        gap: 15px !important;
+        gap: 20px !important;
         border-top: 1px solid rgba(0,0,0,0.1) !important;
         margin-top: 12px !important;
         padding-top: 24px !important;
@@ -101,7 +101,7 @@
         justify-content: flex-start !important;
       }
       .product-form-buttons--stacked .quantity-selector-wrapper {
-        flex: 0 0 100px !important;
+        flex: 0 0 130px !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
         border-top: none !important;
@@ -121,6 +121,12 @@
         flex: 1 !important;
         margin-top: 0 !important;
         height: var(--height-buy-buttons) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      .product-form-buttons--stacked .add-to-cart-button.button:hover {
+        transform: translateY(-2px) scale(1.01) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+        background-color: #f2d5c9 !important;
       }
       @media screen and (min-width: 750px) {
         .product-form-buttons--stacked .add-to-cart-button.button {
