@@ -116,7 +116,7 @@
           if search.terms contains 'id:'
             assign new_products_ids = search.terms | replace: 'id:', '' | split: ' OR '
           endif
-          render 'predictive-search-products-list', title: title, products: products, order_ids: new_products_ids, limit: 3
+          render 'predictive-search-products-list', title: title, products: products, order_ids: new_products_ids, limit: 8
         -%}
       {% endif %}
 
