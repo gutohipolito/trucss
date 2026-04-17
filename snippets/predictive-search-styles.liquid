@@ -597,7 +597,10 @@
     scroll-padding-inline: var(--padding-xl);
     scrollbar-width: none;
     -ms-overflow-style: none; /* IE e Edge */
-    padding-block-end: var(--padding-sm);
+    /* Adiciona margens generosas para a expansão do cartão no hover não ser cortada */
+    padding-block-start: calc(var(--padding-2xs) + 6px);
+    padding-block-end: calc(var(--padding-sm) + var(--padding-2xs) + 6px);
+    margin-block-start: calc((var(--padding-2xs) + 6px) * -1);
     gap: var(--gap-md);
     transition: height var(--animation-speed-medium) var(--animation-easing);
   }

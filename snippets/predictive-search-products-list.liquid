@@ -23,8 +23,9 @@
       ref="recentlyViewedWrapper"
     >
       <slideshow-component class="predictive-search-slideshow">
-        <div class="predictive-search-results__resource-header">
-          <h4
+        <slideshow-container ref="slideshowContainer">
+          <div class="predictive-search-results__resource-header">
+            <h4
             class="predictive-search-results__title"
             ref="recentlyViewedTitle[]"
           >
@@ -41,7 +42,7 @@
             {%- render 'slideshow-controls', show_arrows: true, icon_style: 'chevron', shape: 'none' -%}
           {% endif %}
         </div>
-        <slideshow-slides>
+        <slideshow-slides tabindex="-1">
           <ul
             ref="scroller"
             class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
@@ -87,19 +88,21 @@
         {% endif %}
           </ul>
         </slideshow-slides>
+        </slideshow-container>
       </slideshow-component>
     </div>
   {% else %}
     <slideshow-component class="predictive-search-slideshow">
-      <div class="predictive-search-results__resource-header">
-        <h4 class="predictive-search-results__title">
+      <slideshow-container ref="slideshowContainer">
+        <div class="predictive-search-results__resource-header">
+          <h4 class="predictive-search-results__title">
           {{ title }}
         </h4>
         {% if products.size > 3 %}
           {%- render 'slideshow-controls', show_arrows: true, icon_style: 'chevron', shape: 'none' -%}
         {% endif %}
       </div>
-      <slideshow-slides>
+      <slideshow-slides tabindex="-1">
         <ul
           ref="scroller"
           class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
@@ -123,6 +126,7 @@
         {% endfor %}
         </ul>
       </slideshow-slides>
+      </slideshow-container>
     </slideshow-component>
   {% endif %}
 </div>
