@@ -99,11 +99,15 @@
         display: flex !important;
         flex-direction: column !important;
         height: var(--height-buy-buttons) !important;
+        min-height: var(--height-buy-buttons) !important;
+        overflow: hidden !important;
       }
       .product-form-buttons--stacked .quantity-selector-component,
       .product-form-buttons--stacked .quantity-selector {
-        height: 100% !important;
+        height: var(--height-buy-buttons) !important;
         min-height: var(--height-buy-buttons) !important;
+        flex: 1 1 auto !important;
+        flex-basis: auto !important;
       }
       .product-form-buttons--stacked .add-to-cart-button.button {
         flex: 1 !important;
