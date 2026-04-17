@@ -197,29 +197,28 @@
 <style>
   .menu-drawer {
     position: fixed;
-    width: 100%;
-    top: 0;
-    height: 100dvh;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.92); 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: var(--layer-menu-drawer);
     transform: translateX(-100%);
     visibility: hidden;
-    overflow-y: auto;
-    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease, visibility 0.4s;
-    pointer-events: none; /* Evita interferência quando fechado */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+    opacity: 0;
   }
 
+  /* Seletor nativo para garantir abertura */
+  details[open] > .menu-drawer,
   .menu-open .menu-drawer {
     transform: translateX(0);
     visibility: visible;
     opacity: 1;
-    pointer-events: all;
   }
 
   .menu-drawer__navigation {
@@ -340,16 +339,22 @@
 
   .menu-drawer__close-button {
     position: absolute;
-    top: 12px; /* Ajuste fino para alinhar com o ícone do carrinho/conta */
-    right: 15px;
+    top: var(--padding-md);
+    right: var(--padding-md);
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 10;
-    padding: 10px;
+    z-index: 110;
+    padding: var(--padding-sm);
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--color-foreground);
+  }
+
+  .menu-drawer__close-button svg {
+    width: 20px;
+    height: 20px;
   }
 
   .menu-drawer__backdrop {
@@ -360,12 +365,13 @@
     height: 100dvh;
     background: rgba(0,0,0,0.2);
     backdrop-filter: blur(2px);
-    z-index: calc(var(--layer-menu-drawer) - 1);
+    z-index: 90;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease;
   }
 
+  details[open] ~ .menu-drawer__backdrop,
   .menu-open .menu-drawer__backdrop {
     opacity: 1;
     visibility: visible;
