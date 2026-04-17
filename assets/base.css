@@ -2239,7 +2239,10 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--height-buy-buttons);
+  height: 44px !important;
+  width: 44px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
 }
 
 .variant-option__button-label:has(:checked) {
@@ -2269,7 +2272,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
 
   outline: var(--focus-outline);
-  outline-offset: var(--focus-outline-offset);
+  outline-offset: 2px !important;
+  border-radius: 50% !important;
 }
 
 .variant-option__button-label--has-swatch:has(:checked) .swatch {
