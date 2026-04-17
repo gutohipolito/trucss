@@ -393,12 +393,12 @@
     fill: currentColor;
   }
 
-  /* Guia Medidas Modal Styles */
+  /* Guia de Medidas Modal Styles */
   .guia-medidas-modal {
     border: none;
     padding: 0;
-    max-width: 90vw;
-    width: 600px;
+    max-width: 95vw;
+    width: 500px;
     border-radius: 20px;
     box-shadow: 0 40px 80px rgba(0,0,0,0.3);
     background: #fff;
@@ -424,7 +424,7 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 10;
+    z-index: 20;
     border: none;
     transition: transform 0.2s ease;
   }
@@ -433,22 +433,93 @@
     transform: scale(1.1);
   }
 
-  .guia-medidas-modal__close svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .guia-medidas-modal__image {
+  /* Slider Styles */
+  .guia-medidas-slider {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: auto;
-    display: block;
   }
 
-  @media screen and (max-width: 749px) {
-    .guia-medidas-modal {
-      width: 95vw;
-    }
+  .guia-medidas-slides {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #f9f9f9;
   }
+
+  .guia-medidas-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+
+  .guia-medidas-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .guia-medidas-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+  }
+
+  .guia-medidas-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #282727;
+    transition: all 0.2s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .guia-medidas-btn:hover:not(:disabled) {
+    background: #f4f4f4;
+    color: #c3002f;
+  }
+
+  .guia-medidas-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .guia-medidas-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .guia-medidas-counter {
+    font-size: 13px;
+    font-weight: 500;
+    color: #888;
+    background: #f4f4f4;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .guia-medidas-counter span {
+    color: #282727;
+    font-weight: 700;
+  }
+
 {% endstylesheet %}
 
 <!-- Modal Guia de Medidas -->
@@ -459,17 +530,79 @@
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   </button>
-  <img src="{{ 'cannes-04.png' | asset_url }}" alt="Guia de Medidas Trucss" class="guia-medidas-modal__image" loading="lazy">
+  
+  <div class="guia-medidas-slider">
+    <div class="guia-medidas-slides" id="medidas-slides-container">
+      <img src="{{ 'medidas-1.jpeg' | asset_url }}" alt="Passo 1" class="guia-medidas-slide active" loading="lazy">
+      <img src="{{ 'medidas-2.jpeg' | asset_url }}" alt="Passo 2" class="guia-medidas-slide" loading="lazy">
+      <img src="{{ 'medidas-3.jpeg' | asset_url }}" alt="Passo 3" class="guia-medidas-slide" loading="lazy">
+      <img src="{{ 'medidas-4.jpeg' | asset_url }}" alt="Passo 4" class="guia-medidas-slide" loading="lazy">
+      <img src="{{ 'medidas-5.jpeg' | asset_url }}" alt="Passo 5" class="guia-medidas-slide" loading="lazy">
+    </div>
+    
+    <div class="guia-medidas-controls">
+      <button type="button" class="guia-medidas-btn" id="btn-medidas-prev" onclick="window.guiaMedidas.changeSlide(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Voltar</span>
+      </button>
+      
+      <div class="guia-medidas-counter"><span id="medidas-current-step">1</span> / 5</div>
+      
+      <button type="button" class="guia-medidas-btn" id="btn-medidas-next" onclick="window.guiaMedidas.changeSlide(1)">
+        <span>Próxima</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
 </dialog>
 
 <script>
-  // Fechar modal ao clicar fora do conteúdo
-  document.getElementById('guia-medidas-modal').addEventListener('click', function(event) {
-    var rect = this.getBoundingClientRect();
-    var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-      rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
-    if (!isInDialog) {
-      this.close();
-    }
-  });
+  (function() {
+    const modal = document.getElementById('guia-medidas-modal');
+    const slides = modal.querySelectorAll('.guia-medidas-slide');
+    const stepDisplay = document.getElementById('medidas-current-step');
+    const btnPrev = document.getElementById('btn-medidas-prev');
+    const btnNext = document.getElementById('btn-medidas-next');
+    let currentSlide = 0;
+
+    window.guiaMedidas = {
+      changeSlide: function(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        this.updateControls();
+      },
+      updateControls: function() {
+        stepDisplay.textContent = currentSlide + 1;
+        btnPrev.disabled = (currentSlide === 0);
+        btnNext.disabled = (currentSlide === slides.length - 1);
+      },
+      reset: function() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = 0;
+        slides[currentSlide].classList.add('active');
+        this.updateControls();
+      }
+    };
+
+    // Fechar modal ao clicar fora do conteúdo
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+
+    // Resetar ao abrir
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'open' && modal.open) {
+          window.guiaMedidas.reset();
+        }
+      });
+    });
+    observer.observe(modal, { attributes: true });
+
+    // Inicializar controles
+    window.guiaMedidas.updateControls();
+  })();
 </script>
