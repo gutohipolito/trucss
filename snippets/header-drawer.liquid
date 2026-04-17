@@ -222,7 +222,7 @@
   }
 
   .menu-drawer__navigation {
-    padding: var(--padding-5xl) var(--padding-xl) var(--padding-4xl); /* Aumentado respiro no topo e base */
+    padding: 80px var(--padding-xl) var(--padding-4xl); /* Topo bem generoso para respiro */
     flex-grow: 1;
   }
 
@@ -240,7 +240,7 @@
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-weight: 300;
-    padding: var(--padding-sm) 0 !important;
+    padding: 20px 0 !important; /* Espaçamento bem maior entre os links principais */
     color: var(--color-foreground);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -309,8 +309,10 @@
   }
 
   .menu-drawer__social-links {
-    display: flex;
-    gap: var(--padding-md);
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 20px !important;
+    align-items: center !important;
   }
 
   .menu-drawer__social-link {
