@@ -108,9 +108,12 @@
     border-color: #ECC3B2 !important;
     color: #000 !important;
     margin-top: 12px !important;
-    width: auto !important;
-    max-width: 200px !important;
-    flex: 0 1 200px !important;
+    flex: 1;
+  }
+  @media screen and (min-width: 750px) {
+    .add-to-cart-button.button {
+      margin-left: 15px;
+    }
   }
 
   .add-to-cart-button.button-secondary {

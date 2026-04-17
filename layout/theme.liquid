@@ -118,10 +118,14 @@
         flex-basis: auto !important;
       }
       .product-form-buttons--stacked .add-to-cart-button.button {
-        flex: 0 1 200px !important;
-        width: 200px !important;
+        flex: 1 !important;
         margin-top: 0 !important;
         height: var(--height-buy-buttons) !important;
+      }
+      @media screen and (min-width: 750px) {
+        .product-form-buttons--stacked .add-to-cart-button.button {
+          margin-left: 15px !important;
+        }
       }
       .product-form-buttons--stacked .accelerated-checkout-boutique {
         flex: 0 0 100% !important;
