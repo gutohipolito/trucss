@@ -4403,12 +4403,12 @@ product-recommendations:has([data-has-recommendations='false']) {
 
 /* Correção de botões de variante no mobile (para Neca) - 2 por linha */
 @media screen and (max-width: 749px) {
-  .variant-option--buttons:not(.variant-option--swatches) {
+  .variant-option--tamanho-neca {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 10px !important;
   }
-  .variant-option--buttons:not(.variant-option--swatches) .variant-option__button-label {
+  .variant-option--tamanho-neca .variant-option__button-label {
     white-space: normal !important;
     text-align: center;
     padding-inline: 5px !important;
@@ -4417,8 +4417,7 @@ product-recommendations:has([data-has-recommendations='false']) {
     height: auto !important;
     min-height: var(--height-buy-buttons);
   }
-  .variant-option--buttons:not(.variant-option--swatches) .variant-option__button-label__text {
-    font-size: 1.25rem !important;
+  .variant-option--tamanho-neca .variant-option__button-label__text {
     line-height: 1.3 !important;
     padding-block: 10px !important;
     text-wrap: balance;
