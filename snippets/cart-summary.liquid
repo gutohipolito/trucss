@@ -114,10 +114,10 @@
         %}
 
       {% if settings.show_add_discount_code %}
-        <div class="boutique-discount-wrapper" style="width:100%; margin-bottom: 2rem; padding: 20px; background: #fdfaf9; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-sizing: border-box; display: block !important;">
-          <div class="boutique-discount-header" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #222;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            <span class="boutique-discount-label" style="font-weight: 600; font-size: 1.1rem; color: #222; font-family: var(--font-heading-family);">{{ 'content.discount' | t }}</span>
+        <div class="boutique-discount-wrapper">
+          <div class="boutique-discount-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="boutique-discount-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <span class="boutique-discount-label">{{ 'content.discount' | t }}</span>
           </div>
 
           <div class="boutique-discount-content-wrapper">
@@ -131,7 +131,6 @@
                   on:submit="/applyDiscount"
                   onsubmit="return false;"
                   class="boutique-discount-form"
-                  style="display: flex; gap: 10px; align-items: center; padding: 0;"
                 >
                   <input
                     id="cart-discount"
@@ -141,12 +140,10 @@
                     size="8"
                     placeholder="{{ 'content.discount_code' | t }}"
                     required
-                    style="flex-grow: 1; border-radius: 8px !important; padding: 12px 15px; border: 1px solid #ddd; background: #fff;"
                   >
                   <button
                     type="submit"
                     class="button boutique-discount-button"
-                    style="border-radius: 8px !important; padding: 12px 25px; font-weight: 600;"
                   >
                     {{ 'actions.apply' | t }}
                   </button>
@@ -589,6 +586,78 @@
   .cart-discount__header-simple::after,
   .cart-discount__header-simple .svg-wrapper {
     display: none !important;
+  }
+
+  .boutique-discount-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: #fdfaf9;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    display: block !important;
+  }
+  .boutique-discount-header {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .boutique-discount-icon {
+    color: #222;
+  }
+  .boutique-discount-label {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #222;
+    font-family: var(--font-heading-family);
+  }
+  .boutique-discount-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0;
+  }
+  .boutique-discount-input {
+    flex-grow: 1;
+    min-width: 0;
+    border-radius: 8px !important;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 1.4rem;
+  }
+  .boutique-discount-button {
+    border-radius: 8px !important;
+    padding: 15px 25px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    .boutique-discount-wrapper {
+      padding: 15px 12px;
+      margin-bottom: 1.5rem;
+    }
+    .boutique-discount-header {
+      margin-bottom: 10px;
+    }
+    .boutique-discount-label {
+      font-size: 1.2rem;
+    }
+    .boutique-discount-form {
+      gap: 6px;
+    }
+    .boutique-discount-input {
+      padding: 10px 12px;
+      font-size: 1.2rem !important; /* evita zoom safari */
+    }
+    .boutique-discount-button {
+      padding: 10px 16px;
+      min-height: 40px;
+      font-size: 1.2rem;
+    }
   }
 
   @media screen and (min-width: 750px) {
