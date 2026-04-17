@@ -384,4 +384,13 @@
     width: 24px;
     height: 24px;
   }
+
+  /* Garante que o X nativo suma quando o menu está fechado */
+  .menu-drawer-container:not([open]) .header-drawer-icon--close {
+    display: none !important;
+  }
+
+  .menu-drawer-container[open] .header-drawer-icon--open {
+    display: none !important;
+  }
 {% endstylesheet %}
