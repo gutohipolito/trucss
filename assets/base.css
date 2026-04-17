@@ -3078,7 +3078,7 @@ label:has(input[type='checkbox']:disabled) {
   align-items: center;
   cursor: pointer;
   width: var(--minimum-touch-target);
-  height: var(--minimum-touch-target);
+  height: 100%;
   flex-shrink: 0;
   color: var(--color-input-text);
 }
@@ -3132,6 +3132,8 @@ label:has(input[type='checkbox']:disabled) {
   border-radius: var(--style-border-radius-buttons);
   color: var(--color-input-text);
   background-color: transparent;
+  height: 100%;
+  line-height: normal;
 }
 
 /* Chrome, Safari, Edge, Opera */
