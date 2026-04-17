@@ -76,21 +76,29 @@
       }
 
       /* Button Color Softening */
-      .add-to-cart-button.button {
+      .add-to-cart-button.button,
+      .sticky-add-to-cart__button.button {
         background-color: #ECC3B2 !important;
         border-color: #ECC3B2 !important;
         color: #000 !important;
+        opacity: 1 !important;
+      }
+      .add-to-cart-button.button:hover,
+      .sticky-add-to-cart__button.button:hover {
+        background-color: #dfb2a1 !important;
+        border-color: #dfb2a1 !important;
       }
 
       /* Forced Quantity Refinements (Bypass Nuclear) */
       .product-form-buttons--stacked {
         display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 12px !important;
+        flex-wrap: nowrap !important;
+        gap: 15px !important;
         border-top: 1px solid rgba(0,0,0,0.1) !important;
         margin-top: 12px !important;
         padding-top: 24px !important;
-        align-items: flex-end !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
       }
       .product-form-buttons--stacked .quantity-selector-wrapper {
         flex: 0 0 100px !important;
@@ -110,7 +118,8 @@
         flex-basis: auto !important;
       }
       .product-form-buttons--stacked .add-to-cart-button.button {
-        flex: 1 !important;
+        flex: 0 1 200px !important;
+        width: 200px !important;
         margin-top: 0 !important;
         height: var(--height-buy-buttons) !important;
       }

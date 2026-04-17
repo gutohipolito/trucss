@@ -18,7 +18,8 @@
 
   .product-form-buttons {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 15px;
   }
 
   .product-form-buttons:not(:has(.quantity-rules)) {
@@ -107,6 +108,9 @@
     border-color: #ECC3B2 !important;
     color: #000 !important;
     margin-top: 12px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    flex: 0 1 200px !important;
   }
 
   .add-to-cart-button.button-secondary {
