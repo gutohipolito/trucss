@@ -83,13 +83,19 @@
 
       /* Forced Quantity Refinements (Bypass Nuclear) */
       .product-form-buttons--stacked {
+        display: flex !important;
         flex-wrap: wrap !important;
-      }
-      .product-form-buttons--stacked .quantity-selector-wrapper {
-        flex: 0 0 100% !important;
+        gap: 12px !important;
+        border-top: 1px solid rgba(0,0,0,0.1) !important;
         margin-top: 12px !important;
         padding-top: 24px !important;
-        border-top: 1px solid rgba(0,0,0,0.1) !important;
+        align-items: flex-end !important;
+      }
+      .product-form-buttons--stacked .quantity-selector-wrapper {
+        flex: 0 0 120px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 8px !important;
@@ -97,12 +103,18 @@
       .product-form-buttons--stacked .quantity-selector-wrapper::before {
         content: "Quantidade" !important;
         display: block !important;
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
         font-weight: 500 !important;
         text-transform: uppercase !important;
         letter-spacing: 0.1em !important;
+        margin-bottom: 4px !important;
       }
       .product-form-buttons--stacked .add-to-cart-button.button {
+        flex: 1 !important;
+        margin-top: 0 !important;
+      }
+      .product-form-buttons--stacked .accelerated-checkout-boutique {
+        flex: 0 0 100% !important;
         margin-top: 12px !important;
       }
     </style>
