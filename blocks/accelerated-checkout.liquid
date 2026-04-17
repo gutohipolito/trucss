@@ -19,6 +19,7 @@
 %}
 
 {% capture accelerated_checkout_button %}
+  {%- comment -%}
   {% if product != blank and can_add_to_cart %}
     <button
       type="submit"
@@ -30,6 +31,7 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-fast-checkout" style="margin-top: -1px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
     </button>
   {% endif %}
+  {%- endcomment -%}
 {% endcapture %}
 
 {% if accelerated_checkout_button != blank %}

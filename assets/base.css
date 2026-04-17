@@ -2061,13 +2061,14 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   flex: 0 0 3.25em;
   align-items: center;
   position: relative;
-  padding-block: var(--padding-sm);
+  padding-block: 0;
   padding-inline: var(--padding-lg);
   border: var(--options-border-width) solid var(--color-variant-border);
   border-radius: var(--options-border-radius);
   overflow: clip;
   justify-content: center;
-  min-height: 3.25em;
+  min-height: var(--height-buy-buttons);
+  height: var(--height-buy-buttons);
   min-width: fit-content;
   white-space: nowrap;
   background-color: var(--color-variant-background);
@@ -2162,7 +2163,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   }
 
   @media screen and (min-width: 750px) {
-    padding: var(--padding-xs) var(--variant-option-padding-inline);
+    padding-inline: var(--variant-option-padding-inline);
+    padding-block: 0;
   }
 }
 

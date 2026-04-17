@@ -217,6 +217,7 @@
             add_to_cart_text: add_to_cart_text
           %}
 
+          {%- comment -%}
           {%- if can_add_to_cart -%}
             <button
               type="submit"
@@ -228,6 +229,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-fast-checkout" style="margin-top: -1px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             </button>
           {%- endif -%}
+          {%- endcomment -%}
         </div>
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           </span>
