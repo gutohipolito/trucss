@@ -2236,13 +2236,18 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
 /* Override global label:has(input) display rule with higher specificity */
 .variant-option__button-label--has-swatch:has(input) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   height: 44px !important;
   width: 44px !important;
   border-radius: 50% !important;
   padding: 0 !important;
+  line-height: 0 !important;
+}
+
+.variant-option__button-label--has-swatch .swatch {
+  margin: 0 !important;
 }
 
 .variant-option__button-label:has(:checked) {
@@ -2269,10 +2274,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label--has-swatch:has(:checked) {
-  --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
-
-  outline: var(--focus-outline);
-  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px var(--color-foreground) !important;
+  outline: none !important;
   border-radius: 50% !important;
 }
 
