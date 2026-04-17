@@ -123,6 +123,7 @@
                 resolving `product_option_value.variant.product` multiple times.
               endcomment
 
+            {% liquid
               assign featured_media = product_option_value.variant.featured_media
               assign child_product = nil
 
@@ -142,6 +143,39 @@
                     endif
                   endfor
                 endif
+              endif
+              
+              # Fallback color mapping
+              assign color_handles_str = "preto,branco,branca,nude,bege,rosa,chocolate,caramelo,marinho,vinho,azul,vermelho,cinza,verde,amarelo"
+              assign color_handles = color_handles_str | split: ","
+              assign color_values_str = "#000000,#FFFFFF,#FFFFFF,#E8BCAD,#F5F5DC,#FFC0CB,#7B3F00,#AF6F09,#000080,#722F37,#0000FF,#FF0000,#808080,#008000,#FFFF00"
+              assign color_values = color_values_str | split: ","
+              
+              assign fallback_color = nil
+              assign value_handle = product_option_value.name | handle
+              
+              if value_handle contains '-com-'
+                assign color_parts = value_handle | split: '-com-'
+                assign c1_hex = '#FFFFFF'
+                assign c2_hex = '#FFFFFF'
+                
+                for color_handle in color_handles
+                  if color_parts[0] == color_handle
+                    assign c1_hex = color_values[forloop.index0]
+                  endif
+                  if color_parts[1] == color_handle
+                    assign c2_hex = color_values[forloop.index0]
+                  endif
+                endfor
+                
+                assign fallback_color = 'linear-gradient(135deg, ' | append: c1_hex | append: ' 50%, ' | append: c2_hex | append: ' 50%)'
+              else
+                for color_handle in color_handles
+                  if value_handle == color_handle
+                    assign fallback_color = color_values[forloop.index0]
+                    break
+                  endif
+                endfor
               endif
             %}
 
@@ -171,6 +205,7 @@
                 {% render 'swatch',
                   swatch: product_option_value.swatch,
                   variant_image: featured_media,
+                  fallback_color: fallback_color
                 %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
