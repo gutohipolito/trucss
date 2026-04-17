@@ -90,12 +90,12 @@
               </div>
               {%- assign option_name_handle = product_option.name | handleize -%}
               {%- if option_name_handle == 'tamanho-neca' -%}
-                <a href="{{ 'como-medir-neca.pdf' | asset_url }}" class="guia-medidas-link" target="_blank">
+                <button type="button" class="guia-medidas-link button-unstyled" onclick="document.getElementById('guia-medidas-modal').showModal()">
                   <svg aria-hidden="true" focusable="false" class="icon icon-ruler" viewBox="0 0 20 20">
                     {% render 'icon', icon: 'ruler' %}
                   </svg>
                   <span>Como medir</span>
-                </a>
+                </button>
               {%- endif -%}
             </legend>
             {%- for product_option_value in product_option.values -%}
@@ -205,12 +205,12 @@
               <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
               {%- assign option_name_handle = product_option.name | handleize -%}
               {%- if option_name_handle == 'tamanho-neca' -%}
-                <a href="{{ 'como-medir-neca.pdf' | asset_url }}" class="guia-medidas-link" target="_blank">
+                <button type="button" class="guia-medidas-link button-unstyled" onclick="document.getElementById('guia-medidas-modal').showModal()">
                   <svg aria-hidden="true" focusable="false" class="icon icon-ruler" viewBox="0 0 20 20">
                     {% render 'icon', icon: 'ruler' %}
                   </svg>
                   <span>Como medir</span>
-                </a>
+                </button>
               {%- endif -%}
             </div>
             <div
@@ -392,4 +392,84 @@
     height: 14px;
     fill: currentColor;
   }
+
+  /* Guia Medidas Modal Styles */
+  .guia-medidas-modal {
+    border: none;
+    padding: 0;
+    max-width: 90vw;
+    width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .guia-medidas-modal::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+  }
+
+  .guia-medidas-modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    border: none;
+    transition: transform 0.2s ease;
+  }
+
+  .guia-medidas-modal__close:hover {
+    transform: scale(1.1);
+  }
+
+  .guia-medidas-modal__close svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .guia-medidas-modal__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .guia-medidas-modal {
+      width: 95vw;
+    }
+  }
 {% endstylesheet %}
+
+<!-- Modal Guia de Medidas -->
+<dialog id="guia-medidas-modal" class="guia-medidas-modal">
+  <button type="button" class="guia-medidas-modal__close" onclick="this.closest('dialog').close()" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <img src="{{ 'cannes-04.png' | asset_url }}" alt="Guia de Medidas Trucss" class="guia-medidas-modal__image" loading="lazy">
+</dialog>
+
+<script>
+  // Fechar modal ao clicar fora do conteúdo
+  document.getElementById('guia-medidas-modal').addEventListener('click', function(event) {
+    var rect = this.getBoundingClientRect();
+    var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+      rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+    if (!isInDialog) {
+      this.close();
+    }
+  });
+</script>
