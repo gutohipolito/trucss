@@ -24,16 +24,17 @@
 
   .trucss-about-brand__vertical-text {
     position: absolute;
-    left: -40px; /* Ajustado para não cortar */
+    left: -40px; 
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     font-family: 'Big Caslon', 'Garamond', serif;
     font-size: 100px;
-    color: rgba(255,255,255,0.08); /* Mais sutil como a referência */
+    color: rgba(255,255,255,0.08);
     text-transform: lowercase;
     pointer-events: none;
     letter-spacing: -2px;
     white-space: nowrap;
+    z-index: 1;
   }
 
   .trucss-about-brand__grid {
@@ -42,7 +43,8 @@
     gap: 80px;
     align-items: center;
     width: 100%;
-    padding-left: 60px; /* Espaço para o texto vertical respirar */
+    position: relative;
+    z-index: 2;
   }
 
   .trucss-about-brand__image-col {
@@ -117,8 +119,8 @@
   }
 </style>
 
-<section class="trucss-about-brand" id="trucss-about-brand">
-  <div class="page-width trucss-about-brand__container">
+<section class="section section--page-width trucss-about-brand" id="trucss-about-brand">
+  <div class="trucss-about-brand__container">
     <div class="trucss-about-brand__vertical-text">trucss</div>
     <div class="trucss-about-brand__grid">
       <div class="trucss-about-brand__image-col">
