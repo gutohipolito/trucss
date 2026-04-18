@@ -13,16 +13,13 @@
   }
 
   .trucss-about-brand__container {
-    display: flex;
     position: relative;
     z-index: 2;
-    align-items: center;
-    gap: 80px;
   }
 
   .trucss-about-brand__vertical-text {
     position: absolute;
-    left: -40px; 
+    left: -80px; 
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     font-family: 'Big Caslon', 'Garamond', serif;
@@ -41,6 +38,8 @@
     gap: 80px;
     align-items: center;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
   }
@@ -119,8 +118,8 @@
 
 <section class="trucss-about-brand" id="trucss-about-brand">
   <div class="page-width trucss-about-brand__container">
-    <div class="trucss-about-brand__vertical-text">trucss</div>
     <div class="trucss-about-brand__grid">
+      <div class="trucss-about-brand__vertical-text">trucss</div>
       <div class="trucss-about-brand__image-col">
         <img src="{{ 'img-banner-home-trucs.jpg' | asset_url }}" 
              alt="Silvana Bento - Fundadora Trucss" 
