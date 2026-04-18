@@ -311,12 +311,17 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "about_brand": {
+      "type": "trucss-about-brand",
+      "settings": {}
     }
   },
   "order": [
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "category_calcinhas",
-    "category_lancamentos"
+    "category_lancamentos",
+    "about_brand"
   ]
 }

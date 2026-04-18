@@ -1,0 +1,204 @@
+{% liquid
+  assign image = section.settings.image | default: 'img-banner-home-trucs.jpg'
+%}
+
+<style>
+  .trucss-about-brand {
+    background-color: #000;
+    background-image: 
+      radial-gradient(at 0% 0%, #282727 0px, transparent 50%),
+      radial-gradient(at 100% 100%, #1a1a1a 0px, transparent 50%),
+      linear-gradient(135deg, #000 0%, #111 100%);
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    min-height: 600px;
+  }
+
+  /* Efeito de Ondas Sutil no Fundo */
+  .trucss-about-brand::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 50% 100%;
+    animation: waveMove 20s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  @keyframes waveMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .trucss-about-brand__container {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .trucss-about-brand__vertical-text {
+    position: absolute;
+    left: -120px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: 'Big Caslon', 'Garamond', serif;
+    font-size: 100px;
+    color: rgba(255,255,255,0.15);
+    text-transform: lowercase;
+    pointer-events: none;
+    letter-spacing: -2px;
+    white-space: nowrap;
+  }
+
+  .trucss-about-brand__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    margin-left: 40px; /* Offset for vertical text visually */
+  }
+
+  .trucss-about-brand__image-col {
+    position: relative;
+  }
+
+  .trucss-about-brand__image-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: block;
+    aspect-ratio: 0.8;
+    object-fit: cover;
+  }
+
+  .trucss-about-brand__content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .trucss-about-brand__text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+    max-width: 550px;
+  }
+
+  .trucss-about-brand__button {
+    background-color: #fff !important;
+    color: #000 !important;
+    padding: 16px 40px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+    width: fit-content;
+    border-radius: 0 !important;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .trucss-about-brand__button:hover {
+    background-color: #f0f0f0 !important;
+    transform: translateY(-3px);
+  }
+
+  @media screen and (max-width: 990px) {
+    .trucss-about-brand {
+      padding: 80px 0;
+    }
+    .trucss-about-brand__container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .trucss-about-brand__grid {
+      grid-template-columns: 1fr;
+      margin-left: 0;
+      gap: 40px;
+    }
+    .trucss-about-brand__vertical-text {
+      display: none; /* Hide on mobile to avoid overflow issues */
+    }
+    .trucss-about-brand__text p {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section class="trucss-about-brand" id="trucss-about-brand">
+  <div class="page-width trucss-about-brand__container">
+    <div class="trucss-about-brand__vertical-text">trucss</div>
+    <div class="trucss-about-brand__grid">
+      <div class="trucss-about-brand__image-col">
+        <img src="{{ 'img-banner-home-trucs.jpg' | asset_url }}" 
+             alt="Silvana Bento - Fundadora Trucss" 
+             width="800"
+             height="1000"
+             loading="lazy">
+      </div>
+      <div class="trucss-about-brand__content-col">
+        <div class="trucss-about-brand__text">
+          <p>{{ section.settings.text_1 }}</p>
+          <p>{{ section.settings.text_2 }}</p>
+        </div>
+        <a href="{{ section.settings.button_link }}" class="trucss-about-brand__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trucss Sobre a Marca",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Parágrafo 1",
+      "default": "A trucss é uma empresa especializada em calcinhas para mulheres trans, comandada por Silvana Bento: uma mulher cis."
+    },
+    {
+      "type": "textarea",
+      "id": "text_2",
+      "label": "Parágrafo 2",
+      "default": "As mulheres trans que desejam acomodar a genitália para trás, onde fica preso entre as pernas com uma fita colante. Por isso, passam horas sem ir ao banheiro, o que é bastante prejudicial à saúde."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Rótulo do Botão",
+      "default": "CONHECER HISTÓRIA"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link do Botão",
+      "default": "/pages/sobre-nos"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trucss Sobre a Marca"
+    }
+  ]
+}
+{% endschema %}
