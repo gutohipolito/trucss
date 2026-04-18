@@ -41,7 +41,7 @@
   assign header_title = title
   if title == blank
     if search.performed
-      assign header_title = 'search_results_title' | t
+      assign header_title = 'content.search_results' | t
     elsif collection.title != blank
       assign header_title = collection.title
     elsif closest.collection.title != blank

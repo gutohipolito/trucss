@@ -1,6 +1,6 @@
 
 {% capture search_title %}
-  {{ 'content.search_results_title' | t }}: "{{ search.terms }}"
+  {{ 'content.search_results' | t }}: "{{ search.terms }}"
 {% endcapture %}
 {% render 'trucss-page-header', title: search_title %}
 
