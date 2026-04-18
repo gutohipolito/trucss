@@ -313,7 +313,7 @@
       }
     },
     "about_brand": {
-      "type": "trucss-about-brand",
+      "type": "brand-intro",
       "settings": {}
     }
   },
