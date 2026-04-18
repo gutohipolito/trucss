@@ -1,9 +1,4 @@
 
-{% capture search_title %}
-  {{ 'content.search_results' | t }}: "{{ search.terms }}"
-{% endcapture %}
-{% render 'trucss-page-header', title: search_title %}
-
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
 <results-list
