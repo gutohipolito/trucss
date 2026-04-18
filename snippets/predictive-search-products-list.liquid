@@ -22,13 +22,10 @@
       class="recently-viewed-wrapper"
       ref="recentlyViewedWrapper"
     >
-      <slideshow-component class="predictive-search-slideshow">
-        <slideshow-container ref="slideshowContainer">
-          <div class="predictive-search-results__resource-header">
-            <h4
-            class="predictive-search-results__title"
-            ref="recentlyViewedTitle[]"
-          >
+      <h4
+        class="predictive-search-results__title"
+        ref="recentlyViewedTitle[]"
+      >
         {{ title }}
         <button
           class="predictive-search-results__clear button button-unstyled"
@@ -38,15 +35,10 @@
           {{ 'actions.clear' | t }}
         </button>
       </h4>
-          {% if products.size > 3 %}
-            {%- render 'slideshow-controls', show_arrows: true, icon_style: 'chevron', shape: 'none' -%}
-          {% endif %}
-        </div>
-        <slideshow-slides tabindex="-1">
-          <ul
-            ref="scroller"
-            class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
-          >      {% liquid
+      <ul
+        class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
+      >
+        {% liquid
           assign limit = limit | default: 8
         %}
         {% comment %}
@@ -59,7 +51,7 @@
             {% assign product = products | find: 'id', int_id %}
             <li
               class="predictive-search-results__card predictive-search-results__card--product"
-              ref="recentlyViewedItems[] slides[]"
+              ref="recentlyViewedItems[]"
             >
               {% render 'resource-card',
                 resource_type: 'product',
@@ -74,7 +66,7 @@
           {% for product in products limit: limit %}
             <li
               class="predictive-search-results__card predictive-search-results__card--product"
-              ref="recentlyViewedItems[] slides[]"
+              ref="recentlyViewedItems[]"
             >
               {% render 'resource-card',
                 resource_type: 'product',
@@ -86,34 +78,22 @@
             </li>
           {% endfor %}
         {% endif %}
-          </ul>
-        </slideshow-slides>
-        </slideshow-container>
-      </slideshow-component>
+      </ul>
     </div>
   {% else %}
-    <slideshow-component class="predictive-search-slideshow">
-      <slideshow-container ref="slideshowContainer">
-        <div class="predictive-search-results__resource-header">
-          <h4 class="predictive-search-results__title">
-          {{ title }}
-        </h4>
-        {% if products.size > 3 %}
-          {%- render 'slideshow-controls', show_arrows: true, icon_style: 'chevron', shape: 'none' -%}
-        {% endif %}
-      </div>
-      <slideshow-slides tabindex="-1">
-        <ul
-          ref="scroller"
-          class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
-        >
+    <h4 class="predictive-search-results__title">
+      {{ title }}
+    </h4>
+    <ul
+      class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled"
+    >
       {% liquid
         assign limit = limit | default: 8
       %}
       {% for product in products limit: limit %}
         <li
           class="predictive-search-results__card predictive-search-results__card--product"
-          ref="resultsItems[] slides[]"
+          ref="resultsItems[]"
         >
           {% render 'resource-card',
             resource_type: 'product',
@@ -123,10 +103,7 @@
             image_aspect_ratio: '4 / 5'
           %}
         </li>
-        {% endfor %}
-        </ul>
-      </slideshow-slides>
-      </slideshow-container>
-    </slideshow-component>
+      {% endfor %}
+    </ul>
   {% endif %}
 </div>

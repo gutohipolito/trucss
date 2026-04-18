@@ -588,43 +588,17 @@
 
   .predictive-search-results__wrapper-products {
     display: grid;
-    grid-auto-flow: column;
-    /* Mobile - Mostra pouco mais de 1 item indicando scroll */
-    grid-auto-columns: calc(75% - var(--gap-md));
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--padding-xl);
-    scrollbar-width: none;
-    -ms-overflow-style: none; /* IE e Edge */
-    /* Adiciona margens generosas para a expansão do cartão no hover não ser cortada */
-    padding-block-start: calc(var(--padding-2xs) + 6px);
-    padding-block-end: calc(var(--padding-sm) + var(--padding-2xs) + 6px);
-    margin-block-start: calc((var(--padding-2xs) + 6px) * -1);
+    grid-template-columns: 1fr;
+    padding-block-end: var(--padding-sm);
     gap: var(--gap-md);
     transition: height var(--animation-speed-medium) var(--animation-easing);
-  }
 
-  .predictive-search-results__wrapper-products::-webkit-scrollbar {
-    display: none;
-  }
-
-  .predictive-search-results__wrapper-products .predictive-search-results__card {
-    scroll-snap-align: start;
-    width: 100%;
-  }
-
-  @container (min-width: 550px) {
-    .predictive-search-results__wrapper-products {
-      /* Tablet - Mostra pouco mais de 2 itens indicando scroll */
-      grid-auto-columns: calc(45% - var(--gap-md));
+    @container (min-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  @container (min-width: 750px) {
-    .predictive-search-results__wrapper-products {
-      /* Desktop - Mostra 3 itens */
-      grid-auto-columns: calc(33.333% - (var(--gap-md) * 2 / 3));
+    @container (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
