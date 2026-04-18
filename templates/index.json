@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_jVaWmY": {
@@ -7,14 +16,16 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Comprar Agora",
-            "link": "shopify:\/\/collections\/all",
-            "style": "secondary",
+            "label": "Explorar Coleção",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100
-          }
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -22,10 +33,14 @@
       ],
       "name": "t:names.hero",
       "settings": {
+        "media_type_1": "video",
+        "video_url_1": "https://www.youtube.com/watch?v=e4ZS1SWccis",
+        "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -38,8 +53,6 @@
         "section_width": "full-width",
         "section_height": "custom",
         "section_height_custom": 85,
-        "media_type_1": "video",
-        "video_url_1": "https://www.youtube.com/watch?v=e4ZS1SWccis",
         "color_scheme": "scheme-5",
         "toggle_overlay": false,
         "overlay_color": "#000000",
@@ -62,72 +75,180 @@
             "content_direction": "row",
             "vertical_on_mobile": false,
             "horizontal_alignment": "space-between",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-end",
             "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 0
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {
-            "title": {
+            "product_list_text_YFtzcL": {
               "type": "_product-list-text",
+              "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Mais Vendidos<\/h3>",
-                "type_preset": "h3"
-              }
+                "text": "<h3>Coleções em Destaque</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
-            "view_all": {
+            "product_list_button_MWeP9V": {
               "type": "_product-list-button",
+              "name": "t:names.product_list_button",
               "settings": {
-                "label": "Ver tudo",
-                "style_class": "link"
-              }
+                "label": "Ver Tudo",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
-          "block_order": ["title", "view_all"]
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
         },
         "static-product-card": {
           "type": "_product-card",
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 8
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {
-            "gallery": {
+            "product_card_gallery_677WP3": {
               "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "portrait"
-              }
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
-            "title": {
+            "product_title_YXxMTj": {
               "type": "product-title",
+              "name": "t:names.product_title",
               "settings": {
-                "font_size": "1rem"
-              }
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
-            "price": {
-              "type": "price"
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
-          "block_order": ["gallery", "title", "price"]
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
         }
       },
-      "block_order": [
-        "static-header",
-        "static-product-card"
-      ],
-      "name": "t:names.product_list",
+      "name": "Featured collection",
       "settings": {
         "collection": "all",
-        "max_products": 4,
+        "show_page_header": true,
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 8,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 16,
-        "rows_gap": 32,
+        "columns_gap": 8,
+        "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
@@ -138,190 +259,20 @@
         "padding-block-end": 48
       }
     },
-    "category_calcinhas": {
-      "type": "product-list",
-      "name": "Coleção Calcinhas",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "center",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {
-            "title": {
-              "type": "_product-list-text",
-              "settings": {
-                "text": "<h3>Calcinhas<\/h3>",
-                "type_preset": "h3"
-              }
-            },
-            "view_all": {
-              "type": "_product-list-button",
-              "settings": {
-                "label": "Ver todas",
-                "style_class": "link"
-              }
-            }
-          },
-          "block_order": ["title", "view_all"]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 8
-          },
-          "blocks": {
-            "gallery": {
-              "type": "_product-card-gallery",
-              "settings": {
-                "image_ratio": "portrait"
-              }
-            },
-            "title": {
-              "type": "product-title",
-              "settings": {
-                "font_size": "1rem"
-              }
-            },
-            "price": {
-              "type": "price"
-            }
-          },
-          "block_order": ["gallery", "title", "price"]
-        }
-      },
-      "block_order": [
-        "static-header",
-        "static-product-card"
-      ],
-      "settings": {
-        "collection": "calcinhas",
-        "max_products": 4,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 16,
-        "rows_gap": 32,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "category_lancamentos": {
-      "type": "product-list",
-      "name": "Lançamentos",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "center",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {
-            "title": {
-              "type": "_product-list-text",
-              "settings": {
-                "text": "<h3>Lançamentos<\/h3>",
-                "type_preset": "h3"
-              }
-            },
-            "view_all": {
-              "type": "_product-list-button",
-              "settings": {
-                "label": "Ver todos",
-                "style_class": "link"
-              }
-            }
-          },
-          "block_order": ["title", "view_all"]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 8
-          },
-          "blocks": {
-            "gallery": {
-              "type": "_product-card-gallery",
-              "settings": {
-                "image_ratio": "portrait"
-              }
-            },
-            "title": {
-              "type": "product-title",
-              "settings": {
-                "font_size": "1rem"
-              }
-            },
-            "price": {
-              "type": "price"
-            }
-          },
-          "block_order": ["gallery", "title", "price"]
-        }
-      },
-      "block_order": [
-        "static-header",
-        "static-product-card"
-      ],
-      "settings": {
-        "collection": "all",
-        "max_products": 4,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 16,
-        "rows_gap": 32,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "about_brand": {
+    "brand_intro_ENUNhe": {
       "type": "brand-intro",
-      "settings": {}
+      "name": "Trucss - Sobre a Marca",
+      "settings": {
+        "text_1": "A trucss é uma empresa especializada em calcinhas para mulheres trans, comandada por Silvana Bento: uma mulher cis.",
+        "text_2": "As mulheres trans que desejam acomodar a genitália para trás, onde fica preso entre as pernas com uma fita colante. Por isso, passam horas sem ir ao banheiro, o que é bastante prejudicial à saúde.",
+        "button_label": "CONHECER HISTÓRIA",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "product_list_fa6P9H",
-    "category_calcinhas",
-    "category_lancamentos",
-    "about_brand"
+    "brand_intro_ENUNhe"
   ]
 }
