@@ -176,6 +176,20 @@
       gap: 15px;
     }
   }
+
+  .ghwd-logo-footer {
+    height: 18px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    mask-image: linear-gradient(to right, white 20%, rgba(255,255,255,0.6) 100%);
+    -webkit-mask-image: linear-gradient(to right, white 20%, rgba(255,255,255,0.6) 100%);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  .ghwd-logo-footer:hover {
+    opacity: 1;
+  }
 </style>
 
 <footer class="footer-main">
@@ -251,10 +265,9 @@
       </div>
       
       <div class="footer-ghwd-credit">
-        <p class="footer-copy" style="margin: 0; font-size: 13px;">
-          <span style="font-family: 'Inter', sans-serif; color: rgba(255,255,255,0.4);">Parceiro</span> ✦ 
-          <a style="font-family: 'IBM Plex Mono', monospace; color: #0d7934; text-decoration: none;" href="https://ghwd.com.br?utm_source=client&utm_medium=footer&utm_campaign=trucss" target="_blank" rel="noopener">GHWD</a>
-        </p>
+        <a href="https://ghwd.com.br?utm_source=client&utm_medium=footer&utm_campaign=trucss" target="_blank" rel="noopener" style="text-decoration: none;">
+          <img src="{{ 'ghwd-new-logo.png' | asset_url }}" alt="GHWD" class="ghwd-logo-footer">
+        </a>
       </div>
     </div>
   </div>
