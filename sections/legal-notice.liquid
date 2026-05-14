@@ -1,37 +1,23 @@
 
+{% render 'trucss-page-header', title: "Aviso Legal" %}
+
 {%- style -%}
   .legal-notice-section {
     --bg-pink: #ECC3B2;
     --dark-grey: #282727;
+    margin-bottom: 80px;
   }
   
-  .legal-notice-section .page-width {
+  .page-width-boutique {
     max-width: var(--narrow-page-width);
     margin: 0 auto;
     padding: 0 5rem;
   }
 
-  .legal-header-faixa {
-    background-color: var(--bg-pink);
-    padding: 60px 0;
-    margin-bottom: 60px;
-    width: 100%;
-    text-align: left;
-  }
-  
-  .legal-header-faixa h1 {
-    font-family: 'Big Caslon', 'Garamond', serif;
-    font-size: clamp(32px, 5vw, 56px);
-    color: var(--dark-grey);
-    margin: 0;
-    font-weight: 400;
-  }
-
   .legal-notice-content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding-bottom: 80px;
+    gap: 40px;
   }
 
   .legal-notice-content h2 {
@@ -43,37 +29,29 @@
     border-bottom: 1px solid var(--dark-grey);
     display: inline-block;
     padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .legal-notice-content p {
     font-size: 16px;
-    line-height: 1.7;
-    color: #666;
+    line-height: 1.8;
+    color: #444;
     margin-bottom: 15px;
   }
 
   @media screen and (max-width: 768px) {
-    .legal-notice-section .page-width {
+    .page-width-boutique {
       padding: 0 20px;
     }
-    .legal-header-faixa {
-      padding: 40px 0;
-      margin-bottom: 40px;
-    }
-    .legal-notice-content {
-      padding-bottom: 60px;
+    .legal-notice-section {
+      margin-bottom: 60px;
     }
   }
 {%- endstyle -%}
 
 <div class="legal-notice-section">
-  <div class="legal-header-faixa">
-    <div class="page-width">
-      <h1>Aviso Legal</h1>
-    </div>
-  </div>
-
-  <div class="page-width">
+  <div class="page-width-boutique">
     <div class="legal-notice-content">
       <p>Este site é operado pela <strong>Trucss</strong>. Ao longo do site, os termos “nós”, “nos” e “nosso” referem-se à Trucss. Ao acessar ou utilizar qualquer parte do site, você concorda com os termos e condições descritos neste Aviso Legal.</p>
 
