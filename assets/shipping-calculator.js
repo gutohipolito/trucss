@@ -68,7 +68,13 @@ class ShippingCalculator extends HTMLElement {
       { name: 'Jadlog Premium', price: 'R$ 28,90', time: '3 a 5 dias úteis' }
     ];
 
-    let html = `<p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">Entrega para: ${location.logradouro ? location.logradouro + ', ' : ''}${location.bairro}, ${location.localidade} - ${location.uf}</p>`;
+    let html = `
+      <div class="shipping-calculator__production-notice" style="margin-bottom: 20px; font-size: 0.85rem; color: #c3002f; line-height: 1.4; display: flex; gap: 8px; align-items: flex-start; background: rgba(195, 0, 47, 0.05); padding: 12px; border-radius: 8px; border: 1px solid rgba(195, 0, 47, 0.1);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span><strong>Importante:</strong> Nossas peças são artesanais. O prazo total é o tempo de trânsito + <strong>05 a 30 dias úteis</strong> de produção.</span>
+      </div>
+      <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">Entrega para: ${location.logradouro ? location.logradouro + ', ' : ''}${location.bairro}, ${location.localidade} - ${location.uf}</p>
+    `;
     
     rates.forEach(rate => {
       html += `
