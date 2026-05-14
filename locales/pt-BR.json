@@ -263,6 +263,8 @@
     "seller_note": "Instruções especiais",
     "shipping_policy": "Você pode calcular o frete no checkout.",
     "shipping_policy_html": "<a href=\"{{ link }}\">Frete</a> calculado ao finalizar.",
+    "shipping_policy_title": "Política de Frete e Entrega",
+    "shipping_policy_intro": "Entenda como funciona nossa logística de produção e envio.",
     "store_owner_link_html": "Proprietário? <a href=\"{{ link }}\">Faça login</a>",
     "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Impostos e <a href=\"{{ link }}\">frete</a> calculados no checkout.",
     "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "Impostos e <a href=\"{{ link }}\">frete</a> calculados no checkout.",
