@@ -252,16 +252,10 @@
     <!-- Legal Links ABOVE Divider -->
     <div style="margin-bottom: 20px; text-align: center;">
       <div class="footer-main__bottom-links" style="justify-content: center; gap: 30px; flex-wrap: wrap;">
-        {%- if shop.refund_policy != blank -%}
-          <a href="{{ shop.refund_policy.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.refund_policy.title }}</a>
-        {%- endif -%}
-        <a href="/pages/politica-de-frete" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Frete</a>
-        {%- if shop.privacy_policy != blank -%}
-          <a href="{{ shop.privacy_policy.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.privacy_policy.title }}</a>
-        {%- endif -%}
-        {%- if shop.terms_of_service != blank -%}
-          <a href="{{ shop.terms_of_service.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.terms_of_service.title }}</a>
-        {%- endif -%}
+        <a href="/pages/politica-de-reembolso" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Política de Reembolso</a>
+        <a href="/pages/politica-de-frete" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Política de Frete</a>
+        <a href="/pages/politica-de-privacidade" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Política de Privacidade</a>
+        <a href="/pages/termos-de-servico" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Termos de Serviço</a>
         <a href="/pages/aviso-legal" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Aviso Legal</a>
         <a href="/pages/contato" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Contato</a>
       </div>

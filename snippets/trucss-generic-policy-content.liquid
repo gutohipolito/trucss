@@ -1,0 +1,67 @@
+
+{%- style -%}
+  .trucss-generic-policy {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+    margin-bottom: 80px;
+  }
+  
+  .page-width-boutique {
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  .policy-rich-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .policy-rich-text h1, 
+  .policy-rich-text h2, 
+  .policy-rich-text h3 {
+    color: var(--dark-grey);
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .policy-rich-text h2 {
+    font-size: 20px;
+    border-bottom: 1px solid var(--dark-grey);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .policy-rich-text p {
+    margin-bottom: 24px;
+  }
+
+  .policy-rich-text ul, 
+  .policy-rich-text ol {
+    margin-bottom: 24px;
+    padding-left: 20px;
+  }
+
+  .policy-rich-text li {
+    margin-bottom: 12px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .page-width-boutique {
+      padding: 0 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="trucss-generic-policy">
+  <div class="page-width-boutique">
+    <div class="policy-rich-text">
+      {{ page.content }}
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@
   {% render 'trucss-shipping-policy-content' %}
 {%- elsif page.handle == 'aviso-legal' or page.handle == 'legal-notice' -%}
   {% render 'trucss-legal-notice-content' %}
+{%- elsif page.handle == 'politica-de-privacidade' or page.handle == 'privacy-policy' or page.handle == 'termos-de-servico' or page.handle == 'terms-of-service' or page.handle == 'politica-de-reembolso' or page.handle == 'refund-policy' or page.handle == 'trocas-e-devolucoes' -%}
+  {% render 'trucss-generic-policy-content' %}
 {%- elsif page.handle == 'contato' -%}
   {% comment %} A página de contato já tem sua própria seção/template dedicada {% endcomment %}
 {%- else -%}
