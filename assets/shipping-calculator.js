@@ -7,7 +7,6 @@ class ShippingCalculator extends HTMLElement {
     this.results = this.querySelector('.shipping-calculator__results');
     
     this.variantId = this.getAttribute('data-variant-id');
-    this.productPrice = parseFloat(this.getAttribute('data-product-price')) || 0;
   }
 
   connectedCallback() {
@@ -46,7 +45,6 @@ class ShippingCalculator extends HTMLElement {
     this.results.style.display = 'none';
 
     try {
-      // 1. Pegar localização via ViaCEP para UX
       const geoResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const geoData = await geoResponse.json();
       
@@ -55,22 +53,30 @@ class ShippingCalculator extends HTMLElement {
         return;
       }
 
-      // 2. Fluxo AJAX Shopify (Cálculo Real)
-      // Adicionamos o item temporariamente ao carrinho para o Shopify calcular
+      // 1. Adicionar ao carrinho (silencioso)
       await fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          items: [{ id: this.variantId, quantity: 1 }],
-          sections: [] // Evita renderizar seções desnecessárias
+          items: [{ id: this.variantId, quantity: 1 }]
         })
       });
 
-      // Consultar as taxas reais do Shopify (que incluem a Frenet)
-      const ratesResponse = await fetch(`/cart/shipping_rates.json?shipping_address[zip]=${cep}&shipping_address[country]=Brazil`);
+      // 2. Preparar as taxas (Força o Shopify a processar com a Frenet)
+      await fetch('/cart/prepare_shipping_rates.json', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `shipping_address[zip]=${cep}&shipping_address[country]=Brazil&shipping_address[province]=${geoData.uf}`
+      });
+
+      // 3. Pequeno delay para garantir que a Frenet respondeu ao Shopify
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // 4. Consultar os resultados
+      const ratesResponse = await fetch(`/cart/shipping_rates.json?shipping_address[zip]=${cep}&shipping_address[country]=Brazil&shipping_address[province]=${geoData.uf}`);
       const ratesData = await ratesResponse.json();
 
-      // Remover o item temporário do carrinho
+      // 5. Limpar o carrinho
       await fetch('/cart/update.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -86,7 +92,7 @@ class ShippingCalculator extends HTMLElement {
       }
 
     } catch (e) {
-      console.error('Erro no cálculo real, usando fallback:', e);
+      console.error('Erro no cálculo real:', e);
       this.displayFallbackRates({ localidade: 'Sua região', uf: '' });
     } finally {
       this.button.disabled = false;
@@ -104,13 +110,15 @@ class ShippingCalculator extends HTMLElement {
     `;
 
     rates.forEach(rate => {
+      // Formatação de preço do Shopify (ex: 14.90 para R$ 14,90)
+      const priceFormatted = parseFloat(rate.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
       html += `
         <div class="shipping-calculator__result-item">
           <div style="display: flex; flex-direction: column;">
             <span style="font-weight: 500;">${rate.name}</span>
-            <small style="color: #666;">Entrega estimada</small>
+            <small style="color: #666;">${rate.delivery_days ? `Entrega em até ${rate.delivery_days[1]} dias úteis` : 'Entrega estimada'}</small>
           </div>
-          <strong style="color: #000;">R$ ${rate.price}</strong>
+          <strong style="color: #000;">${priceFormatted}</strong>
         </div>
       `;
     });
@@ -121,33 +129,14 @@ class ShippingCalculator extends HTMLElement {
 
   displayFallbackRates(location) {
     this.results.style.display = 'block';
-    const uf = location.uf || 'SP';
-    let rates = [];
-
-    if (uf === 'SP') {
-      rates = [{ name: 'PAC / SEDEX', price: 'Sob consulta', time: '2 a 8' }];
-    } else {
-      rates = [{ name: 'PAC / SEDEX', price: 'Sob consulta', time: '5 a 15' }];
-    }
-
     let html = `
       <p style="margin-bottom: 15px; font-size: 0.9rem; color: #666; border-bottom: 1px solid #eee; padding-bottom: 10px;">
         Entrega para: <strong>${location.localidade} - ${location.uf}</strong>
       </p>
+      <p style="color: #c3002f; font-size: 0.85rem; background: rgba(195,0,47,0.05); padding: 10px; border-radius: 5px;">
+        Não foi possível obter taxas automáticas para este CEP. Por favor, prossiga para o checkout para ver as opções finais.
+      </p>
     `;
-
-    rates.forEach(rate => {
-      html += `
-        <div class="shipping-calculator__result-item">
-          <div style="display: flex; flex-direction: column;">
-            <span style="font-weight: 500;">${rate.name}</span>
-            <small style="color: #666;">Prazo estimado: ${rate.time} dias úteis</small>
-          </div>
-          <strong style="color: #000;">${rate.price}</strong>
-        </div>
-      `;
-    });
-
     html += this.getNoticeHTML();
     this.results.innerHTML = html;
   }
