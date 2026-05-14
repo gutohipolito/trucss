@@ -64,8 +64,7 @@ class ShippingCalculator extends HTMLElement {
     // Simulação de fretes (Em um cenário real, isso viria de uma API de frete)
     const rates = [
       { name: 'Correios PAC', price: 'R$ 18,90', time: '6 a 10 dias úteis' },
-      { name: 'Correios SEDEX', price: 'R$ 32,50', time: '2 a 4 dias úteis' },
-      { name: 'Jadlog Premium', price: 'R$ 28,90', time: '3 a 5 dias úteis' }
+      { name: 'Correios SEDEX', price: 'R$ 32,50', time: '2 a 4 dias úteis' }
     ];
 
     let html = `
