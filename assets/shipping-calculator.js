@@ -82,6 +82,12 @@ class ShippingCalculator extends HTMLElement {
       `;
     });
 
+    html += `
+      <div style="margin-top: 15px; padding: 10px; background: #fff; border: 1px solid #eee; border-radius: 6px; font-size: 0.8rem; color: #777;">
+        * Lembre-se: O prazo acima é o tempo de entrega da transportadora e deve ser somado aos <strong>05 a 30 dias úteis</strong> de produção das peças.
+      </div>
+    `;
+
     this.results.innerHTML = html;
   }
 }
