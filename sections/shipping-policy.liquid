@@ -1,225 +1,245 @@
 
-<div class="shipping-policy-section page-width-content">
-  <div class="shipping-policy-container">
-    
-    <header class="shipping-policy-header">
-      <h1 class="shipping-policy-title">{{ 'content.shipping_policy_title' | t | default: "Política de Frete e Entrega" }}</h1>
+{%- style -%}
+  .shipping-policy-section {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+  }
+  
+  .shipping-policy-section .page-width {
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  .policy-header-faixa {
+    background-color: var(--bg-pink);
+    padding: 60px 0;
+    margin-bottom: 60px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .policy-header-faixa h1 {
+    font-family: 'Big Caslon', 'Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--dark-grey);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .shipping-policy-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  /* Destaque de Produção */
+  .production-time-highlight {
+    background: #fff8f8;
+    border: 1px solid #fecaca;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 12px rgba(195, 0, 47, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .production-time-highlight::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #c3002f;
+  }
+
+  .highlight-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #c3002f;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .highlight-content p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #2c2c2c;
+  }
+
+  .highlight-content strong {
+    color: #c3002f;
+    font-weight: 700;
+  }
+
+  .highlight-note {
+    margin-top: 12px !important;
+    font-size: 14px !important;
+    color: #888 !important;
+    font-style: italic;
+  }
+
+  /* Grade de Políticas */
+  .shipping-policy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 80px;
+  }
+
+  .policy-item-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--dark-grey);
+    font-weight: 700;
+    border-bottom: 1px solid var(--dark-grey);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .policy-item-content p, 
+  .policy-item-content li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+  }
+
+  .formula-box {
+    background: #f9f9f9;
+    border: 1px dashed #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 17px;
+    color: #333;
+  }
+
+  .lgpd-compliance {
+    background: #f0f7ff;
+    border-radius: 12px;
+    padding: 30px;
+    border-left: 4px solid #007bff;
+  }
+
+  .lgpd-compliance .policy-item-title {
+    color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  @media screen and (max-width: 768px) {
+    .shipping-policy-section .page-width {
+      padding: 0 20px;
+    }
+    .policy-header-faixa {
+      padding: 40px 0;
+      margin-bottom: 40px;
+    }
+    .highlight-content p {
+      font-size: 16px;
+    }
+    .shipping-policy-content {
+      padding-bottom: 60px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="shipping-policy-section">
+  <div class="policy-header-faixa">
+    <div class="page-width">
+      <h1>{{ 'content.shipping_policy_title' | t | default: "Política de Frete e Entrega" }}</h1>
+    </div>
+  </div>
+
+  <div class="page-width">
+    <div class="shipping-policy-container">
       <p class="shipping-policy-intro">
         Na <strong>Trucss</strong>, cada peça é tratada com exclusividade. Entenda como funciona nossa logística de produção e envio.
       </p>
-    </header>
 
-    {%- comment -%} DESTAQUE MÁXIMO: TEMPO DE PRODUÇÃO {%- endcomment -%}
-    <div class="production-time-highlight">
-      <div class="highlight-badge">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
-        <span>ATENÇÃO AO PRAZO DE PRODUÇÃO</span>
+      {%- comment -%} DESTAQUE MÁXIMO: TEMPO DE PRODUÇÃO {%- endcomment -%}
+      <div class="production-time-highlight">
+        <div class="highlight-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>Atenção ao prazo de produção</span>
+        </div>
+        <div class="highlight-content">
+          <p>
+            Trabalhamos com fabricação própria e artesanal. O prazo para a <strong>produção e postagem</strong> das peças varia de <strong>05 a 30 dias úteis</strong>, contados a partir da confirmação do pagamento.
+          </p>
+          <p class="highlight-note">
+            * Este prazo deve ser somado ao tempo de trânsito da transportadora escolhida.
+          </p>
+        </div>
       </div>
-      <div class="highlight-content">
-        <p>
-          Trabalhamos com fabricação própria e artesanal. O prazo para a <strong>produção e postagem</strong> das peças varia de <strong>05 a 30 dias úteis</strong>, contados a partir da confirmação do pagamento.
-        </p>
-        <p class="highlight-note">
-          * Este prazo deve ser somado ao tempo de trânsito da transportadora escolhida.
-        </p>
-      </div>
-    </div>
 
-    <div class="shipping-policy-grid">
-      
-      <section class="policy-item">
-        <h2 class="policy-item-title">1. Como calculo meu prazo total?</h2>
-        <div class="policy-item-content">
-          <p>Para saber quando seu pedido chegará, utilize a seguinte fórmula:</p>
-          <div class="formula-box">
-            <strong>Prazo de Produção (05 a 30 dias úteis) + Prazo de Envio (Transportadora)</strong>
+      <div class="shipping-policy-content">
+        <section class="policy-item">
+          <h2 class="policy-item-title">1. Como calculo meu prazo total?</h2>
+          <div class="policy-item-content">
+            <p>Para saber quando seu pedido chegará, utilize a seguinte fórmula:</p>
+            <div class="formula-box">
+              <strong>Prazo de Produção (05 a 30 dias úteis) + Prazo de Envio (Transportadora)</strong>
+            </div>
+            <p>O prazo de envio é exibido no carrinho após você inserir seu CEP.</p>
           </div>
-          <p>O prazo de envio é exibido no carrinho após você inserir seu CEP.</p>
-        </div>
-      </section>
+        </section>
 
-      <section class="policy-item">
-        <h2 class="policy-item-title">2. Formas de Envio</h2>
-        <div class="policy-item-content">
-          <p>Enviamos para todo o Brasil através de parceiros logísticos confiáveis, como Correios (PAC e SEDEX) e transportadoras privadas. A escolha é feita por você no momento do checkout.</p>
-        </div>
-      </section>
+        <section class="policy-item">
+          <h2 class="policy-item-title">2. Formas de Envio</h2>
+          <div class="policy-item-content">
+            <p>Enviamos para todo o Brasil através de parceiros logísticos confiáveis, como Correios (PAC e SEDEX) e transportadoras privadas. A escolha é feita por você no momento do checkout.</p>
+          </div>
+        </section>
 
-      <section class="policy-item">
-        <h2 class="policy-item-title">3. Rastreamento</h2>
-        <div class="policy-item-content">
-          <p>Você não ficará no escuro! Assim que a produção for concluída e seu pacote postado, enviaremos um e-mail automático com o código de rastreamento e o link para acompanhamento em tempo real.</p>
-        </div>
-      </section>
+        <section class="policy-item">
+          <h2 class="policy-item-title">3. Rastreamento</h2>
+          <div class="policy-item-content">
+            <p>Você não ficará no escuro! Assim que a produção for concluída e seu pacote postado, enviaremos um e-mail automático com o código de rastreamento e o link para acompanhamento em tempo real.</p>
+          </div>
+        </section>
 
-      <section class="policy-item">
-        <h2 class="policy-item-title">4. Cuidados com o Endereço</h2>
-        <div class="policy-item-content">
-          <p>Certifique-se de que o endereço de entrega esteja correto. Se o pacote retornar devido a endereço insuficiente ou erro no cadastro, o custo do novo frete para reenvio será de responsabilidade do cliente.</p>
-        </div>
-      </section>
+        <section class="policy-item">
+          <h2 class="policy-item-title">4. Cuidados com o Endereço</h2>
+          <div class="policy-item-content">
+            <p>Certifique-se de que o endereço de entrega esteja correto. Se o pacote retornar devido a endereço insuficiente ou erro no cadastro, o custo do novo frete para reenvio será de responsabilidade do cliente.</p>
+          </div>
+        </section>
 
-      <section class="policy-item lgpd-compliance">
-        <h2 class="policy-item-title">5. Seus Dados e a LGPD</h2>
-        <div class="policy-item-content">
-          <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei 13.709/2018)</strong>, informamos que:</p>
-          <ul>
-            <li>Seus dados (nome, CPF, endereço) são utilizados estritamente para o processamento do pedido e emissão de nota fiscal.</li>
-            <li>Compartilhamos suas informações apenas com as empresas de logística responsáveis pela sua entrega.</li>
-            <li>Seus dados são armazenados em ambiente seguro e não são comercializados com terceiros.</li>
-          </ul>
-        </div>
-      </section>
+        <section class="policy-item lgpd-compliance">
+          <h2 class="policy-item-title">5. Seus Dados e a LGPD</h2>
+          <div class="policy-item-content">
+            <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei 13.709/2018)</strong>, informamos que:</p>
+            <ul>
+              <li>Seus dados (nome, CPF, endereço) são utilizados estritamente para o processamento do pedido e emissão de nota fiscal.</li>
+              <li>Compartilhamos suas informações apenas com as empresas de logística responsáveis pela sua entrega.</li>
+              <li>Seus dados são armazenados em ambiente seguro e não são comercializados com terceiros.</li>
+            </ul>
+          </div>
+        </section>
 
-      <section class="policy-item">
-        <h2 class="policy-item-title">6. Ficou com dúvidas?</h2>
-        <div class="policy-item-content">
-          <p>Estamos aqui para ajudar. Se tiver qualquer dúvida sobre sua entrega ou sobre o processo de produção, entre em contato com nosso suporte.</p>
-        </div>
-      </section>
-
+        <section class="policy-item">
+          <h2 class="policy-item-title">6. Ficou com dúvidas?</h2>
+          <div class="policy-item-content">
+            <p>Estamos aqui para ajudar. Se tiver qualquer dúvida sobre sua entrega ou sobre o processo de produção, entre em contato com nosso suporte.</p>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </div>
-
-<style>
-.shipping-policy-section {
-  padding-top: 60px;
-  padding-bottom: 80px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.shipping-policy-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.shipping-policy-title {
-  font-size: 36px;
-  margin-bottom: 16px;
-  color: #000;
-}
-
-.shipping-policy-intro {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Destaque de Produção */
-.production-time-highlight {
-  background: #fff8f8;
-  border: 2px solid #fecaca;
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 50px;
-  box-shadow: 0 4px 20px rgba(195, 0, 47, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.production-time-highlight::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 6px;
-  background: #c3002f;
-}
-
-.highlight-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #c3002f;
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-}
-
-.highlight-content p {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #2c2c2c;
-}
-
-.highlight-content strong {
-  color: #c3002f;
-}
-
-.highlight-note {
-  margin-top: 10px !important;
-  font-size: 13px !important;
-  color: #888 !important;
-  font-style: italic;
-}
-
-/* Grade de Políticas */
-.shipping-policy-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.policy-item-title {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #000;
-  font-weight: 700;
-}
-
-.policy-item-content p, 
-.policy-item-content li {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #444;
-}
-
-.formula-box {
-  background: #f9f9f9;
-  border: 1px dashed #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 15px 0;
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-}
-
-.lgpd-compliance {
-  background: #f0f7ff;
-  border-radius: 12px;
-  padding: 25px;
-  border-left: 4px solid #007bff;
-}
-
-.lgpd-compliance .policy-item-title {
-  color: #0056b3;
-}
-
-@media screen and (max-width: 749px) {
-  .shipping-policy-section {
-    padding-top: 40px;
-    padding-bottom: 60px;
-  }
-  
-  .shipping-policy-title {
-    font-size: 28px;
-  }
-  
-  .highlight-content p {
-    font-size: 16px;
-  }
-}
-</style>
 
 {% schema %}
 {
