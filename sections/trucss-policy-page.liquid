@@ -1,0 +1,88 @@
+
+{% render 'trucss-page-header', title: page.title %}
+
+{%- style -%}
+  .trucss-policy-section {
+    --bg-pink: #ECC3B2;
+    --dark-grey: #282727;
+    margin-bottom: 80px;
+  }
+  
+  .page-width-boutique {
+    max-width: var(--narrow-page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+
+  .policy-rich-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .policy-rich-text h1, 
+  .policy-rich-text h2, 
+  .policy-rich-text h3 {
+    color: var(--dark-grey);
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .policy-rich-text h2 {
+    font-size: 20px;
+    border-bottom: 1px solid var(--dark-grey);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .policy-rich-text p {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .page-width-boutique {
+      padding: 0 20px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign policy_content = page.content
+  if policy_content == blank
+    if page.handle contains 'privacidade' or page.handle contains 'privacy'
+      assign policy_content = shop.privacy_policy.content
+    elsif page.handle contains 'termos' or page.handle contains 'terms'
+      assign policy_content = shop.terms_of_service.content
+    elsif page.handle contains 'reembolso' or page.handle contains 'refund' or page.handle contains 'trocas'
+      assign policy_content = shop.refund_policy.content
+    endif
+  endif
+-%}
+
+<div class="trucss-policy-section">
+  <div class="page-width-boutique">
+    <div class="policy-rich-text">
+      {%- if policy_content != blank -%}
+        {{ policy_content }}
+      {%- else -%}
+        <p>O conteúdo desta página ainda não foi preenchido. Por favor, adicione o texto no editor de páginas do Shopify ou nas configurações de Políticas.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Página de Política",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Página de Política"
+    }
+  ]
+}
+{% endschema %}
