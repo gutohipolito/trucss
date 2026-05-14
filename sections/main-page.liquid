@@ -5,6 +5,10 @@
   {% render 'trucss-how-it-works-content' %}
 {%- elsif page.handle == 'sobre-nos' -%}
   {% render 'trucss-about-content' %}
+{%- elsif page.handle == 'politica-de-frete' or page.handle == 'shipping-policy' -%}
+  {% render 'trucss-shipping-policy-content' %}
+{%- elsif page.handle == 'aviso-legal' or page.handle == 'legal-notice' -%}
+  {% render 'trucss-legal-notice-content' %}
 {%- elsif page.handle == 'contato' -%}
   {% comment %} A página de contato já tem sua própria seção/template dedicada {% endcomment %}
 {%- else -%}
