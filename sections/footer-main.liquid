@@ -255,11 +255,7 @@
         {%- if shop.refund_policy != blank -%}
           <a href="{{ shop.refund_policy.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.refund_policy.title }}</a>
         {%- endif -%}
-        {%- if shop.shipping_policy != blank -%}
-          <a href="{{ shop.shipping_policy.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.shipping_policy.title }}</a>
-        {%- else -%}
-          <a href="/pages/politica-de-frete" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Frete</a>
-        {%- endif -%}
+        <a href="/pages/politica-de-frete" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">Frete</a>
         {%- if shop.privacy_policy != blank -%}
           <a href="{{ shop.privacy_policy.url }}" class="footer-main__bottom-link" style="font-size: 14px; opacity: 0.8;">{{ shop.privacy_policy.title }}</a>
         {%- endif -%}
