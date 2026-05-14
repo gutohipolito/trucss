@@ -12,7 +12,7 @@ class ShippingCalculator extends HTMLElement {
     
     // Configurações Frenet
     this.frenetToken = 'D2DDEDB9R5FF9R4891RAACBRF6A45B4521B3';
-    this.sellerCEP = '84734070'; // CEP de Origem fornecido
+    this.sellerCEP = '08473470'; // CEP de Origem correto (Cidade Tiradentes, SP)
 
     if (this.button) {
       this.button.addEventListener('click', this.calculate.bind(this));
