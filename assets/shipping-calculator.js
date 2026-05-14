@@ -12,7 +12,7 @@ class ShippingCalculator extends HTMLElement {
     
     // Configurações Frenet
     this.frenetToken = 'D2DDEDB9R5FF9R4891RAACBRF6A45B4521B3';
-    this.sellerCEP = '01001000'; // CEP de Origem (Praça da Sé como padrão, alterável)
+    this.sellerCEP = '84734070'; // CEP de Origem fornecido
 
     if (this.button) {
       this.button.addEventListener('click', this.calculate.bind(this));
@@ -74,7 +74,7 @@ class ShippingCalculator extends HTMLElement {
         ]
       };
 
-      const response = await fetch('https://api.frenet.com.br/shipping/quote', {
+      const response = await fetch('https://corsproxy.io/?https://api.frenet.com.br/shipping/quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
