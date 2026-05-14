@@ -54,11 +54,11 @@
   assign policy_content = page.content
   if policy_content == blank
     if page.handle contains 'privacidade' or page.handle contains 'privacy'
-      assign policy_content = shop.privacy_policy.content
+      assign policy_content = shop.privacy_policy.body
     elsif page.handle contains 'termos' or page.handle contains 'terms'
-      assign policy_content = shop.terms_of_service.content
+      assign policy_content = shop.terms_of_service.body
     elsif page.handle contains 'reembolso' or page.handle contains 'refund' or page.handle contains 'trocas'
-      assign policy_content = shop.refund_policy.content
+      assign policy_content = shop.refund_policy.body
     endif
   endif
 -%}
