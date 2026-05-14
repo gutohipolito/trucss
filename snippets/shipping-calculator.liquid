@@ -1,4 +1,5 @@
 <shipping-calculator class="shipping-calculator" 
+  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
   data-product-price="{{ product.selected_or_first_available_variant.price | divided_by: 100.0 }}"
   data-product-weight="{{ product.selected_or_first_available_variant.weight | divided_by: 1000.0 | default: 0.5 }}"
   style="{% if block.settings.frete_dinamico_borda == false %}border:none;background:transparent;padding:0;{% endif %}">
