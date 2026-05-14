@@ -361,7 +361,7 @@
   "shopify": {
     "checkout": {
       "general": {
-        "choose_shipping_method": "Escolha o Frete (Lembre-se, além do prazo de envio existe o prazo de produção)"
+        "choose_shipping_method": "Escolha uma forma de Frete"
       }
     }
   }
