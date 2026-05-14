@@ -6,7 +6,9 @@ class ShippingCalculator extends HTMLElement {
     this.input = this.querySelector('.shipping-calculator__input');
     this.results = this.querySelector('.shipping-calculator__results');
     
-    this.variantId = this.getAttribute('data-variant-id');
+    this.productPrice = parseFloat(this.getAttribute('data-product-price')) || 100;
+    this.frenetToken = 'D2DDEDB9R5FF9R4891RAACBRF6A45B4521B3';
+    this.sellerCEP = '08473470'; 
   }
 
   connectedCallback() {
@@ -53,46 +55,44 @@ class ShippingCalculator extends HTMLElement {
         return;
       }
 
-      // 1. Adicionar ao carrinho (silencioso)
-      await fetch('/cart/add.js', {
+      // Consulta direta na Frenet com PESO FIXO para evitar erro de cadastro
+      const frenetBody = {
+        "SellerCEP": this.sellerCEP,
+        "RecipientCEP": cep,
+        "ShipmentItemValue": this.productPrice,
+        "ShippingItemArray": [
+          {
+            "Weight": 0.300, // Peso fixo de 300g (mínimo dos Correios)
+            "Length": 16,    // Dimensões fixas padrão
+            "Height": 11,
+            "Width": 11,
+            "Quantity": 1
+          }
+        ]
+      };
+
+      // Usando um proxy diferente e configurando a requisição para evitar bloqueio de CORS
+      const response = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://api.frenet.com.br/shipping/quote'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          items: [{ id: this.variantId, quantity: 1 }]
-        })
+        headers: {
+          'token': this.frenetToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(frenetBody)
       });
 
-      // 2. Preparar as taxas (Força o Shopify a processar com a Frenet)
-      await fetch('/cart/prepare_shipping_rates.json', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `shipping_address[zip]=${cep}&shipping_address[country]=Brazil&shipping_address[province]=${geoData.uf}`
-      });
+      if (!response.ok) throw new Error('Falha na resposta da Frenet');
 
-      // 3. Pequeno delay para garantir que a Frenet respondeu ao Shopify
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const data = await response.json();
 
-      // 4. Consultar os resultados
-      const ratesResponse = await fetch(`/cart/shipping_rates.json?shipping_address[zip]=${cep}&shipping_address[country]=Brazil&shipping_address[province]=${geoData.uf}`);
-      const ratesData = await ratesResponse.json();
-
-      // 5. Limpar o carrinho
-      await fetch('/cart/update.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          updates: { [this.variantId]: 0 }
-        })
-      });
-
-      if (ratesData.shipping_rates && ratesData.shipping_rates.length > 0) {
-        this.displayRealRates(ratesData.shipping_rates, geoData);
+      if (data.ShippingSevicesArray && data.ShippingSevicesArray.length > 0) {
+        this.displayRealRates(data.ShippingSevicesArray, geoData);
       } else {
         this.displayFallbackRates(geoData);
       }
 
     } catch (e) {
-      console.error('Erro no cálculo real:', e);
+      console.error('Erro no cálculo Frenet:', e);
       this.displayFallbackRates({ localidade: 'Sua região', uf: '' });
     } finally {
       this.button.disabled = false;
@@ -109,14 +109,20 @@ class ShippingCalculator extends HTMLElement {
       </p>
     `;
 
-    rates.forEach(rate => {
-      // Formatação de preço do Shopify (ex: 14.90 para R$ 14,90)
-      const priceFormatted = parseFloat(rate.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const validRates = rates.filter(r => !r.Error);
+
+    if (validRates.length === 0) {
+      this.displayFallbackRates(location);
+      return;
+    }
+
+    validRates.forEach(rate => {
+      const priceFormatted = parseFloat(rate.ShippingPrice).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
       html += `
         <div class="shipping-calculator__result-item">
           <div style="display: flex; flex-direction: column;">
-            <span style="font-weight: 500;">${rate.name}</span>
-            <small style="color: #666;">${rate.delivery_days ? `Entrega em até ${rate.delivery_days[1]} dias úteis` : 'Entrega estimada'}</small>
+            <span style="font-weight: 500;">${rate.ServiceDescription}</span>
+            <small style="color: #666;">Entrega em até ${rate.DeliveryTime} dias úteis</small>
           </div>
           <strong style="color: #000;">${priceFormatted}</strong>
         </div>
@@ -134,7 +140,7 @@ class ShippingCalculator extends HTMLElement {
         Entrega para: <strong>${location.localidade} - ${location.uf}</strong>
       </p>
       <p style="color: #c3002f; font-size: 0.85rem; background: rgba(195,0,47,0.05); padding: 10px; border-radius: 5px;">
-        Não foi possível obter taxas automáticas para este CEP. Por favor, prossiga para o checkout para ver as opções finais.
+        As transportadoras não retornaram valores para este CEP no momento. Por favor, tente novamente ou prossiga para o checkout.
       </p>
     `;
     html += this.getNoticeHTML();
