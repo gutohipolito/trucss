@@ -58,10 +58,27 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign policy_content = page.content
+  if policy_content == blank
+    if page.handle contains 'privacidade' or page.handle contains 'privacy'
+      assign policy_content = shop.privacy_policy.content
+    elsif page.handle contains 'termos' or page.handle contains 'terms'
+      assign policy_content = shop.terms_of_service.content
+    elsif page.handle contains 'reembolso' or page.handle contains 'refund' or page.handle contains 'trocas'
+      assign policy_content = shop.refund_policy.content
+    endif
+  endif
+-%}
+
 <div class="trucss-generic-policy">
   <div class="page-width-boutique">
     <div class="policy-rich-text">
-      {{ page.content }}
+      {%- if policy_content != blank -%}
+        {{ policy_content }}
+      {%- else -%}
+        <p>O conteúdo desta página ainda não foi preenchido. Por favor, adicione o texto no editor de páginas do Shopify ou nas configurações de Políticas.</p>
+      {%- endif -%}
     </div>
   </div>
 </div>
